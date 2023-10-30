@@ -1,0 +1,499 @@
+[
+  {
+    "objectID": "2022_10.html",
+    "href": "2022_10.html",
+    "title": "October 2022",
+    "section": "",
+    "text": "End of October RBA cash rate survey by finder.com.au was the first one I contributed to. I submitted answers only to six questions regarding the future interest rate trajectory. My answers were based on a forecasting system. On this page, I present my forecasts, the answers I submitted on their basis, and a brief description of the forecasting system I used this time.\nThe survey was published on 28 October 2022: see the survey\nMy assessments were mentioned here, here, here, here, and here"
+  },
+  {
+    "objectID": "2022_10.html#cash-rate-forecasts",
+    "href": "2022_10.html#cash-rate-forecasts",
+    "title": "October 2022",
+    "section": "Cash rate forecasts",
+    "text": "Cash rate forecasts\nThe figure below presents monthly cash rate series starting from January 2010 together with the forecasts reported as the forecast mean and the 68% forecasting intervals. The forecasts clearly follow the upwards trend in cash rate value up to June 2023 that is followed by a stabilisation at the level between 3.9-4 percent. The forecast intervals are quite vide and indicate a likely range between 3.3 and 4.5% in June 2023.\n\n\n\n\n\nThe table below makes the numerical values presented in the figure accessible.\n\n\n\nCash rate forecasts\n\n\n\nforecast\nlower\nupper\n\n\n\n\nNov 2022\n2.73\n2.63\n2.83\n\n\nDec 2022\n2.97\n2.80\n3.14\n\n\nJan 2023\n3.19\n2.96\n3.43\n\n\nFeb 2023\n3.40\n3.09\n3.71\n\n\nMar 2023\n3.63\n3.24\n4.02\n\n\nApr 2023\n3.79\n3.33\n4.25\n\n\nMay 2023\n3.86\n3.34\n4.38\n\n\nJun 2023\n3.88\n3.30\n4.47\n\n\nJul 2023\n3.90\n3.26\n4.54\n\n\nAug 2023\n3.92\n3.23\n4.62\n\n\nSep 2023\n3.96\n3.21\n4.71\n\n\nOct 2023\n3.98\n3.19\n4.78"
+  },
+  {
+    "objectID": "2022_10.html#survey-answers",
+    "href": "2022_10.html#survey-answers",
+    "title": "October 2022",
+    "section": "Survey answers",
+    "text": "Survey answers\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\nWhen you think the RBA will change the cash rate?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNov 2022\nDec 2022\nJan 2023\nFeb 2023\nMar 2023\nApr 2023\nMay 2023\nJun 2023\nJul 2023\nAug 2023\nSep 2023\nOct 2023 or later\n\n\n\n\nIncrease\n✓\n✓\n✓\n✓\n✓\n✓\n✓\n\n\n\n\n\n\n\nDecrease\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhy do you think this?\n\nThe forecasts from the bond-yield curve models I estimated consistently indicate an increase in the value of the cash rate until mid-2023, after which levelling off should follow. By that time, the cash rate will nearly surely be higher than 3.6%, will most likely reach 4%, and is unlikely to exceed 4.4%. This would mean that the interest rates might get to the levels from early 2012.\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n50 basis points\n\nBy how much do you think the RBA should change the cash rate in the next meeting?\n\n50 basis points\n\nAt what level do you think the cash rate will peak?\n\n4.1%\n\nWhen do you think the cash rate will peak?\n\nJune 2023"
+  },
+  {
+    "objectID": "2022_10.html#rbas-decision",
+    "href": "2022_10.html#rbas-decision",
+    "title": "October 2022",
+    "section": "RBA’s decision",
+    "text": "RBA’s decision\nOn 1 November 2022, the RBA announced an increase in the cash rate target by 25 basis points."
+  },
+  {
+    "objectID": "2022_10.html#forecasting-system",
+    "href": "2022_10.html#forecasting-system",
+    "title": "October 2022",
+    "section": "Forecasting system",
+    "text": "Forecasting system\nThe forecasting system was formed for a series of eight interest rates, bond yields at different maturities, downloaded from RBA’s website using an R package readrba. The monthly data spanning the period starting in January 1995 and finishing in October 2022 is plotted below.\n\n\n\n\n\nThese series are used to estimate twelve Vector Error Correction models and to forecast the cash rate one year ahead using an R package vars. The twelve models differ by the series used for estimation, lag order, and whether a dummy variable was used. Six of these models used all eight variables and six only five including cash rate and yields at maturity from 2 to 10 years. The lag order used were 3, 5, and 7. The dummy variable takes the value of zero for all periods, except for the last six in the sample periods, to accommodate the recent interest rate hikes. The forecasts for the six models with the dummy variable are based on a hypothesised scenario of likely upcoming increases and used value one for the dummy at all forecast horizons. The forecasts from the twelve models were pooled using equal weights."
+  },
+  {
+    "objectID": "2022_11.html",
+    "href": "2022_11.html",
+    "title": "November 2022",
+    "section": "",
+    "text": "Preparing answers to the end of November survey by finder.com.au I extended the data set. I used the same variables on bond yields at various maturities, however, I formed two systems: weekly and monthly. The combined forecast led to the same conclusions as my October forecasts regarding the cash rate trajectory: it will keep increasing until mid-2023 and will peak at around 4 percent.\nThe survey was published on in early December 2022: see the survey\nMy assessments were mentioned here"
+  },
+  {
+    "objectID": "2022_11.html#cash-rate-forecasts",
+    "href": "2022_11.html#cash-rate-forecasts",
+    "title": "November 2022",
+    "section": "Cash rate forecasts",
+    "text": "Cash rate forecasts\nThe figure below presents monthly cash rate series starting from January 2010 together with the forecasts reported as the forecast mean and the 68% forecasting intervals. The forecasts clearly follow the upwards trend in cash rate value up to June 2023 that is followed by a stabilisation at the level between 3.9-4 percent. The forecast intervals are quite vide and indicate a likely range between 3.3 and 4.5% in June 2023.\n\n\n\n\n\nThe table below makes the numerical values presented in the figure accessible.\n\n\n\nCash rate forecasts\n\n\n\nforecast\nlower\nupper\n\n\n\n\nDec 2022\n2.73\n2.63\n2.83\n\n\nJan 2023\n2.97\n2.80\n3.14\n\n\nFeb 2023\n3.19\n2.96\n3.43\n\n\nMar 2023\n3.40\n3.09\n3.71\n\n\nApr 2023\n3.63\n3.24\n4.02\n\n\nMay 2023\n3.79\n3.33\n4.25\n\n\nJun 2023\n3.86\n3.34\n4.38\n\n\nJul 2023\n3.88\n3.30\n4.47\n\n\nAug 2023\n3.90\n3.26\n4.54\n\n\nSep 2023\n3.92\n3.23\n4.62\n\n\nOct 2023\n3.96\n3.21\n4.71\n\n\nNov 2023\n3.98\n3.19\n4.78"
+  },
+  {
+    "objectID": "2022_11.html#survey-answers",
+    "href": "2022_11.html#survey-answers",
+    "title": "November 2022",
+    "section": "Survey answers",
+    "text": "Survey answers\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\nWhen you think the RBA will change the cash rate?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNov 2022\nDec 2022\nFeb 2023\nMar 2023\nApr 2023\nMay 2023\nJun 2023\nJul 2023\nAug 2023\nSep 2023\nOct 2023 or later\n\n\n\n\nIncrease\n✓\n✓\n✓\n✓\n✓\n✓\n✓\n\n\n\n\n\n\nDecrease\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhy do you think this?\n\nThe combined forecasts from 36 bond-yield curve models using monthly and weekly data indicate that the cash rate is bound to increase steadily until around June next year and reach 4%, with a likely range from 3.2 to 4.8%. It will stay at this level by the end of 2023. The models predict an upward trend for the next several months, which translates to a likely rise in December that would allow for avoiding a sharper movement in February. The forecasts are available at https://donotdespair.github.io/cash-rate-survey-forecasts/\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n25 basis points\n\nBy how much do you think the RBA should change the cash rate in the next meeting?\n\n25 basis points\n\nAt what level do you think the cash rate will peak?\n\n4%\n\nWhen do you think the cash rate will peak?\n\nJune 2023"
+  },
+  {
+    "objectID": "2022_11.html#rbas-decision",
+    "href": "2022_11.html#rbas-decision",
+    "title": "November 2022",
+    "section": "RBA’s decision",
+    "text": "RBA’s decision\nOn 7 December 2022, the RBA announced an increase in the cash rate target by 25 basis points."
+  },
+  {
+    "objectID": "2022_11.html#forecasting-system",
+    "href": "2022_11.html#forecasting-system",
+    "title": "November 2022",
+    "section": "Forecasting system",
+    "text": "Forecasting system\nThe forecasting system was formed for a series of eight interest rates, bond yields at different maturities, downloaded from RBA’s website using an R package readrba. This time I downloaded daily data and formed two systems of weekly and monthly data spanning the period starting in January 1995 and finishing in November 2022. The weekly data is plotted below\n\n\n\n\n\nThese series, weekly and monthly, are used to estimate 36 Vector Error Correction models and to forecast the cash rate one year ahead using an R package vars. These models differ by the series used for estimation, lag order, and whether a dummy variable was used in a similar fashion as for my October forecasts.\nInteresting findings were obtained applying Johansen’s cointegrating rank test. Its results indicate that in all of the systems except for one all of the yields are driven by the same stochastic trend determining the memory properties of the data. However, in the eight-variable monthly system three such stochastic trends are found which is in line with the bond-yield curve level, slope, and curvature factors. Capturing these data features using Vector Error Correction models is proven to substantially improve the forecasting precision."
+  },
+  {
+    "objectID": "answers/2023-02.html",
+    "href": "answers/2023-02.html",
+    "title": "Forecasting cash rate",
+    "section": "",
+    "text": "When you think the RBA will change the cash rate?\nIncreases in Mar 2023 Apr 2023 May 2023 June 2023\nWhy do you think this?\n\nMy predictive systems for monthly and quarterly data unequivocally indicate further increases in the value of the cash rate by around 18 basis points in March. Moreover, the cash rate will likely increase to about 3.7 or 3.9% by June 2023. However, after that period, the forecasts give contradictory conclusions. Therefore, the arrival of new data will play a decisive role in shaping expectations for the year’s second half. My projections are available at https://donotdespair.github.io/cash-rate-survey-forecasts/\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n15 pbs\n\nBy how much do you think the RBA should change the cash rate in the next meeting?\n\n15 pbs\n\nAt what level do you think the cash rate will peak?\n\n3.75%\n\nWhen do you think the cash rate will peak?\n\nJune 2023"
+  },
+  {
+    "objectID": "answers/2023-06.html",
+    "href": "answers/2023-06.html",
+    "title": "Forecasting cash rate",
+    "section": "",
+    "text": "When you think the RBA will change the cash rate?\nIncreases in July 2023 Aug 2023\nWhy do you think this?\n\nDespite the lower reading of monthly inflation in June at 5.3%, my forecasts tell the same story as last month. They indicate a 15 basis point rise in the cash rate, with further increases expected throughout the year. The narrow forecast interval, spanning the values from 4.16 to 4.34%, leaves little doubt about the projected raises.\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n15 pbs\n\nAt what level do you think the cash rate will peak?\n\n4.25%\n\nWhen do you think the cash rate will peak?\n\nSep 2023"
+  },
+  {
+    "objectID": "answers/2023-07.html",
+    "href": "answers/2023-07.html",
+    "title": "Forecasting cash rate",
+    "section": "",
+    "text": "When you think the RBA will change the cash rate?\nIncreases in Aug 2023 Sep 2023 Oct 2023\nWhy do you think this?\n\nMy forecasts indicate a 15 basis point rise in the cash rate, with further increases up to 4.5% in October. The narrow forecast interval, spanning the values from 4.16 to 4.33% for August, leaves little doubt about the projected raises. However, the quarterly reading of year-to-year inflation at 6%, putting it on a speedy path towards the RBA’s target, makes this raise somehow less likely this month. My forecasts are available at: https://donotdespair.github.io/cash-rate-survey-forecasts/\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n15 pbs\n\nAt what level do you think the cash rate will peak?\n\n4.5%\n\nWhen do you think the cash rate will peak?\n\nOct 2023"
+  },
+  {
+    "objectID": "answers/2023-03.html",
+    "href": "answers/2023-03.html",
+    "title": "Forecasting cash rate",
+    "section": "",
+    "text": "When you think the RBA will change the cash rate?\nIncreases in Apr 2023\nWhy do you think this?\n\nThe weighted pooled forecasts from my monthly and weekly bond yield models indicate that April is likely to be the last month with increases in interest rates. The likely values for the forecasted cash rate target in April range from 3.53 to 3.76 per cent. After this month, the predictions indicate a probable flattening of the cash rate level. The arrival of the new inflation data will be decisive regarding RBA’s decisions in the longer horizon. My forecasts are available at https://donotdespair.github.io/cash-rate-survey-forecasts/\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n15 pbs\n\nAt what level do you think the cash rate will peak? (The rate is currently 3.60%)\n\n3.8%\n\nWhen do you think the cash rate will peak?\n\nMay 2023\n\nWhen do you expect the first cash rate cut\n\nJune 2024"
+  },
+  {
+    "objectID": "answers/2023-08.html",
+    "href": "answers/2023-08.html",
+    "title": "Forecasting cash rate",
+    "section": "",
+    "text": "When you think the RBA will change the cash rate?\nHold in Sep 2023 Oct 2023 Nov 2023\nWhy do you think this?\n\nEven though the 68% interval of my pooled forecast coming from a system of a hundred various predictive models does not include zero change, this is the case for over half of the models. Additionally, the 90% forecast interval includes the HOLD decision. This fact, combined with the decreasing monthly inflation at 4.9% in August, makes me interpret the forecasts indicating no change in the cash rate for at least another three months.\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n0 pbs\n\nAt what level do you think the cash rate will peak?\n\n4.1%\n\nWhen do you think the cash rate will peak?\n\nJun 2023"
+  },
+  {
+    "objectID": "answers/2023-09.html",
+    "href": "answers/2023-09.html",
+    "title": "Forecasting cash rate",
+    "section": "",
+    "text": "When do you think the RBA will change the cash rate?\nHold in Oct 2023 Nov 2023\nWhy do you think this?\n\nThe 68% forecasting interval from my predictive system containing nearly two hundred models of weekly and monthly data spans the cash rate values from 4.09 to 4.25 per cent. Therefore, it includes both the HOLD and RAISE decisions. Given that the monthly inflation for August increased to 5.2 per cent for the first time since April, both options are on the table. The outcome will be indicative of the new governor’s stance.\nIn the longer perspective, my forecasts, especially those for weekly data, indicate possible decreases in the interest rates starting next year. These forecasts are available at: https://donotdespair.github.io/cash-rate-survey-forecasts/\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n0 pbs\n\nAt what level do you think the cash rate will peak?\n\n4.1%\n\nWhen do you think the cash rate will peak?\n\nJun 2023"
+  },
+  {
+    "objectID": "answers/2022-10.html",
+    "href": "answers/2022-10.html",
+    "title": "Forecasting cash rate",
+    "section": "",
+    "text": "When you think the RBA will change the cash rate?\nIncreases in Oct 2022 Nov 2022 Dec 2022 Feb 2023 Mar 2023 Apr 2023 May 2023\nWhat do you expect the cash rate to be by the end of 2023?\n\n4%\n\nWhy do you think this?\n\nThe forecasts from the bond-yield curve models I estimated consistently indicate an increase in the value of the cash rate until mid-2023, after which levelling off should follow. By that time, the cash rate will nearly surely be higher than 3.6%, will most likely reach 4%, and is unlikely to exceed 4.4%. This would mean that the interest rates might get to the levels from early 2012.\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n50 pbs\n\nBy how much do you think the RBA should change the cash rate in the next meeting?\n\n50 pbs\n\nAt what level do you think the cash rate will peak?\n\n4.1%\n\nWhen do you think the cash rate will peak?\n\nJune 2023"
+  },
+  {
+    "objectID": "answers/2022-11.html",
+    "href": "answers/2022-11.html",
+    "title": "Forecasting cash rate",
+    "section": "",
+    "text": "When you think the RBA will change the cash rate?\nIncreases in Dec 2022 Feb 2023 Mar 2023 Apr 2023 May 2023 Jun 2023\nWhat do you expect the cash rate to be by the end of 2023?\n\n4%\n\nWhy do you think this?\n\nThe combined forecasts from 36 bond-yield curve models using monthly and weekly data indicate that the cash rate is bound to increase steadily until around June next year and reach 4%, with a likely range from 3.2 to 4.8%. It will stay at this level by the end of 2023. The models predict an upward trend for the next several months, which translates to a likely rise in December that would allow for avoiding a sharper movement in February. The forecasts are available at https://donotdespair.github.io/cash-rate-survey-forecasts/\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n25 pbs\n\nBy how much do you think the RBA should change the cash rate in the next meeting?\n\n25 pbs\n\nAt what level do you think the cash rate will peak?\n\n4%\n\nWhen do you think the cash rate will peak?\n\nJune 2023"
+  },
+  {
+    "objectID": "answers/2023-04.html",
+    "href": "answers/2023-04.html",
+    "title": "Forecasting cash rate",
+    "section": "",
+    "text": "When you think the RBA will change the cash rate?\nIncreases in May 2023 June 2023\nWhy do you think this?\n\nThe new reading of the CPI inflation reaching 7% in the first quarter of 2023 aligns the quarterly forecasts with the monthly indicating the cash rate at 3.77% within the next 3-5 months. The prediction bands around this value reach from 3.4 to 4.1 %. My interpretation is a likely raise by 15 pp this or next month. Beyond this horizon, the forecasts diverge with the bond yield curve modelling indicating further increases and the system focusing on inflation, labour market and expectations showing cuts. The arrival of new macro data occurs essential in such dynamically changing circumstances.\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n15 pbs\n\nAt what level do you think the cash rate will peak? (The rate is currently 3.60%)\n\n3.8%\n\nWhen do you think the cash rate will peak?\n\nJune 2023\n\nWhen do you the cash rate will be at the end of 2023\n\n3.8%"
+  },
+  {
+    "objectID": "answers/2023-01.html",
+    "href": "answers/2023-01.html",
+    "title": "Forecasting cash rate",
+    "section": "",
+    "text": "When you think the RBA will change the cash rate?\nIncreases in Feb 2023 Mar 2023 Apr 2023 May 2023\nWhat do you expect the cash rate to be by the end of 2023?\n\n3.7%\n\nWhy do you think this?\n\nThe forecasts from yield curve models using weekly and monthly rates as well as those from the models including quarterly inflation, inflation expectations, and labour market conditions draw a similar picture: the interest rates will keep increasing until mid-2023 reaching the level of 3.5%, with a likely range from 3.1 to 3.9%. The models of quarterly data indicate sharper increase with a higher uncertainty. The year is likely to close with the cash rate at the level of 3.7%. The forecasts are available at https://donotdespair.github.io/cash-rate-survey-forecasts/\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n25 pbs\n\nBy how much do you think the RBA should change the cash rate in the next meeting?\n\n25 pbs\n\nAt what level do you think the cash rate will peak?\n\n3.75%\n\nWhen do you think the cash rate will peak?\n\nJune 2023"
+  },
+  {
+    "objectID": "answers/2023-05.html",
+    "href": "answers/2023-05.html",
+    "title": "Forecasting cash rate",
+    "section": "",
+    "text": "When you think the RBA will change the cash rate?\nIncreases in June 2023 July 2023\nWhy do you think this?\n\nBased on the new data from May, all my forecast systems are aligned and indicate a 15 basis point rise in the cash rate, with further increases expected throughout the year. The forecast intervals have also been narrowed to 3.9 to 4.1%, leaving little doubt about the projected raises. All this seems to be in line with the slowly falling inflation rate, which reached 6.8% in April. My forecasting system for this month includes thirty-two bond yield models for weekly and monthly data and sixty-four complex dynamics time-varying risk models encompassing the leverage effect and risk premium. The forecasts from individual models are further pooled based on their cash rate forecasting capacity.\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n15 pbs\n\nAt what level do you think the cash rate will peak?\n\n4.1%\n\nWhen do you think the cash rate will peak?\n\nJuly 2023"
+  },
+  {
+    "objectID": "2023_09.html",
+    "href": "2023_09.html",
+    "title": "September 2023",
+    "section": "",
+    "text": "The end-of-September forecasting for the RBA cash rate survey by finder.com.au follows the announcement of August monthly inflation 5.2%."
+  },
+  {
+    "objectID": "2023_09.html#cash-rate-forecasts",
+    "href": "2023_09.html#cash-rate-forecasts",
+    "title": "September 2023",
+    "section": "Cash rate forecasts",
+    "text": "Cash rate forecasts\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from October 2023 to September 2024 as the forecast mean and the 68% forecasting intervals.\n\n\n\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n\nMonthly and quarterly cash rate forecasts\n\n\n\nmonthly\nlower\nupper\n\n\n\n\nOct 2023\n4.17\n4.10\n4.25\n\n\nNov 2023\n4.20\n4.07\n4.35\n\n\nDec 2023\n4.20\n3.99\n4.39\n\n\nJan 2024\n4.18\n3.92\n4.44\n\n\nFeb 2024\n4.19\n3.88\n4.51\n\n\nMar 2024\n4.20\n3.84\n4.59\n\n\nApr 2024\n4.19\n3.79\n4.64\n\n\nMay 2024\n4.19\n3.74\n4.70\n\n\nJun 2024\n4.20\n3.70\n4.76\n\n\nJul 2024\n4.18\n3.64\n4.79\n\n\nAug 2024\n4.20\n3.62\n4.86\n\n\nSep 2024\n4.19\n3.56\n4.89"
+  },
+  {
+    "objectID": "2023_09.html#survey-answers",
+    "href": "2023_09.html#survey-answers",
+    "title": "September 2023",
+    "section": "Survey answers",
+    "text": "Survey answers\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\nWhen you think the RBA will change the cash rate?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOct 2023\nNov 2023\nDec 2023\nFeb 2024\nMar 2024\nApr 2024\nMay 2024\nJun 2024\nJul 2024 or later\n\n\n\n\nIncrease\n\n\n\n\n\n\n\n\n\n\n\nDecrease\n\n\n\n\n\n\n\n\n\n\n\n\nWhy do you think this?\n\nThe 68% forecasting interval from my predictive system containing nearly two hundred models of weekly and monthly data spans the cash rate values from 4.09 to 4.25 per cent. Therefore, it includes both the HOLD and RAISE decisions. Given that the monthly inflation for August increased to 5.2 per cent for the first time since April, both options are on the table. The outcome will be indicative of the new governor’s stance.\nIn the longer perspective, my forecasts, especially those for weekly data, indicate possible decreases in the interest rates starting next year. These forecasts are available at: https://donotdespair.github.io/cash-rate-survey-forecasts/\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n0 pbs\n\nAt what level do you think the cash rate will peak?\n\n4.1%\n\nWhen do you think the cash rate will peak?\n\nJune 2023"
+  },
+  {
+    "objectID": "2023_09.html#rbas-decision",
+    "href": "2023_09.html#rbas-decision",
+    "title": "September 2023",
+    "section": "RBA’s decision",
+    "text": "RBA’s decision\nTBA on 3 October 2023."
+  },
+  {
+    "objectID": "2023_09.html#forecasting-system",
+    "href": "2023_09.html#forecasting-system",
+    "title": "September 2023",
+    "section": "Forecasting system",
+    "text": "Forecasting system\nMy forecasting system for September is based on the cash rate target and government bond yields at various maturities as presented in the figure below.\n\n\n\n\n\nThe system consists of a 192 of models. Half of them are are models of weekly and the other half of monthly data.\nVector Error Correction models for weekly and monthly series with different model specification parameters. Univariate models for the cash rate capture complex patterns of data persistence using autoregressive moving average equation extended by time-varying volatility equation - a GARCH model. Part of the models include the leverage effect and/or time-varying risk premium.\nThe forecasts are pooled in two stages. Firstly, the models are weighted in four sub-groups VECM vs. ARMA and weekly vs. monthly data models proportionally to their cash rate forecasting ability. Such four pooled forecasts are equally weighted in the second stage to provide monthly forecasts reported above."
+  },
+  {
+    "objectID": "2023_08.html",
+    "href": "2023_08.html",
+    "title": "August 2023",
+    "section": "",
+    "text": "The end-of-May forecasting for the RBA cash rate survey by finder.com.au follows the announcement of inflation for the second quarter of 2023 at the level of 6%. The new data leads to forecasts indicating a decisive increase in the cash rate in August and likely increases further on."
+  },
+  {
+    "objectID": "2023_08.html#cash-rate-forecasts",
+    "href": "2023_08.html#cash-rate-forecasts",
+    "title": "August 2023",
+    "section": "Cash rate forecasts",
+    "text": "Cash rate forecasts\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from August 2023 to July 2024 as the forecast mean and the 68% forecasting intervals.\n\n\n\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n\nMonthly and quarterly cash rate forecasts\n\n\n\nmonthly\nlower\nupper\n\n\n\n\nSep 2023\n4.14\n4.07\n4.22\n\n\nOct 2023\n4.20\n4.07\n4.34\n\n\nNov 2023\n4.19\n4.01\n4.42\n\n\nDec 2023\n4.17\n3.91\n4.44\n\n\nJan 2024\n4.12\n3.81\n4.46\n\n\nFeb 2024\n4.12\n3.76\n4.52\n\n\nMar 2024\n4.13\n3.72\n4.59\n\n\nApr 2024\n4.13\n3.68\n4.66\n\n\nMay 2024\n4.14\n3.63\n4.72\n\n\nJun 2024\n4.16\n3.61\n4.79\n\n\nJul 2024\n4.16\n3.55\n4.83\n\n\nAug 2024\n4.17\n3.52\n4.90"
+  },
+  {
+    "objectID": "2023_08.html#survey-answers",
+    "href": "2023_08.html#survey-answers",
+    "title": "August 2023",
+    "section": "Survey answers",
+    "text": "Survey answers\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\nWhen you think the RBA will change the cash rate?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSep 2023\nOct 2023\nNov 2023\nDec 2023\nFeb 2024\nMar 2023\nApr 2024\nMay 2024\nJun 2024 or later\n\n\n\n\nIncrease\n\n\n\n\n\n\n\n\n\n\n\nDecrease\n\n\n\n\n\n\n\n\n\n\n\n\nWhy do you think this?\n\nEven though the 68% interval of my pooled forecast coming from a system of a hundred various predictive models does not include zero change, this is the case for over half of the models. Additionally, the 90% forecast interval includes the HOLD decision. This fact, combined with the decreasing monthly inflation at 4.9% in August, makes me interpret the forecasts indicating no change in the cash rate for at least another three months.\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n0 pbs\n\nAt what level do you think the cash rate will peak?\n\n4.1%\n\nWhen do you think the cash rate will peak?\n\nJune 2023"
+  },
+  {
+    "objectID": "2023_08.html#rbas-decision",
+    "href": "2023_08.html#rbas-decision",
+    "title": "August 2023",
+    "section": "RBA’s decision",
+    "text": "RBA’s decision\nHOLD."
+  },
+  {
+    "objectID": "2023_08.html#forecasting-system",
+    "href": "2023_08.html#forecasting-system",
+    "title": "August 2023",
+    "section": "Forecasting system",
+    "text": "Forecasting system\nMy forecasting system for August is based on the cash rate target and government bond yields at various maturities as presented in the figure below.\n\n\n\n\n\nThe system consists of a hundred of models. Half of them are are models of weekly and the other half of monthly data.\nVector Error Correction models for weekly and monthly series with different model specification parameters. Univariate models for the cash rate capture complex patterns of data persistence using autoregressive moving average equation extended by time-varying volatility equation - a GARCH model. Part of the models include the leverage effect and/or time-varying risk premium.\nThe forecasts are pooled in two stages. Firstly, the models are weighted in four sub-groups VECM vs. ARMA and weekly vs. monthly data models proportionally to their cash rate forecasting ability. Such four pooled forecasts are equally weighted in the second stage to provide monthly forecasts reported above."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "RBA Cash Rate Survey Forecasts",
+    "section": "",
+    "text": "In October 2022, portal finder.com.au invited me to join the panel of economists for their monthly RBA cash rate survey. My answers will be based on the forecasting analyses that I research and teach in my everyday work at the University of Melbourne. In the spirit of transparency, reproducibility, and sharing expertise, I am publishing my forecasts, and the survey answers on this website. I will keep expanding the data and models I use to produce the combined forecasts every month. Please, use the contact details if you want to share your insights, feedback, or suggestions with me."
+  },
+  {
+    "objectID": "index.html#the-most-up-to-date-forecasts",
+    "href": "index.html#the-most-up-to-date-forecasts",
+    "title": "RBA Cash Rate Survey Forecasts",
+    "section": "The most up-to-date forecasts",
+    "text": "The most up-to-date forecasts\nHave a look at the forecasts generated at the end of September 2023"
+  },
+  {
+    "objectID": "index.html#my-cash-rate-forecasts",
+    "href": "index.html#my-cash-rate-forecasts",
+    "title": "RBA Cash Rate Survey Forecasts",
+    "section": "My cash rate forecasts",
+    "text": "My cash rate forecasts\nThe hydra plot below presents monthly cash rate series starting from January 2015 together with my forecasts from the subsequent months."
+  },
+  {
+    "objectID": "index.html#my-answers",
+    "href": "index.html#my-answers",
+    "title": "RBA Cash Rate Survey Forecasts",
+    "section": "My answers",
+    "text": "My answers\nThe tables below juxtaposes my answers to the survey question regarding the following month’s cash rate change with RBA’s decision.\n\n2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey taken in:\nJan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug\nSep\nOct\nNov\n\n\n\n\nPredicted decision\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nHOLD\nHOLD\n\n\n\n\nPredicted change\n+0.25\n+0.15\n+0.15\n+0.15\n+0.15\n+0.15\n+0.15\n0.00\n0.00\n\n\n\n\nRBA’s decision\n+0.25\n+0.25\n0.00\n+0.25\n+0.25\n0.00\n0.00\n0.00\nTBA\n\n\n\n\n\n\n\n2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey taken in:\nJan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug\nSep\nOct\nNov\n\n\n\n\nPredicted decision\n\n\n\n\n\n\n\n\n\nRAISE\nRAISE\n\n\nPredicted change\n\n\n\n\n\n\n\n\n\n+0.5\n+0.25\n\n\nRBA’s decision\n\n\n\n\n\n\n\n\n\n+0.25\n+0.25"
+  },
+  {
+    "objectID": "index.html#a-disclaimer",
+    "href": "index.html#a-disclaimer",
+    "title": "RBA Cash Rate Survey Forecasts",
+    "section": "A disclaimer",
+    "text": "A disclaimer\nThe surveyed panel of economists at finder.com.au is heavily gender biased with only 15 percent of the panellists being women. This is a problem because non-representative expert panels are not objective and quite likely pushing the interest of a specific demographic group. Therefore, before accepting the invitation I urged the portal to invite more female economists to the panel and was ready to put down the invitation depending on the answer. Saranga who is organising the survey explained to me that they are inviting as many women as men and shared with me the list of folks that were invited with me. I concluded that the under-representation of women in the panel is not an effect of finder’s malpractices, but rather reflects the problem of economics as a field. We all share the responsibility to make the field representing the society more accurately by shifting the cultural and organisational practices. I accepted the invitation and do my best for the change to happen."
+  },
+  {
+    "objectID": "2023_01.html",
+    "href": "2023_01.html",
+    "title": "January 2023",
+    "section": "",
+    "text": "Taking into account the newest data while preparing my answers to the end-of-January RBA cash rate survey by finder.com.au resulted in a noticeable revision of the forecasts. They still indicate the upwards trend in the cash rate value flattening in mid-2023. However, the peak and end-of-the-year cash rate levels are lower than in my November forecasts. Considering predictions using weekly and monthly bond yield data, the peak is not higher than 3.4% in June, with a likely range between 2.9 and 3.9 per cent."
+  },
+  {
+    "objectID": "2023_01.html#cash-rate-forecasts",
+    "href": "2023_01.html#cash-rate-forecasts",
+    "title": "January 2023",
+    "section": "Cash rate forecasts",
+    "text": "Cash rate forecasts\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from February 2023 to January 2024 as the forecast mean and the 68% forecasting intervals. The forecasts follow a slight upwards trend in cash rate value up to June 2023, reaching the value of 3.4% for the monthly forecast and 3.7% for the quarterly one. After that period, the quarterly forecast goes down, and the monthly flattens. Both met at a value of around 3.5% by the end of 2023.\nThe data updates from late 2022 and early 2023 led to a noticeable revision of forecasts compared to my November forecasts. As a result, both the peak and the end-of-the-year forecasted values of the cash rate are now at lower levels. In addition, the forecasting intervals narrowed down slightly, with both upper and lower ends having lower values than my previous forecasts.\n\n\n\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n\nMonthly and quarterly cash rate forecasts\n\n\n\nmonthly\nlower\nupper\nquarterly\nlower\nupper\n\n\n\n\nFeb 2023\n3.22\n3.10\n3.34\n\n\n\n\n\nMar 2023\n3.28\n3.09\n3.48\n3.51\n3.19\n3.82\n\n\nApr 2023\n3.34\n3.08\n3.59\n\n\n\n\n\nMay 2023\n3.36\n3.03\n3.70\n\n\n\n\n\nJun 2023\n3.37\n2.97\n3.78\n3.67\n3.14\n4.20\n\n\nJul 2023\n3.38\n2.91\n3.85\n\n\n\n\n\nAug 2023\n3.39\n2.85\n3.94\n\n\n\n\n\nSep 2023\n3.40\n2.80\n4.01\n3.47\n2.75\n4.19\n\n\nOct 2023\n3.42\n2.75\n4.09\n\n\n\n\n\nNov 2023\n3.43\n2.69\n4.16\n\n\n\n\n\nDec 2023\n3.44\n2.65\n4.23\n3.29\n2.40\n4.18\n\n\nJan 2024\n3.46\n2.61\n4.30"
+  },
+  {
+    "objectID": "2023_01.html#survey-answers",
+    "href": "2023_01.html#survey-answers",
+    "title": "January 2023",
+    "section": "Survey answers",
+    "text": "Survey answers\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\nWhen you think the RBA will change the cash rate?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 2023\nMar 2023\nApr 2023\nMay 2023\nJun 2023\nJul 2023\nAug 2023\nSep 2023\nOct 2023\nNov 2023\nDec 2023 or later\n\n\n\n\nIncrease\n✓\n✓\n✓\n✓\n\n\n\n\n\n\n\n\n\nDecrease\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat do you expect the cash rate to be by the end of 2023?\n\n3.7%\n\nWhy do you think this?\n\nThe forecasts from yield curve models using weekly and monthly rates, as well as those from the models including quarterly inflation, inflation expectations, and labour market conditions, draw a similar picture: the interest rates will keep increasing until mid-2023, reaching the level of 3.5%, with a likely range from 3.1 to 3.9%. The models of quarterly data indicate a sharper increase with higher uncertainty. The year is expected to close with the cash rate at 3.7%. The forecasts are available at https://donotdespair.github.io/cash-rate-survey-forecasts/\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n25 basis points\n\nBy how much do you think the RBA should change the cash rate in the next meeting?\n\n25 basis points\n\nAt what level do you think the cash rate will peak?\n\n3.75%\n\nWhen do you think the cash rate will peak?\n\nJune 2023"
+  },
+  {
+    "objectID": "2023_01.html#rbas-decision",
+    "href": "2023_01.html#rbas-decision",
+    "title": "January 2023",
+    "section": "RBA’s decision",
+    "text": "RBA’s decision\nOn 7 February 2023, the RBA announced an increase in the cash rate target by 25 basis points."
+  },
+  {
+    "objectID": "2023_01.html#forecasting-system",
+    "href": "2023_01.html#forecasting-system",
+    "title": "January 2023",
+    "section": "Forecasting system",
+    "text": "Forecasting system\nPreparing my answers for this month’s survey, I further expanded my forecasting system. The novelty is two new models for quarterly data downloaded from RBA’s website using an R package readrba. The variables in this new system include the cash rate and CPI inflation, 1-year-ahead inflation expectations based on surveys of professional economists and union leaders, 10-year bond yields, unemployment and employment rates. Therefore, models based on such variables account for the general economic conditions and labour markets. Importantly, they take into consideration inflation and its expectations. The quarterly data spanning the period starting in the second quarter of 2002 and finishing in the last one of 2022 is plotted below.\n\n\n\n\n\nBased on this data set, two forecasting models were developed using the R package vars: one including all the variables as reported in the plot above, and the other without inflation expectations allowing the series to start in 1995. These limits are dictated by data availability. The two systems of variables were put in Vector Error Correction models with one cointegrating relationship. The resulting forecasts up to one year ahead were pooled and reported above.\nThe monthly forecasts were based on the same forecasting system as the one I developed for November forecasts. The updated data is plotted below."
+  },
+  {
+    "objectID": "2023_03.html",
+    "href": "2023_03.html",
+    "title": "March 2023",
+    "section": "",
+    "text": "The end-of-March forecasting for the RBA cash rate survey by finder.com.au indicates probably the last (for a while) raise in the cash rate predicted for April. Afterwards, the forecasts flatten to remain at a stable level until the end of the year."
+  },
+  {
+    "objectID": "2023_03.html#cash-rate-forecasts",
+    "href": "2023_03.html#cash-rate-forecasts",
+    "title": "March 2023",
+    "section": "Cash rate forecasts",
+    "text": "Cash rate forecasts\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from April 2023 to March 2024 as the forecast mean and the 68% forecasting intervals.\n\n\n\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n\nMonthly and quarterly cash rate forecasts\n\n\n\nmonthly\nlower\nupper\n\n\n\n\nApr 2023\n3.65\n3.54\n3.77\n\n\nMay 2023\n3.63\n3.44\n3.82\n\n\nJun 2023\n3.58\n3.32\n3.84\n\n\nJul 2023\n3.51\n3.19\n3.84\n\n\nAug 2023\n3.48\n3.07\n3.88\n\n\nSep 2023\n3.46\n2.98\n3.93\n\n\nOct 2023\n3.43\n2.88\n3.98\n\n\nNov 2023\n3.41\n2.80\n4.02\n\n\nDec 2023\n3.39\n2.72\n4.07\n\n\nJan 2024\n3.39\n2.65\n4.13\n\n\nFeb 2024\n3.40\n2.60\n4.19\n\n\nMar 2024\n3.42\n2.56\n4.27"
+  },
+  {
+    "objectID": "2023_03.html#survey-answers",
+    "href": "2023_03.html#survey-answers",
+    "title": "March 2023",
+    "section": "Survey answers",
+    "text": "Survey answers\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\nWhen you think the RBA will change the cash rate?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nApr 2023\nMay 2023\nJun 2023\nJul 2023\nAug 2023\nSep 2023\nOct 2023\nNov 2023\nJan 2024 or later\n\n\n\n\nIncrease\n✓\n✓\n✓\n\n\n\n\n\n\n\n\nDecrease\n\n\n\n\n\n\n\n\n\n\n\n\nWhy do you think this?\n\nThe weighted pooled forecasts from my monthly and weekly bond yield models indicate that April is likely to be the last month with increases in interest rates. The likely values for the forecasted cash rate target in April range from 3.53 to 3.76 per cent. After this month, the predictions indicate a probable flattening of the cash rate level. The arrival of the new inflation data will be decisive regarding RBA’s decisions in the longer horizon. My forecasts are available at https://donotdespair.github.io/cash-rate-survey-forecasts/\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n15 pbs\n\nAt what level do you think the cash rate will peak?\n\n3.8%\n\nWhen do you think the cash rate will peak?\n\nMay 2023\n\nWhen do you expect the first cash rate cut?\n\nJune 2024"
+  },
+  {
+    "objectID": "2023_03.html#rbas-decision",
+    "href": "2023_03.html#rbas-decision",
+    "title": "March 2023",
+    "section": "RBA’s decision",
+    "text": "RBA’s decision\nOn 4 April 2023, TBA’s Board decided to leave the cash rate target unchanged at 3.6 per cent."
+  },
+  {
+    "objectID": "2023_03.html#forecasting-system",
+    "href": "2023_03.html#forecasting-system",
+    "title": "March 2023",
+    "section": "Forecasting system",
+    "text": "Forecasting system\nThe monthly forecasts were based on the same system of variables as the one I developed for November forecasts. The updated data is plotted below. The novelty is that, this month, I started computing the weights assigned to individual models that are proportional to the cash rate contribution to the likelihood function. These weights replace equal weighting used thus far."
+  },
+  {
+    "objectID": "2023_02.html",
+    "href": "2023_02.html",
+    "title": "February 2023",
+    "section": "",
+    "text": "The end-of-February forecasting for the RBA cash rate survey by finder.com.au brought about interesting finding. The forecasts clearly indicate the increase of the cash rate in March and until June, but then they give contradictory conclusions regarding the further developments. I interpret this instance indicating difficulties in predicting the break point, that is, the first time the RBA will not increase the rates."
+  },
+  {
+    "objectID": "2023_02.html#cash-rate-forecasts",
+    "href": "2023_02.html#cash-rate-forecasts",
+    "title": "February 2023",
+    "section": "Cash rate forecasts",
+    "text": "Cash rate forecasts\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from March 2023 to February 2024 as the forecast mean and the 68% forecasting intervals. These forecasts clearly indicate the increases in the first half of 2023. After that period, however, the forecasts obtained using the system of weekly and monthly cash rate target series and bond yields tell a different story than those obtained using a macroeconomic system of quarterly series. The former indicates continuing increases in the cash rate until the end of the year, whereas the latter suggests stabilisation of its level halfway through the year. This discrepancy is a strong indicator that the arrival of new data will be decisive in predicting the first month in which the RBA will not increase the interest rates and when it will start decreasing them.\n\n\n\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n\nMonthly and quarterly cash rate forecasts\n\n\n\nmonthly\nlower\nupper\nquarterly\nlower\nupper\n\n\n\n\nMar 2023\n3.54\n3.41\n3.67\n\n\n\n\n\nApr 2023\n3.68\n3.49\n3.88\n3.51\n3.19\n3.82\n\n\nMay 2023\n3.81\n3.54\n4.07\n\n\n\n\n\nJun 2023\n3.90\n3.57\n4.24\n\n\n\n\n\nJul 2023\n3.98\n3.57\n4.38\n3.67\n3.14\n4.20\n\n\nAug 2023\n4.05\n3.57\n4.53\n\n\n\n\n\nSep 2023\n4.11\n3.57\n4.66\n\n\n\n\n\nOct 2023\n4.17\n3.56\n4.78\n3.47\n2.75\n4.19\n\n\nNov 2023\n4.23\n3.55\n4.90\n\n\n\n\n\nDec 2023\n4.28\n3.55\n5.01\n\n\n\n\n\nJan 2024\n4.33\n3.54\n5.13\n3.29\n2.40\n4.18\n\n\nFeb 2024\n4.39\n3.54\n5.24"
+  },
+  {
+    "objectID": "2023_02.html#survey-answers",
+    "href": "2023_02.html#survey-answers",
+    "title": "February 2023",
+    "section": "Survey answers",
+    "text": "Survey answers\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\nWhen you think the RBA will change the cash rate?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMar 2023\nApr 2023\nMay 2023\nJun 2023\nJul 2023\nAug 2023\nSep 2023\nOct 2023\nNov 2023\nJan 2024 or later\n\n\n\n\nIncrease\n✓\n✓\n✓\n✓\n\n\n\n\n\n\n\n\nDecrease\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhy do you think this?\n\nMy predictive systems for monthly and quarterly data unequivocally indicate further increases in the value of the cash rate by around 18 basis points in March. Moreover, the cash rate will likely increase to about 3.7 or 3.9% by June 2023. However, after that period, the forecasts give contradictory conclusions. Therefore, the arrival of new data will play a decisive role in shaping expectations for the year’s second half. My projections are available at https://donotdespair.github.io/cash-rate-survey-forecasts/\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n15 pbs\n\nBy how much do you think the RBA should change the cash rate in the next meeting?\n\n15 pbs\n\nAt what level do you think the cash rate will peak?\n\n3.75%\n\nWhen do you think the cash rate will peak?\n\nJune 2023"
+  },
+  {
+    "objectID": "2023_02.html#rbas-decision",
+    "href": "2023_02.html#rbas-decision",
+    "title": "February 2023",
+    "section": "RBA’s decision",
+    "text": "RBA’s decision\nOn 7 March 2023, the RBA announced an increase in the cash rate target by 25 basis points."
+  },
+  {
+    "objectID": "2023_02.html#forecasting-system",
+    "href": "2023_02.html#forecasting-system",
+    "title": "February 2023",
+    "section": "Forecasting system",
+    "text": "Forecasting system\nDue to an extensive research and teaching agenda for February and March I did not expand the forecasting system to prepare my answers for this month’s survey. Therefore, the forecasts using the quarterly system stayed the same as in January forecasts. The quarterly data spanning the period starting in the second quarter of 2002 and finishing in the last one of 2022 is plotted below.\n\n\n\n\n\nThe monthly forecasts were based on the same forecasting system as the one I developed for November forecasts. The updated data is plotted below."
+  },
+  {
+    "objectID": "2023_06.html",
+    "href": "2023_06.html",
+    "title": "June 2023",
+    "section": "",
+    "text": "The end-of-May forecasting for the RBA cash rate survey by finder.com.au follows the anouncement of inflation for June 2023 at the level of 5.6%. The new data leads to surprising forecasts indicating a decisive increase in the cash rate in July and subsequent increases further on."
+  },
+  {
+    "objectID": "2023_06.html#cash-rate-forecasts",
+    "href": "2023_06.html#cash-rate-forecasts",
+    "title": "June 2023",
+    "section": "Cash rate forecasts",
+    "text": "Cash rate forecasts\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from July 2023 to June 2024 as the forecast mean and the 68% forecasting intervals.\n\n\n\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n\nMonthly and quarterly cash rate forecasts\n\n\n\nmonthly\nlower\nupper\n\n\n\n\nJul 2023\n4.22\n4.14\n4.32\n\n\nAug 2023\n4.42\n4.27\n4.59\n\n\nSep 2023\n4.59\n4.37\n4.82\n\n\nOct 2023\n4.73\n4.46\n5.03\n\n\nNov 2023\n4.81\n4.45\n5.18\n\n\nDec 2023\n4.88\n4.46\n5.32\n\n\nJan 2024\n4.91\n4.43\n5.43\n\n\nFeb 2024\n5.00\n4.46\n5.59\n\n\nMar 2024\n5.08\n4.48\n5.73\n\n\nApr 2024\n5.13\n4.48\n5.84\n\n\nMay 2024\n5.15\n4.46\n5.94\n\n\nJun 2024\n5.17\n4.42\n6.01"
+  },
+  {
+    "objectID": "2023_06.html#survey-answers",
+    "href": "2023_06.html#survey-answers",
+    "title": "June 2023",
+    "section": "Survey answers",
+    "text": "Survey answers\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\nWhen you think the RBA will change the cash rate?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJul 2023\nAug 2023\nSep 2023\nOct 2023\nNov 2023\nDec 2023\nFeb 2024\nMar 2024\nApr 2024 or later\n\n\n\n\nIncrease\n✓\n✓\n\n\n\n\n\n\n\n\n\nDecrease\n\n\n\n\n\n\n\n\n\n\n\n\nWhy do you think this?\n\nDespite the lower reading of monthly inflation in June at 5.3%, my forecasts tell the same story as last month. They indicate a 15 basis point rise in the cash rate, with further increases expected throughout the year. The narrow forecast interval, spanning the values from 4.16 to 4.34%, leaves little doubt about the projected raises.\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n15 pbs\n\nAt what level do you think the cash rate will peak?\n\n4.25%\n\nWhen do you think the cash rate will peak?\n\nAugust 2023"
+  },
+  {
+    "objectID": "2023_06.html#rbas-decision",
+    "href": "2023_06.html#rbas-decision",
+    "title": "June 2023",
+    "section": "RBA’s decision",
+    "text": "RBA’s decision\nOn 4 July 2023, the RBA announced no change in the cash rate target."
+  },
+  {
+    "objectID": "2023_06.html#forecasting-system",
+    "href": "2023_06.html#forecasting-system",
+    "title": "June 2023",
+    "section": "Forecasting system",
+    "text": "Forecasting system\nMy forecasting system for June is based on the cash rate target and government bond yields at various maturities as presented in the figure below.\n\n\n\n\n\nThe system consists of a hundred of models. Half of them are Vector Error Correction models for weekly and monthly series with different model specification parameters. This month, for the first time, I did not use models with the dummy variable for th recent cash rate hike period and assuming this regime over all forecasting horizons.\nThe other half of models includes univariate specifications for the cash rate capturing complex patterns of data persistence using autoregressive moving average equation extended by time-varying volatility equation - a GARCH model. Part of the models include the leverage effect and/or time-varying risk premium. The best fitting models are with the richest dynamics, that is a (3,3) ARMA order, the GARCH equation with the leverage and in-mean effects. The data is plotted below."
+  },
+  {
+    "objectID": "2023_07.html",
+    "href": "2023_07.html",
+    "title": "July 2023",
+    "section": "",
+    "text": "The end-of-May forecasting for the RBA cash rate survey by finder.com.au follows the announcement of inflation for the second quarter of 2023 at the level of 6%. The new data leads to forecasts indicating a decisive increase in the cash rate in August and likely increases further on."
+  },
+  {
+    "objectID": "2023_07.html#cash-rate-forecasts",
+    "href": "2023_07.html#cash-rate-forecasts",
+    "title": "July 2023",
+    "section": "Cash rate forecasts",
+    "text": "Cash rate forecasts\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from August 2023 to July 2024 as the forecast mean and the 68% forecasting intervals.\n\n\n\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n\nMonthly and quarterly cash rate forecasts\n\n\n\nmonthly\nlower\nupper\n\n\n\n\nAug 2023\n4.24\n4.16\n4.33\n\n\nSep 2023\n4.38\n4.25\n4.55\n\n\nOct 2023\n4.52\n4.30\n4.75\n\n\nNov 2023\n4.59\n4.31\n4.87\n\n\nDec 2023\n4.65\n4.32\n4.99\n\n\nJan 2024\n4.67\n4.29\n5.09\n\n\nFeb 2024\n4.73\n4.30\n5.21\n\n\nMar 2024\n4.78\n4.30\n5.31\n\n\nApr 2024\n4.81\n4.28\n5.40\n\n\nMay 2024\n4.82\n4.26\n5.48\n\n\nJun 2024\n4.85\n4.25\n5.56\n\n\nJul 2024\n4.85\n4.20\n5.61"
+  },
+  {
+    "objectID": "2023_07.html#survey-answers",
+    "href": "2023_07.html#survey-answers",
+    "title": "July 2023",
+    "section": "Survey answers",
+    "text": "Survey answers\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\nWhen you think the RBA will change the cash rate?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAug 2023\nSep 2023\nOct 2023\nNov 2023\nDec 2023\nFeb 2023\nMar 2024\nApr 2024\nMay 2024 or later\n\n\n\n\nIncrease\n✓\n✓\n✓\n\n\n\n\n\n\n\n\nDecrease\n\n\n\n\n\n\n\n\n\n\n\n\nWhy do you think this?\n\nMy forecasts indicate a 15 basis point rise in the cash rate, with further increases up to 4.5% in October. The narrow forecast interval, spanning the values from 4.16 to 4.33% for August, leaves little doubt about the projected raises. However, the quarterly reading of year-to-year inflation at 6%, putting it on a speedy path towards the RBA’s target, makes this raise somehow less likely this month. My forecasts are available at: https://donotdespair.github.io/cash-rate-survey-forecasts/\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n15 pbs\n\nAt what level do you think the cash rate will peak?\n\n4.5%\n\nWhen do you think the cash rate will peak?\n\nOctober 2023"
+  },
+  {
+    "objectID": "2023_07.html#rbas-decision",
+    "href": "2023_07.html#rbas-decision",
+    "title": "July 2023",
+    "section": "RBA’s decision",
+    "text": "RBA’s decision\nTBA on 1 August 2023."
+  },
+  {
+    "objectID": "2023_07.html#forecasting-system",
+    "href": "2023_07.html#forecasting-system",
+    "title": "July 2023",
+    "section": "Forecasting system",
+    "text": "Forecasting system\nMy forecasting system for July is based on the cash rate target and government bond yields at various maturities as presented in the figure below.\n\n\n\n\n\nThe system consists of a 144 of models. Half of them are are models of weekly and the other half of monthly data.\nVector Error Correction models for weekly and monthly series with different model specification parameters. Univariate models for the cash rate capture complex patterns of data persistence using autoregressive moving average equation extended by time-varying volatility equation - a GARCH model. Part of the models include the leverage effect and/or time-varying risk premium.\nThe forecasts are pooled in two stages. Firstly, the models are weighted in four sub-groups VECM vs. ARMA and weekly vs. monthly data models proportionally to their cash rate forecasting ability. Such four pooled forecasts are equally weighted in the second stage to provide monthly forecasts reported above."
+  },
+  {
+    "objectID": "2023_05.html",
+    "href": "2023_05.html",
+    "title": "May 2023",
+    "section": "",
+    "text": "The end-of-May forecasting for the RBA cash rate survey by finder.com.au follows the anouncement of inflation for May 2023 at the level of 6.8%. It fell, but remains high. The new data leads to forecasts indicating a decisive increase in the cash rate in June and subsequent increases further on."
+  },
+  {
+    "objectID": "2023_05.html#cash-rate-forecasts",
+    "href": "2023_05.html#cash-rate-forecasts",
+    "title": "May 2023",
+    "section": "Cash rate forecasts",
+    "text": "Cash rate forecasts\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from June 2023 to May 2024 as the forecast mean and the 68% forecasting intervals.\n\n\n\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n\nMonthly and quarterly cash rate forecasts\n\n\n\nmonthly\nlower\nupper\n\n\n\n\nJun 2023\n4.01\n3.92\n4.12\n\n\nJul 2023\n4.14\n3.98\n4.31\n\n\nAug 2023\n4.30\n4.07\n4.54\n\n\nSep 2023\n4.44\n4.15\n4.76\n\n\nOct 2023\n4.54\n4.17\n4.93\n\n\nNov 2023\n4.65\n4.20\n5.12\n\n\nDec 2023\n4.75\n4.23\n5.30\n\n\nJan 2024\n4.85\n4.26\n5.48\n\n\nFeb 2024\n4.96\n4.32\n5.67\n\n\nMar 2024\n5.04\n4.34\n5.82\n\n\nApr 2024\n5.10\n4.33\n5.93\n\n\nMay 2024\n5.13\n4.30\n6.03"
+  },
+  {
+    "objectID": "2023_05.html#survey-answers",
+    "href": "2023_05.html#survey-answers",
+    "title": "May 2023",
+    "section": "Survey answers",
+    "text": "Survey answers\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\nWhen you think the RBA will change the cash rate?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJun 2023\nJul 2023\nAug 2023\nSep 2023\nOct 2023\nNov 2023\nDec 2023\nFeb 2024\nMarch 2024 or later\n\n\n\n\nIncrease\n✓\n✓\n\n\n\n\n\n\n\n\n\nDecrease\n\n\n\n\n\n\n\n\n\n\n\n\nWhy do you think this?\n\nBased on the new data from May, all my forecast systems are aligned and indicate a 15 basis point rise in the cash rate, with further increases expected throughout the year. The forecast intervals have also been narrowed to 3.9 to 4.1%, leaving little doubt about the projected raises. All this seems to be in line with the slowly falling inflation rate, which reached 6.8% in April. My forecasting system for this month includes thirty-two bond yield models for weekly and monthly data and sixty-four complex dynamics time-varying risk models encompassing the leverage effect and risk premium. The forecasts from individual models are further pooled based on their cash rate forecasting capacity.\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n15 pbs\n\nAt what level do you think the cash rate will peak?\n\n4.1%\n\nWhen do you think the cash rate will peak?\n\nJuly 2023"
+  },
+  {
+    "objectID": "2023_05.html#rbas-decision",
+    "href": "2023_05.html#rbas-decision",
+    "title": "May 2023",
+    "section": "RBA’s decision",
+    "text": "RBA’s decision\nOn 2 May 2023, the RBA announced an increase in the cash rate target by 25 basis points."
+  },
+  {
+    "objectID": "2023_05.html#forecasting-system",
+    "href": "2023_05.html#forecasting-system",
+    "title": "May 2023",
+    "section": "Forecasting system",
+    "text": "Forecasting system\nMy monthly forecasts were based a similar forecasting system as the one I developed for April forecasts as well as a new set of univariate models. The latter includes models of the cash rate capturing complex patterns of data persistence using autoregressive moving average equation extended by time-varying volatility equation - a GARCH model. Part of the models include the leverage effect and/or time-varying risk premium. The best fitting models are with the richest dynamics, that is a (3,3) ARMA order, the GARCH equation with the leverage and in-mean effects. The data is plotted below."
+  },
+  {
+    "objectID": "2023_04.html",
+    "href": "2023_04.html",
+    "title": "April 2023",
+    "section": "",
+    "text": "The end-of-April forecasting for the RBA cash rate survey by finder.com.au follows the anouncement of inflation for the first quarter of 2023 at the level of 7%. It fell, but remains high. The new data leads to forecasts indicating a slight increase in the cash rate for May. In the longer horizon, the bond yield curve modelling indicates stabilisation or further increases of cash rate while a system focusing on inflation and its expectations show its decline."
+  },
+  {
+    "objectID": "2023_04.html#cash-rate-forecasts",
+    "href": "2023_04.html#cash-rate-forecasts",
+    "title": "April 2023",
+    "section": "Cash rate forecasts",
+    "text": "Cash rate forecasts\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from May 2023 to April 2024 as the forecast mean and the 68% forecasting intervals.\n\n\n\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n\nMonthly and quarterly cash rate forecasts\n\n\n\nmonthly\nlower\nupper\n\n\n\n\nMay 2023\n3.53\n3.41\n3.65\n\n\nJun 2023\n3.52\n3.34\n3.70\n\n\nJul 2023\n3.53\n3.28\n3.79\n\n\nAug 2023\n3.58\n3.25\n3.91\n\n\nSep 2023\n3.63\n3.22\n4.04\n\n\nOct 2023\n3.66\n3.16\n4.17\n\n\nNov 2023\n3.71\n3.13\n4.28\n\n\nDec 2023\n3.78\n3.13\n4.43\n\n\nJan 2024\n3.87\n3.14\n4.59\n\n\nFeb 2024\n4.01\n3.22\n4.79\n\n\nMar 2024\n4.10\n3.25\n4.94\n\n\nApr 2024\n4.16\n3.25\n5.06"
+  },
+  {
+    "objectID": "2023_04.html#survey-answers",
+    "href": "2023_04.html#survey-answers",
+    "title": "April 2023",
+    "section": "Survey answers",
+    "text": "Survey answers\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\nWhen you think the RBA will change the cash rate?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMay 2023\nJun 2023\nJul 2023\nAug 2023\nSep 2023\nOct 2023\nNov 2023\nDec 2023\nJan 2024 or later\n\n\n\n\nIncrease\n✓\n✓\n\n\n\n\n\n\n\n\n\nDecrease\n\n\n\n\n\n\n\n\n\n\n\n\nWhy do you think this?\n\nThe new reading of the CPI inflation reaching 7% in the first quarter of 2023 aligns the quarterly forecasts with the monthly indicating the cash rate at 3.77% within the next 3-5 months. The prediction bands around this value reach from 3.4 to 4.1 %. My interpretation is a likely raise by 15 pp this or next month. Beyond this horizon, the forecasts diverge with the bond yield curve modelling indicating further increases and the system focusing on inflation, labour market and expectations showing cuts. The arrival of new macro data occurs essential in such dynamically changing circumstances./\n\nBy how much do you think the RBA will change the cash rate in the next meeting?\n\n15 pbs\n\nAt what level do you think the cash rate will peak?\n\n3.8%\n\nWhen do you think the cash rate will peak?\n\nJune 2023\n\nWhere do you think the cash rate will be at the end of 2023?\n\n3.8%"
+  },
+  {
+    "objectID": "2023_04.html#rbas-decision",
+    "href": "2023_04.html#rbas-decision",
+    "title": "April 2023",
+    "section": "RBA’s decision",
+    "text": "RBA’s decision\nOn 2 May 2023, the RBA announced an increase in the cash rate target by 25 basis points."
+  },
+  {
+    "objectID": "2023_04.html#forecasting-system",
+    "href": "2023_04.html#forecasting-system",
+    "title": "April 2023",
+    "section": "Forecasting system",
+    "text": "Forecasting system\n\nMy monthly forecasts were based a similar forecasting system as the one I developed for March forecasts. However, due to unavailability of long-term interest rates via package readrba I only used cash rate and government bond yields at maturity 30, 90, and 180 days. The data is plotted below."
+  }
+]

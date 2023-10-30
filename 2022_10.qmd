@@ -1,0 +1,235 @@
+---
+title: "October 2022"
+author: 
+  - name: "Tomasz Woźniak"
+    affiliations:
+      - University of Melbourne
+    orcid: 0000-0003-2212-2378
+execute:
+  freeze: auto
+---
+
+
+```{r interest data}
+#| echo: false
+#| message: false
+#| warning: false
+
+# download daily interest rates
+icr_dwnld   = readrba::read_rba(series_id = "FIRMMCRTD")   # Cash Rate Target
+icr_tmp     = xts::xts(icr_dwnld$value, icr_dwnld$date)
+dates_tmp   = xts::xts(as.Date(icr_dwnld$date), icr_dwnld$date)
+
+by1m_dwnld = readrba::read_rba(series_id = "FIRMMBAB30D")
+by1m_tmp   = xts::xts(by1m_dwnld$value, by1m_dwnld$date)
+
+by3m_dwnld = readrba::read_rba(series_id = "FIRMMBAB90D")
+by3m_tmp   = xts::xts(by3m_dwnld$value, by3m_dwnld$date)
+
+by6m_dwnld = readrba::read_rba(series_id = "FIRMMBAB180D")
+by6m_tmp   = xts::xts(by6m_dwnld$value, by6m_dwnld$date)
+
+by2y_dwnld = readrba::read_rba(series_id = "FCMYGBAG2D")
+by2y_tmp   = xts::xts(by2y_dwnld$value, by2y_dwnld$date)
+
+by3y_dwnld = readrba::read_rba(series_id = "FCMYGBAG3D")
+by3y_tmp   = xts::xts(by3y_dwnld$value, by3y_dwnld$date)
+
+by5y_dwnld = readrba::read_rba(series_id = "FCMYGBAG5D")
+by5y_tmp   = xts::xts(by5y_dwnld$value, by5y_dwnld$date)
+
+by10y_dwnld = readrba::read_rba(series_id = "FCMYGBAG10D")
+by10y_tmp   = xts::xts(by10y_dwnld$value, by10y_dwnld$date)
+
+long_ou_tmp = na.omit(merge(by2y_tmp, by3y_tmp, by5y_tmp, by10y_tmp))
+long_be     = long_ou_tmp["/2013-05-16"]
+long_af     = long_ou_tmp["2022-01-01/"]
+
+long_in_tmp = readxl::read_xls(path = "f02d.xls", skip = 10)
+long_in     = xts::xts(long_in_tmp[,2:5], as.Date(long_in_tmp$`Series ID`))
+long_in     = long_in["2013-05-17/2021-12-31"]
+colnames(long_in) <- colnames(long_af)
+
+short       = na.omit(merge(icr_tmp, by1m_tmp, by3m_tmp, by6m_tmp))
+long        = rbind(long_be, long_in, long_af)
+
+# daily systems
+forecast_day              = "/2022-10"
+
+variables_all             = na.omit(merge(short, long))
+colnames(variables_all)   = c("cash rate", "1m", "3m", "6m", "2y", "3y", "5y", "10y")
+variables                 = variables_all[forecast_day]
+variables                 = xts::to.monthly(variables, OHLC = FALSE)
+
+variables_long            = na.omit(merge(icr_tmp, long))
+colnames(variables_long)  = c("cash rate", "2y", "3y", "5y", "10y")
+variables_five            = variables_long[forecast_day]
+variables_five            = variables_five[-(1:19),]
+variables_five            = xts::to.monthly(variables_five, OHLC = FALSE)
+
+# create a dummy for the interest raise regime
+T       = nrow(variables)
+dummy   = ts(as.matrix(rep(0, T)), start = c(1995,1), frequency = 12)
+dummy[(T - 6):T] = 1
+colnames(dummy) = "dum"
+dummy_for = as.matrix(rep(1,12))
+colnames(dummy_for) = "dum"
+```
+
+```{r cointegrating rank}
+#| echo: false
+#| message: false
+#| warning: false
+#| results: hide
+
+library(vars)
+vecm   = ca.jo(variables, type = "trace", ecdet = "const", K = 5, spec = "transitory")
+cbind(vecm@teststat, vecm@cval)
+vecm_five   = ca.jo(variables_five, type = "trace", ecdet = "const", K = 5, spec = "transitory")
+cbind(vecm_five@teststat, vecm_five@cval)
+```
+
+```{r forecasting}
+#| echo: false
+
+# due to the problems with the readrba package the forecasts are reproduced from backup files
+variables = ts(variables, start = c(1995, 1), frequency = 12)
+variables_five = ts(variables_five, start = c(1995, 1), frequency = 12)
+
+f         = 1
+forecasts = array(NA, c(12, 3, 12))
+variables = list(variables, variables_five)
+
+for (v in 1:2) {
+  for (p in c(3, 5, 7)) {
+    vecm            = ca.jo(variables[[v]], type = "trace", ecdet = "const", K = p, spec = "transitory", dumvar = dummy)
+    var_cr          = vec2var(vecm, r = 4)
+    var_pr          = predict(var_cr, n.ahead = 12, ci = .68, dumvar = dummy_for)
+    forecasts[,,f]  = var_pr$fcst$cash.rate[,1:3]
+    f = f + 1
+    
+    vecm            = ca.jo(variables[[v]], type = "trace", ecdet = "const", K = p, spec = "transitory")
+    var_cr          = vec2var(vecm, r = 4)
+    var_pr          = predict(var_cr, n.ahead = 12, ci = .68)
+    forecasts[,,f]  = var_pr$fcst$cash.rate[,1:3]
+    f = f + 1
+  }
+}
+
+
+ym1 = zoo::as.yearmon("2022-11")
+ym2 = zoo::as.yearmon("2023-10")
+s   = seq(ym1, ym2, 1/12) # create yearmon sequence
+
+pooled_forecasts = apply(forecasts, 1:2, mean)
+rownames(pooled_forecasts) = as.character(s)
+colnames(pooled_forecasts) = c("forecast", "lower", "upper")
+
+ym13 = zoo::as.yearmon("2022-10")
+s3   = seq(ym13, ym2, 1/12) # create yearmon sequence
+
+ym12 = zoo::as.yearmon("2010-1")
+s2   = seq(ym12, ym2, 1/12) # create yearmon sequence
+
+datainforecast  = as.vector(variables[[1]][(dim(variables[[1]])[1] - (length(s2) - 12 - 1)):dim(variables[[1]])[1], 1])
+last_point      = datainforecast[length(datainforecast)]
+
+cols = c("darkorchid4","mediumorchid1","mediumorchid2","mediumorchid3","hotpink1","hotpink2","hotpink3","hotpink4")
+
+pooled_forecasts   = xts::xts(pooled_forecasts, s)
+# zoo::write.zoo(pooled_forecasts, sep = ",", file = "forecasts/2022-10.csv")
+```
+
+> End of October RBA cash rate survey by [finder.com.au](https://www.finder.com.au/rba-cash-rate) was the first one I contributed to. I submitted answers only to six questions regarding the future interest rate trajectory. My answers were based on a forecasting system. On this page, I present my forecasts, the answers I submitted on their basis, and a brief description of the forecasting system I used this time.\
+> The survey was published on 28 October 2022: [see the survey](https://www.finder.com.au/rba-survey-28-october-2022)\
+> My assessments were mentioned [here](https://www.news.com.au/finance/economy/interest-rates/bitter-pill-to-swallow-experts-grim-4-interest-rate-warning/news-story/8d95ff725a45b705649c4c2dca88589f), 
+[here](https://www.news.com.au/finance/economy/interest-rates/too-much-rba-tipped-to-confirm-seventh-consecutive-rate-rise-as-mortgage-cliff-looms/news-story/8f9c421356f5a9f8c703ebc61810ebb7),
+[here](https://www.finder.com.au/rba-survey-1-november-2022),
+[here](https://www.dailymail.co.uk/news/article-11375371/Warning-Australian-property-prices-start-slide-faster-rates-rising.html), and
+[here](https://dynamicbusiness.com/topics/news/there-will-likely-be-another-cash-rate-hike-on-nov-1.html)
+
+## Cash rate forecasts
+
+The figure below presents monthly cash rate series starting from January 2010 together with the forecasts reported as the forecast mean and the 68% forecasting intervals. The forecasts clearly follow the upwards trend in cash rate value up to June 2023 that is followed by a stabilisation at the level between 3.9-4 percent. The forecast intervals are quite vide and indicate a likely range between 3.3 and 4.5% in June 2023.
+
+```{r forecast plot}
+#| echo: false
+
+pf_tmp = read.csv("forecasts-backup/2022-10.csv")
+pooled_forecasts   = xts::xts(pf_tmp[,2:4], s)
+
+plot(x = s2, y = c(datainforecast, pooled_forecasts[,1]), main = "Cash rate forecast",
+     type = "l", ylab = "[%]", xlab = "time",
+     ylim = range(pooled_forecasts, datainforecast), bty = "n",
+     lwd = 1, col = cols[1]
+)
+polygon(x = c(s3, s3[13:1]), 
+        y = c(last_point,as.vector(pooled_forecasts[,2]), as.vector(pooled_forecasts[,3])[12:1], last_point),
+        col = cols[6], border = cols[6])
+lines(x = s2, y = c(datainforecast, pooled_forecasts[,1]), lwd = 3, col = cols[1])
+abline(v = ym13, col = cols[6], lty = 3)
+
+```
+
+The table below makes the numerical values presented in the figure accessible.
+
+```{r forecast table}
+#| echo: false
+
+knitr::kable(as.matrix(pooled_forecasts), caption = "Cash rate forecasts", digits = 2)
+```
+
+## Survey answers
+
+Based on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:
+
+**When you think the RBA will change the cash rate?**
+
+|          | Nov 2022 | Dec 2022 | Jan 2023 | Feb 2023 | Mar 2023 | Apr 2023 | May 2023 | Jun 2023 | Jul 2023 | Aug 2023 | Sep 2023 | Oct 2023 or later |
+|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|-------------------|
+| Increase | ✓        | ✓        | ✓        | ✓        | ✓        | ✓        | ✓        |          |          |          |          |                   |
+| Decrease |          |          |          |          |          |          |          |          |          |          |          |                   |
+
+**Why do you think this?**
+
+> The forecasts from the bond-yield curve models I estimated consistently indicate an increase in the value of the cash rate until mid-2023, after which levelling off should follow. By that time, the cash rate will nearly surely be higher than 3.6%, will most likely reach 4%, and is unlikely to exceed 4.4%. This would mean that the interest rates might get to the levels from early 2012.
+
+**By how much do you think the RBA will change the cash rate in the next meeting?**
+
+> 50 basis points
+
+**By how much do you think the RBA should change the cash rate in the next meeting?**
+
+> 50 basis points
+
+**At what level do you think the cash rate will peak?**
+
+> 4.1%
+
+**When do you think the cash rate will peak?**
+
+> June 2023
+
+## RBA's decision
+
+On 1 November 2022, the RBA announced an **increase** in the cash rate target by **25** basis points.
+
+
+## Forecasting system
+
+The forecasting system was formed for a series of eight interest rates, bond yields at different maturities, downloaded from RBA's website using an **R** package **readrba**. The monthly data spanning the period starting in January 1995 and finishing in October 2022 is plotted below.
+
+```{r data plot}
+#| echo: false
+
+plot(variables[[1]][,2], main = "Australian interest rates at various maturities",
+     ylab = "yield [%]", xlab = "time",
+     ylim = range(variables), bty = "n",
+     lwd = 1, col = "mediumorchid1"
+)
+for (i in 3:8) lines(variables[[1]][,i], col = cols[i])
+lines(variables[[1]][,1], col = "darkorchid4", lwd = 2)
+legend("topright", legend = colnames(variables[[1]]), col = cols, lwd = c(2, rep(1, 7)), bty = "n")
+```
+
+These series are used to estimate twelve Vector Error Correction models and to forecast the cash rate one year ahead using an **R** package **vars**. The twelve models differ by the series used for estimation, lag order, and whether a dummy variable was used. Six of these models used all eight variables and six only five including cash rate and yields at maturity from 2 to 10 years. The lag order used were 3, 5, and 7. The dummy variable takes the value of zero for all periods, except for the last six in the sample periods, to accommodate the recent interest rate hikes. The forecasts for the six models with the dummy variable are based on a hypothesised scenario of likely upcoming increases and used value one for the dummy at all forecast horizons. The forecasts from the twelve models were pooled using equal weights.

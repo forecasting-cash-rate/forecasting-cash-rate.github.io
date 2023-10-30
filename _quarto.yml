@@ -1,0 +1,56 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Forecasting cash rate"
+  favicon: fcr.png
+  navbar:
+    background: "light"
+    right:
+      - icon: person
+        url: https://github.com/donotdespair
+      - icon: github
+        url:  https://github.com/donotdespair/cash-rate-survey-forecasts
+      - icon: linkedin
+        url: https://www.linkedin.com/in/tomasz-wo%C5%BAniak-7b85361b1/
+      - icon: envelope
+        href: mailto:twozniak@unimelb.edu.au
+  sidebar:
+    logo: fcr.png
+    style: "floating"
+    search: true
+    contents:
+      - file: index.qmd
+        text: "RBA Cash Rate Survey Forecasts"
+      - section: "2023"
+        contents:
+          - file: 2023_09.qmd
+            text: "September"
+          - file: 2023_08.qmd
+            text: "August"
+          - file: 2023_07.qmd
+            text: "July"
+          - file: 2023_06.qmd
+            text: "June"
+          - file: 2023_05.qmd
+            text: "May"
+          - file: 2023_04.qmd
+            text: "April"
+          - file: 2023_03.qmd
+            text: "March"
+          - file: 2023_02.qmd
+            text: "February"
+          - file: 2023_01.qmd
+            text: "January"
+      - section: "2022"
+        contents:
+          - file: 2022_11.qmd
+            text: "November"
+          - file: 2022_10.qmd
+            text: "October"
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

@@ -1,0 +1,89 @@
+---
+title: "RBA Cash Rate Survey Forecasts"
+author: 
+  - name: "Tomasz Woźniak"
+    url: https://github.com/donotdespair
+    affiliations:
+      - University of Melbourne
+    orcid: 0000-0003-2212-2378
+---
+
+> In October 2022, portal [finder.com.au](https://www.finder.com.au/rba-cash-rate) invited me to join the panel of economists for their monthly RBA cash rate survey. My answers will be based on the forecasting analyses that I research and teach in my everyday work at the University of Melbourne. In the spirit of transparency, reproducibility, and sharing expertise, I am publishing my forecasts, and the survey answers on this website. I will keep expanding the data and models I use to produce the combined forecasts every month. Please, use the contact details if you want to share your insights, feedback, or suggestions with me.
+
+## The most up-to-date forecasts
+
+Have a look at the forecasts generated at the end of [September 2023](2023_09.qmd)
+
+## My cash rate forecasts
+
+The hydra plot below presents monthly cash rate series starting from January 2015 together with my forecasts from the subsequent months.
+
+```{r forecasts plot}
+#| echo: false
+
+# dates for the plot
+id1         = "2015-01" # the beginning of data plot
+id2         = "2023-09" # forecast origin
+id2a        = "2023-09" # data available until
+id3         = "2024-09" # the last forecast
+time_id     = seq(from = zoo::as.yearmon(id1), to = zoo::as.yearmon(id3), by = 1/12)
+
+
+# download series
+icr_dwnld   = readrba::read_rba(series_id = "FIRMMCRTD")   # Cash Rate Target
+icr_tmp     = xts::xts(icr_dwnld$value, icr_dwnld$date)
+icr         = xts::to.monthly(icr_tmp, OHLC = FALSE)
+icr         = icr[paste0(id1,"/",id2a)]
+
+# upload forecasts
+files       = list.files("forecasts-backup/")
+files       = files[!grepl("quarter", files)]
+fc          = colorRampPalette(c("darkorchid1", "darkorchid4"))
+cols        = fc(length(files))
+
+plot(
+  x = time_id, 
+  y = c(as.vector(icr), rep(NA,12)), 
+  main = "A hydra plot of cash rate and my forecasts",
+  ylab = "[%]", 
+  xlab = "time", 
+  ylim = c(0,5),
+  lwd = 3, 
+  col = "darkorchid4",
+  bty = "n", 
+  type = "l"
+)
+for (fi in files) {
+  forecasts_tmp = read.csv(paste0("forecasts-backup/",fi))[,1:2]
+  lines( 
+    x = seq(from = zoo::as.yearmon(forecasts_tmp[1,1]) - 1/12, to = zoo::as.yearmon(tail(forecasts_tmp[,1], 1)), by = 1/12),
+    y = c(as.numeric(icr[zoo::as.yearmon(forecasts_tmp[1,1]) - 1/12]), forecasts_tmp[,2]),
+    col = cols[which(grepl(fi, files))]
+  )
+}
+
+```
+
+## My answers
+
+The tables below juxtaposes my answers to the survey question regarding the following month's cash rate change with RBA's decision.
+
+### 2023
+
+| Survey taken in:   | Jan                              | Feb                              | Mar                            | Apr                              | May                              | Jun                            | Jul                            | Aug                             | Sep  | Oct | Nov |
+|------|------|------|------|------|------|------|------|------|------|------|------|
+| Predicted decision | <font color="green">RAISE</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> | <font color="green">RAISE</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> | <font color="red">RAISE</font> | <font color="green">HOLD</font> | HOLD |     |     |
+| Predicted change   | +0.25                            | +0.15                            | +0.15                          | +0.15                            | +0.15                            | +0.15                          | +0.15                          | 0.00                            | 0.00 |     |     |
+| RBA's decision     | +0.25                            | +0.25                            | 0.00                           | +0.25                            | +0.25                            | 0.00                           | 0.00                           | 0.00                            | TBA  |     |     |
+
+### 2022
+
+| Survey taken in:   | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct                              | Nov                              |
+|------|------|------|------|------|------|------|------|------|------|------|------|
+| Predicted decision |     |     |     |     |     |     |     |     |     | <font color="green">RAISE</font> | <font color="green">RAISE</font> |
+| Predicted change   |     |     |     |     |     |     |     |     |     | +0.5                             | +0.25                            |
+| RBA's decision     |     |     |     |     |     |     |     |     |     | +0.25                            | +0.25                            |
+
+## A disclaimer
+
+The surveyed panel of economists at [finder.com.au](https://www.finder.com.au/rba-cash-rate) is heavily gender biased with only 15 percent of the panellists being women. This is a problem because non-representative expert panels are not objective and quite likely pushing the interest of a specific demographic group. Therefore, before accepting the invitation I urged the portal to invite more female economists to the panel and was ready to put down the invitation depending on the answer. Saranga who is organising the survey explained to me that they are inviting as many women as men and shared with me the list of folks that were invited with me. I concluded that the under-representation of women in the panel is not an effect of finder's malpractices, but rather reflects the problem of economics as a field. We all share the responsibility to make the field representing the society more accurately by shifting the cultural and organisational practices. I accepted the invitation and do my best for the change to happen.

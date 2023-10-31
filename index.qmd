@@ -12,7 +12,7 @@ author:
 
 ## The most up-to-date forecasts
 
-Have a look at the forecasts generated at the end of [September 2023](2023_09.qmd)
+Have a look at the forecasts generated at the end of [October 2023](2023_10.qmd)
 
 ## My cash rate forecasts
 
@@ -23,9 +23,9 @@ The hydra plot below presents monthly cash rate series starting from January 201
 
 # dates for the plot
 id1         = "2015-01" # the beginning of data plot
-id2         = "2023-09" # forecast origin
-id2a        = "2023-09" # data available until
-id3         = "2024-09" # the last forecast
+id2         = "2023-10" # forecast origin
+id2a        = "2023-10" # data available until
+id3         = "2024-10" # the last forecast
 time_id     = seq(from = zoo::as.yearmon(id1), to = zoo::as.yearmon(id3), by = 1/12)
 
 
@@ -70,11 +70,11 @@ The tables below juxtaposes my answers to the survey question regarding the foll
 
 ### 2023
 
-| Survey taken in:   | Jan                              | Feb                              | Mar                            | Apr                              | May                              | Jun                            | Jul                            | Aug                             | Sep  | Oct | Nov |
+| Survey taken in:   | Jan                              | Feb                              | Mar                            | Apr                              | May                              | Jun                            | Jul                            | Aug                             | Sep                             | Oct  | Nov |
 |------|------|------|------|------|------|------|------|------|------|------|------|
-| Predicted decision | <font color="green">RAISE</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> | <font color="green">RAISE</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> | <font color="red">RAISE</font> | <font color="green">HOLD</font> | HOLD |     |     |
-| Predicted change   | +0.25                            | +0.15                            | +0.15                          | +0.15                            | +0.15                            | +0.15                          | +0.15                          | 0.00                            | 0.00 |     |     |
-| RBA's decision     | +0.25                            | +0.25                            | 0.00                           | +0.25                            | +0.25                            | 0.00                           | 0.00                           | 0.00                            | TBA  |     |     |
+| Predicted decision | <font color="green">RAISE</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> | <font color="green">RAISE</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> | <font color="red">RAISE</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | HOLD |     |
+| Predicted change   | +0.25                            | +0.15                            | +0.15                          | +0.15                            | +0.15                            | +0.15                          | +0.15                          | 0.00                            | 0.00                            | 0.00 |     |
+| RBA's decision     | +0.25                            | +0.25                            | 0.00                           | +0.25                            | +0.25                            | 0.00                           | 0.00                           | 0.00                            | 0.00                            |      |     |
 
 ### 2022
 

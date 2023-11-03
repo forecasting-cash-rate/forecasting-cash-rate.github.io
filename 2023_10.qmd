@@ -21,7 +21,6 @@ mfo             = zoo::as.yearmon(forecast_month) # monthly forecast origin
 wfo             = as.Date(forecast_day) + 7       # weekly forecast origin (daily date)
 ```
 
-
 ```{r interest data}
 #| echo: false
 #| message: false
@@ -433,11 +432,6 @@ pooled_forecasts_f = xts::xts(pooled_forecasts_f, s)
 
 ```
 
-
-
-
-
-
 ```{r univariate monthly forecasting}
 #| echo: false
 #| message: false
@@ -761,13 +755,13 @@ Based on the forecasts above, and the analysis of forecasts from individual mode
 
 |          | Oct 2023 | Nov 2023 | Dec 2023 | Feb 2024 | Mar 2024 | Apr 2024 | May 2024 | Jun 2024 | Jul 2024 or later |
 |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-| Increase |         |         |         |          |          |          |          |          |                   |
+| Increase |          |          |          |          |          |          |          |          |                   |
+| Hold     | ✓        | ✓        |          |          |          |          |          |          |                   |
 | Decrease |          |          |          |          |          |          |          |          |                   |
 
 **Why do you think this?**
 
 > The 68% forecasting interval from my predictive system containing over two hundred models of weekly and monthly data spans the cash rate values from 4.09 to 4.25 per cent. Therefore, it includes both the HOLD and RAISE decisions. Despite the latest reading of quarterly inflation, and given the latest communication from the RBA, my choice is to indicate HOLD. My forecasts are available at: https://forecasting-cash-rate.github.io/
-
 
 **By how much do you think the RBA will change the cash rate in the next meeting?**
 
@@ -830,6 +824,6 @@ The system consists of over two hundred of models. Half of them are are models o
 
 The novelty starting from this month is forecasting using a foreign sector represented by monthly trade weighted indices and interest rates of Australia's closest trading partners.
 
-Vector Error Correction models for weekly and monthly series with different model specification parameters. Univariate models for the cash rate capture complex patterns of data persistence using autoregressive moving average equation extended by time-varying volatility equation - a GARCH model. Part of the models include the leverage effect and/or time-varying risk premium. 
+Vector Error Correction models for weekly and monthly series with different model specification parameters. Univariate models for the cash rate capture complex patterns of data persistence using autoregressive moving average equation extended by time-varying volatility equation - a GARCH model. Part of the models include the leverage effect and/or time-varying risk premium.
 
 The forecasts are pooled in two stages. Firstly, the models are weighted in four sub-groups VECM vs. ARMA and weekly vs. monthly data models proportionally to their cash rate forecasting ability. Such four pooled forecasts are equally weighted in the second stage to provide monthly forecasts reported above.

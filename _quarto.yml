@@ -25,6 +25,8 @@ website:
         text: "RBA Cash Rate Survey Forecasts"
       - section: "2023"
         contents:
+          - file: 2023_11.qmd
+            text: "November"
           - file: 2023_10.qmd
             text: "October"
           - file: 2023_09.qmd

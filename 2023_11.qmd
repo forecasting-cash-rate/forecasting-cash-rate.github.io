@@ -1,0 +1,825 @@
+---
+title: "November 2023"
+author: 
+  - name: "Tomasz Woźniak"
+    url: https://github.com/donotdespair
+    affiliations:
+      - University of Melbourne
+    orcid: 0000-0003-2212-2378
+execute:
+  freeze: auto
+---
+
+```{r date setup}
+#| echo: false
+
+# setup these 
+forecast_day    = "2023-11-29"        # this forecast was performed on
+
+forecast_month  = substr(forecast_day, 1, 7)      # a string for the month the forecast was performed in
+mfo             = zoo::as.yearmon(forecast_month) # monthly forecast origin
+wfo             = as.Date(forecast_day) + 7       # weekly forecast origin (daily date)
+```
+
+```{r interest data}
+#| echo: false
+#| message: false
+#| warning: false
+
+###############################################################
+# download daily interest rates 
+# from the RBA using package readrba
+###############################################################
+icr_dwnld   = readrba::read_rba(series_id = "FIRMMCRTD")   # Cash Rate Target
+icr_tmp     = xts::xts(icr_dwnld$value, icr_dwnld$date)
+dates_tmp   = xts::xts(as.Date(icr_dwnld$date), icr_dwnld$date)
+
+by1m_dwnld = readrba::read_rba(series_id = "FIRMMBAB30D")
+by1m_tmp   = xts::xts(by1m_dwnld$value, by1m_dwnld$date)
+
+by3m_dwnld = readrba::read_rba(series_id = "FIRMMBAB90D")
+by3m_tmp   = xts::xts(by3m_dwnld$value, by3m_dwnld$date)
+
+by6m_dwnld = readrba::read_rba(series_id = "FIRMMBAB180D")
+by6m_tmp   = xts::xts(by6m_dwnld$value, by6m_dwnld$date)
+
+by2y_dwnld = readrba::read_rba(series_id = "FCMYGBAG2D")
+by2y_tmp   = xts::xts(by2y_dwnld$value, by2y_dwnld$date)
+
+by3y_dwnld = readrba::read_rba(series_id = "FCMYGBAG3D")
+by3y_tmp   = xts::xts(by3y_dwnld$value, by3y_dwnld$date)
+
+by5y_dwnld = readrba::read_rba(series_id = "FCMYGBAG5D")
+by5y_tmp   = xts::xts(by5y_dwnld$value, by5y_dwnld$date)
+
+by10y_dwnld = readrba::read_rba(series_id = "FCMYGBAG10D")
+by10y_tmp   = xts::xts(by10y_dwnld$value, by10y_dwnld$date)
+
+###############################################################
+# The following steps have to be performed because
+# some of the downloaded rates have a gap from
+# 16 May 2013 to 1 Jan 2022 as reported and discussed at:
+# https://github.com/MattCowgill/readrba/issues/43
+###############################################################
+long_ou_tmp = na.omit(merge(by2y_tmp, by3y_tmp, by5y_tmp, by10y_tmp))
+long_be     = long_ou_tmp["/2013-05-16"]
+long_af     = long_ou_tmp["2022-01-01/"]
+
+long_in_tmp = readxl::read_xls(path = "f02d.xls", skip = 10)
+long_in     = xts::xts(long_in_tmp[,2:5], as.Date(long_in_tmp$`Series ID`))
+long_in     = long_in["2013-05-17/2021-12-31"]
+colnames(long_in) <- colnames(long_af)
+
+short       = na.omit(merge(icr_tmp, by1m_tmp, by3m_tmp, by6m_tmp))
+long        = rbind(long_be, long_in, long_af)
+
+###############################################################
+# construct a matrix (xts) of daily interest rates data
+###############################################################
+variables_all             = na.omit(merge(short, long))
+colnames(variables_all)   = c("cash rate", "1m", "3m", "6m", "2y", "3y", "5y", "10y")
+variables_all             = variables_all[paste0("/",forecast_day)]
+variables_weekly          = xts::to.weekly(variables_all, OHLC = FALSE)
+variables_monthly         = xts::to.monthly(variables_all, OHLC = FALSE)
+
+
+# variables_all[,c(1,5:8)]
+# variables_all[,1:4]
+# variables_weekly
+# variables_monthly
+
+###############################################################
+# create a dummy for the interest raise regime
+# from May 22 to June 23
+# the dummies used for forecasting DO NOT include the hikes term
+###############################################################
+T       = nrow(variables_monthly)
+dm      = xts::xts(as.matrix(rep(0, T)), zoo::index(variables_monthly))
+dm["2022-05/2023-06"] = 1
+colnames(dm) = "dum"
+dmf = as.matrix(rep(0,12))    # turn off the 2022/23 hikes dummy 
+colnames(dmf) = "dum"
+
+Tw      = nrow(variables_weekly)
+dw      = xts::xts(as.matrix(rep(0, Tw)), zoo::index(variables_weekly))
+dw["2022-05/2023-06"] = 1
+colnames(dw) = "dum"
+dwf = as.matrix(rep(0,55))     # turn off the 2022/23 hikes dummy 
+colnames(dwf) = "dum"
+```
+
+```{r cointegrating rank}
+#| echo: false
+#| eval: false
+#| message: false
+#| warning: false
+#| results: hide
+
+###############################################################
+# perform cointegrating rank test to specify VECM models
+###############################################################
+library(vars)
+# Johansen's cointegrating rank test
+vecm_vma   = ca.jo(variables_monthly, type = "trace", ecdet = "const", K = 5, spec = "transitory")
+summary(vecm_vma) # r = 5, N = 8
+
+vecm_vms   = ca.jo(variables_monthly[,1:4], type = "trace", ecdet = "const", K = 5, spec = "transitory")
+summary(vecm_vms) # r = 3, N = 4
+
+vecm_vml   = ca.jo(variables_monthly[,c(1,5:8)], type = "trace", ecdet = "const", K = 5, spec = "transitory")
+summary(vecm_vml) # r = 4, N = 5
+
+
+vecm_vwa   = ca.jo(variables_weekly, type = "trace", ecdet = "const", K = 5, spec = "transitory")
+summary(vecm_vwa) # r = 7, N = 8
+
+vecm_vws   = ca.jo(variables_weekly[,1:4], type = "trace", ecdet = "const", K = 5, spec = "transitory")
+summary(vecm_vws) # r = 3, N = 4
+
+vecm_vwl   = ca.jo(variables_weekly[,c(1,5:8)], type = "trace", ecdet = "const", K = 5, spec = "transitory")
+summary(vecm_vwl) # r = 4, N = 5
+```
+
+```{r forecasting}
+#| echo: false
+#| message: false
+#| warning: false
+
+###############################################################
+# forecasting using VECM models
+###############################################################
+# idea:
+# create many alternative VECM specifications with
+# - various lag orders (pp below)
+# - various data (all variables, only short- and long-run rates collected in vm)
+# - various data sampling frequency (weekly and monthly)
+# - model with the raise dummy dm and without
+# the forecasts are weighted based on their capacity to model cash rate
+###############################################################
+
+library(vars)
+
+###############################################################
+# forecast with monthly data
+###############################################################
+vm        = list(
+  variables_monthly, 
+  variables_monthly[,1:4], 
+  variables_monthly[,c(1,5:8)]
+) # three types of monthly data
+pp        = c(3, 5, 7, 9, 11, 13, 15, 17) # selected lag orders
+rr        = c(5, 3, 4)                    # various cointegrating ranks for data systems
+mm        = 2 * length(pp) * length(vm)   # count the number of models in this section
+forecasts = array(NA, c(12, 3, mm))       # to be filled in with forecasts
+loglik    = rep(NA, mm)       # to be filled in with value of cash rate-specific likelihood
+f         = 1                 # it's used to fill in the outcomes
+
+
+###############################################################
+# the loop below estimates the models and predicts 12 months ahead
+###############################################################
+for (v in 1:3) {
+  for (p in pp) {
+    
+    # estimation of models with raise dummy
+    ###############################################################
+    vecm            = ca.jo(vm[[v]], type = "trace", ecdet = "const", K = p, spec = "transitory", dumvar = dm)
+    var_cr          = vec2var(vecm, r = rr[v])
+    var_pr          = predict(var_cr, n.ahead = 12, ci = .68, dumvar = dmf)
+    forecasts[,,f]  = var_pr$fcst$cash.rate[,1:3]
+    standardised_resid = var_cr$resid[,1]/sqrt(sum(var_cr$resid[,1]^2)/var_cr$obs)
+    loglik[f]       = sum(dnorm(standardised_resid, log = TRUE))
+    f = f + 1
+    
+    # estimation of models without the raise dummy
+    ###############################################################
+    vecm            = ca.jo(vm[[v]], type = "trace", ecdet = "const", K = p, spec = "transitory")
+    var_cr          = vec2var(vecm, r = rr[v])
+    var_pr          = predict(var_cr, n.ahead = 12, ci = .68)
+    forecasts[,,f]  = var_pr$fcst$cash.rate[,1:3]
+    standardised_resid = var_cr$resid[,1]/sqrt(sum(var_cr$resid[,1]^2)/var_cr$obs)
+    loglik[f]       = sum(dnorm(standardised_resid, log = TRUE))
+    f = f + 1
+  }
+}
+
+# compute the weights for forecasts from each of the models
+# weights are proportional to marginal likelihood for the cash rate
+###############################################################
+ll        = exp(loglik - max(loglik))
+weights   = ll/sum(ll)
+
+# reweight the forecasts
+###############################################################
+forecasts_w = forecasts
+for (i in 1:mm) {
+  forecasts_w[,,i]      = weights[i] * forecasts[,,i]
+}
+
+# set up forecast date sequence
+# this is used to assign the forecasts monthly periods
+###############################################################
+ym13 = mfo
+ym1 = ym13 + 1/12                 # the first forecasted period
+ym2 = ym1 + 11/12                 # the last forecasted period
+s   = seq(ym1, ym2, 1/12)         # create yearmon sequence
+
+###############################################################
+# compute the pooled forecasts 
+# for VECM forecasting using monthly data
+###############################################################
+pooled_forecasts_m = apply(forecasts_w, 1:2, sum)
+colnames(pooled_forecasts_m) = c("forecast", "lower", "upper")
+pooled_forecasts_m = xts::xts(pooled_forecasts_m, s)
+
+
+
+###############################################################
+# forecast with weekly data
+###############################################################
+vw          = list(  
+  variables_weekly, 
+  variables_weekly[,1:4], 
+  variables_weekly[,c(1,5:8)]
+) # three types of weekly data
+rrw         = c(7, 3, 4)            # various cointegrating ranks for data systems
+mmw         = 2 * length(pp) * length(vw) # count the number of models in this section
+forecastsw  = array(NA, c(55, 3, mmw))    # to be filled in with forecasts
+loglikw     = rep(NA, mmw)                # to be filled in with value of cash rate-specific likelihood
+f           = 1                           # it's used to fill in the outcomes
+
+for (v in 1:3) {
+  for (p in pp) {
+    
+    # estimation of models with raise dummy
+    ###############################################################
+    vecm            = ca.jo(vw[[v]], type = "trace", ecdet = "const", K = p, spec = "transitory", dumvar = dw)
+    var_cr          = vec2var(vecm, r = rrw[v])
+    var_pr          = predict(var_cr, n.ahead = 55, ci = .68, dumvar = dwf)
+    forecastsw[,,f] = var_pr$fcst$cash.rate[,1:3]
+    standardised_resid = var_cr$resid[,1]/sqrt(sum(var_cr$resid[,1]^2)/var_cr$obs)
+    loglikw[f]      = sum(dnorm(standardised_resid, log = TRUE))
+    f = f + 1
+    
+    # estimation of models without raise dummy
+    ###############################################################
+    vecm            = ca.jo(vw[[v]], type = "trace", ecdet = "const", K = p, spec = "transitory")
+    var_cr          = vec2var(vecm, r = rrw[v])
+    var_pr          = predict(var_cr, n.ahead = 55, ci = .68)
+    forecastsw[,,f] = var_pr$fcst$cash.rate[,1:3]
+    standardised_resid = var_cr$resid[,1]/sqrt(sum(var_cr$resid[,1]^2)/var_cr$obs)
+    loglikw[f]      = sum(dnorm(standardised_resid, log = TRUE))
+    f = f + 1
+  }
+}
+
+
+# compute the weights for forecasts from each of the models
+# weights are proportional to marginal likelihood for the cash rate
+###############################################################
+llw        = exp(loglikw - max(loglikw))
+weightsw   = llw/sum(llw)
+
+# reweight the forecasts
+###############################################################
+forecastsw_w = forecastsw
+for (i in 1:mmw) {
+  forecastsw_w[,,i]      = weightsw[i] * forecastsw[,,i]
+}
+
+# set up forecast date sequence
+# this is used to assign the forecasts weekly periods
+###############################################################
+sw    = as.Date(rep(NA, 55))
+sw[1] = wfo
+for (i in 2:55) {
+  sw[i] = sw[i - 1] + 7
+}
+
+###############################################################
+# compute the pooled forecasts 
+# for VECM forecasting using weekly data
+# and transform them to monthly forecasts (I report monthly forecasts)
+###############################################################
+pooled_forecasts_ww           = apply(forecastsw_w, 1:2, sum)
+colnames(pooled_forecasts_ww) = c("forecast", "lower", "upper")
+pooled_forecasts_ww           = xts::xts(pooled_forecasts_ww, sw)
+pooled_forecasts_wm           = xts::to.monthly(pooled_forecasts_ww, OHLC = FALSE)
+
+```
+
+```{r data exchange rates and foreign ir}
+#| echo: false
+#| message: false
+#| warning: false
+
+icr_dwnld   = readrba::read_rba(series_id = "FIRMMCRTD")   # Cash Rate Target
+icr_tmp     = xts::xts(icr_dwnld$value, icr_dwnld$date)
+crt         = xts::to.monthly(icr_tmp, OHLC = FALSE)
+dates_tmp   = xts::xts(as.Date(icr_dwnld$date), icr_dwnld$date)
+
+# Trade-weighted Index May 1970 = 100
+twi_dwnld  = readrba::read_rba(series_id = "FXRTWI")
+twi_tmp    = xts::xts(twi_dwnld$value, twi_dwnld$date)
+twi        = xts::to.monthly(twi_tmp, OHLC = FALSE)
+
+# US dollar trade-weighted index
+twius_dwnld  = readrba::read_rba(series_id = "FUSXRTWI")
+twius_tmp    = xts::xts(twius_dwnld$value, twius_dwnld$date, tclass = 'yearmon')
+twius        = xts::to.monthly(twius_tmp, OHLC = FALSE)
+
+# Canada Target Rate
+rcan_dwnld  = readrba::read_rba(series_id = "FOOIRCTR")
+rcan_tmp    = xts::xts(rcan_dwnld$value, rcan_dwnld$date, tclass = 'yearmon')
+rcan        = xts::to.monthly(rcan_tmp, OHLC = FALSE)
+
+# Euro Area Refinancing Rate
+reur_dwnld  = readrba::read_rba(series_id = "FOOIREARR")
+reur_tmp    = xts::xts(reur_dwnld$value, reur_dwnld$date, tclass = 'yearmon')
+reur        = xts::to.monthly(reur_tmp, OHLC = FALSE)
+
+# Japan Policy Rate
+rjap_dwnld  = readrba::read_rba(series_id = "FOOIRJTCR")
+rjap_tmp    = xts::xts(rjap_dwnld$value, rjap_dwnld$date, tclass = 'yearmon')
+rjap        = xts::to.monthly(rjap_tmp, OHLC = FALSE)
+
+# United Kingdom Bank Rate
+rgbt_dwnld  = readrba::read_rba(series_id = "FOOIRUKOBR")
+rgbt_tmp    = xts::xts(rgbt_dwnld$value, rgbt_dwnld$date, tclass = 'yearmon')
+rgbt        = xts::to.monthly(rgbt_tmp, OHLC = FALSE)
+
+# United States Federal Funds Minimum Target Rate
+rusa_dwnld  = readrba::read_rba(series_id = "FOOIRUSFFTRMX")
+rusa_tmp    = xts::xts(rusa_dwnld$value, rusa_dwnld$date, tclass = 'yearmon')
+rusa        = xts::to.monthly(rusa_tmp, OHLC = FALSE)
+
+foreign = na.omit(merge(
+  crt, twi, twius, rcan, reur, rjap, rgbt, rusa
+))
+
+library(vars)
+vecm_f   = ca.jo(foreign, type = "trace", ecdet = "const", K = 5, spec = "transitory")
+# summary(vecm_f) # r = 1, N = 8
+
+vecm_fr   = ca.jo(foreign[,c(1,4:8)], type = "trace", ecdet = "const", K = 5, spec = "transitory")
+# summary(vecm_fr) # r = 1, N = 8
+
+vecm_feus   = ca.jo(foreign[,c(1:3,8)], type = "trace", ecdet = "const", K = 5, spec = "transitory")
+# summary(vecm_feus) # r = 1, N = 8
+
+###############################################################
+# forecast with monthly data
+###############################################################
+vm        = list(
+  foreign, 
+  foreign[,c(1,4:8)], 
+  foreign[,c(1:3,8)]
+) # three types of monthly data
+pp        = c(3, 5, 7, 9, 11, 13, 15, 17) # selected lag orders
+rr        = c(1, 1, 1)                    # various cointegrating ranks for data systems
+mm        = length(pp) * length(vm)   # count the number of models in this section
+forecasts = array(NA, c(12, 3, mm))       # to be filled in with forecasts
+loglik    = rep(NA, mm)       # to be filled in with value of cash rate-specific likelihood
+f         = 1                 # it's used to fill in the outcomes
+
+
+###############################################################
+# the loop below estimates the models and predicts 12 months ahead
+###############################################################
+for (v in 1:3) {
+  for (p in pp) {
+    
+    # estimation of models without the raise dummy
+    ###############################################################
+    vecm            = ca.jo(vm[[v]], type = "trace", ecdet = "const", K = p, spec = "transitory")
+    var_cr          = vec2var(vecm, r = rr[v])
+    var_pr          = predict(var_cr, n.ahead = 12, ci = .68)
+    forecasts[,,f]  = var_pr$fcst$crt[,1:3]
+    standardised_resid = var_cr$resid[,1]/sqrt(sum(var_cr$resid[,1]^2)/var_cr$obs)
+    loglik[f]       = sum(dnorm(standardised_resid, log = TRUE))
+    f = f + 1
+  }
+}
+
+# compute the weights for forecasts from each of the models
+# weights are proportional to marginal likelihood for the cash rate
+###############################################################
+ll        = exp(loglik - max(loglik))
+weights   = ll/sum(ll)
+
+# reweight the forecasts
+###############################################################
+forecasts_f = forecasts
+for (i in 1:mm) {
+  forecasts_f[,,i]      = weights[i] * forecasts[,,i]
+}
+
+# set up forecast date sequence
+# this is used to assign the forecasts monthly periods
+###############################################################
+ym13 = mfo
+ym1 = ym13 + 1/12                 # the first forecasted period
+ym2 = ym1 + 11/12                 # the last forecasted period
+s   = seq(ym1, ym2, 1/12)         # create yearmon sequence
+
+###############################################################
+# compute the pooled forecasts 
+# for VECM forecasting using monthly data
+###############################################################
+pooled_forecasts_f = apply(forecasts_f, 1:2, sum)
+colnames(pooled_forecasts_f) = c("forecast", "lower", "upper")
+pooled_forecasts_f = xts::xts(pooled_forecasts_f, s)
+
+```
+
+```{r univariate monthly forecasting}
+#| echo: false
+#| message: false
+#| warning: false
+
+###############################################################
+# forecast cash rate using univariate models
+###############################################################
+# idea:
+# forecast using various models that differ by:
+# - sampling data frequency (weekly and monthly cash rate)
+# - ARMA model lag order (p_max and q_max) for conditional mean
+# - various specifications of the conditional volatility equations:
+#   - GARCH model 
+#   - GARCH-IN-MEAN model (time-varying risk premium)
+#   - GJR-GARCH model (leverage effect)
+#   - GJR-GARCH-IN-MEAN model
+# The forecasts are pooled using weights
+#    based on their capacity to model cash rate
+# Note: rugarch package requires bootstraping the forecasts to
+#    compute the forecasting standard errors
+###############################################################
+
+# monthly cash rate
+###############################################################
+crm = variables_monthly[,1]
+
+# ARMA models maximum lag orders
+###############################################################
+p_max     = 3
+q_max     = 3
+
+# matrices to be filled in by forecasts 
+#   and cash rate-specific likelihood
+###############################################################
+garchfm   = array(NA, c(12, 3, 4, (p_max ) * (q_max + 1)))
+loglik    = matrix(NA, 4, (p_max ) * (q_max + 1))
+loglik_sr = matrix(NA, 4, (p_max ) * (q_max + 1))
+
+for (i in 1:p_max) {
+  for (j in 0:q_max) {
+    
+    # arma-garch forecasting
+    ###############################################################
+    garch_ms   = rugarch::ugarchspec(
+      variance.model = list(model = "sGARCH"), 
+      mean.model = list(armaOrder = c(i, j)), 
+      distribution.model = "norm"
+    )
+    garch_mf   = rugarch::ugarchfit(garch_ms, crm, solver = "hybrid")
+    garch_mfor = rugarch::ugarchboot(garch_mf, n.ahead = 12,
+                                     method = "Partial", n.bootpred = 5000)
+    garchfm[,,1, (q_max + 1)*(i - 1) + j + 1]  = cbind(garch_mfor@forc@forecast$seriesFor,
+          t(apply(garch_mfor@fseries, 2, HDInterval::hdi , credMass = .68)))
+    loglik[1, (q_max + 1)*(i - 1) + j + 1]     = -sum(garch_mf@fit$log.likelihoods)
+    
+    # arma-garch-in-mean forecasting
+    ###############################################################
+    garch_ms   = rugarch::ugarchspec(
+      variance.model = list(model = "sGARCH"), 
+      mean.model = list(armaOrder = c(i, j), archm = TRUE), 
+      distribution.model = "norm"
+    )
+    garch_mf   = rugarch::ugarchfit(garch_ms, crm, solver = "hybrid")
+    garch_mfor = rugarch::ugarchboot(garch_mf, n.ahead = 12,
+                                     method = "Partial", n.bootpred = 5000)
+    garchfm[,,2, (q_max + 1)*(i - 1) + j + 1]  = cbind(garch_mfor@forc@forecast$seriesFor,
+          t(apply(garch_mfor@fseries, 2, HDInterval::hdi , credMass = .68)))
+    loglik[2, (q_max + 1)*(i - 1) + j + 1]     = -sum(garch_mf@fit$log.likelihoods)
+    
+    # arma-gjr-garch forecasting
+    ###############################################################
+    garch_ms   = rugarch::ugarchspec(
+      variance.model = list(model = "gjrGARCH"), 
+      mean.model = list(armaOrder = c(i, j)), 
+      distribution.model = "norm"
+    )
+    garch_mf   = rugarch::ugarchfit(garch_ms, crm, solver = "hybrid")
+    garch_mfor = rugarch::ugarchboot(garch_mf, n.ahead = 12,
+                                     method = "Partial", n.bootpred = 5000)
+    garchfm[,,3, (q_max + 1)*(i - 1) + j + 1]  = cbind(garch_mfor@forc@forecast$seriesFor,
+          t(apply(garch_mfor@fseries, 2, HDInterval::hdi , credMass = .68)))
+    loglik[3, (q_max + 1)*(i - 1) + j + 1]     = -sum(garch_mf@fit$log.likelihoods)
+    
+    # arma-gjr-garch-in-mean forecasting
+    ###############################################################
+    garch_ms   = rugarch::ugarchspec(
+      variance.model = list(model = "gjrGARCH"), 
+      mean.model = list(armaOrder = c(i, j), archm = TRUE), 
+      distribution.model = "norm"
+    )
+    garch_mf   = rugarch::ugarchfit(garch_ms, crm, solver = "hybrid")
+    garch_mfor = rugarch::ugarchboot(garch_mf, n.ahead = 12,
+                                     method = "Partial", n.bootpred = 5000)
+    garchfm[,,4, (q_max + 1)*(i - 1) + j + 1]  = cbind(garch_mfor@forc@forecast$seriesFor,
+          t(apply(garch_mfor@fseries, 2, HDInterval::hdi , credMass = .68)))
+    loglik[4, (q_max + 1)*(i - 1) + j + 1]     = -sum(garch_mf@fit$log.likelihoods)
+  }
+}
+
+# models that failed to estimate obtain -Inf log-likelihood
+###############################################################
+loglik[is.na(loglik)] = -1000000
+
+# compute the weights
+###############################################################
+llm        = exp(loglik - max(loglik))
+weightsm   = llm/sum(llm)
+
+# reweight the forecasts
+###############################################################
+forecastsm = garchfm
+forecastsm[is.na(forecastsm)] = 0
+for (i in 1:dim(garchfm)[3]) {
+  for (j in 1:dim(garchfm)[4]) {
+    forecastsm[,,i,j]      = weightsm[i,j] * forecastsm[,,i,j]
+  }
+}
+
+###############################################################
+# pool the weighted monthly forecasts using univariate models
+###############################################################
+pooled_forecasts_garchm = apply(forecastsm, 1:2, sum)
+colnames(pooled_forecasts_garchm) = c("forecast", "lower", "upper")
+pooled_forecasts_garchm = xts::xts(pooled_forecasts_garchm, s)
+
+```
+
+```{r univariate weekly forecasting}
+#| echo: false
+#| message: false
+#| warning: false
+
+# weekly cash rate series
+###############################################################
+crw = variables_weekly[,1]
+
+# ARMA maximum lag orders for weekly arma-garch forecasting
+###############################################################
+p_max     = 4
+q_max     = 1
+
+# to be filled in with forecasts and 
+#   cash rate-specific likelihoods
+###############################################################
+garchfw   = array(NA, c(55, 3, 4, (p_max ) * (q_max + 1)))
+loglik    = matrix(NA, 4, (p_max ) * (q_max + 1))
+
+for (i in 1:p_max) {
+  for (j in 0:q_max) {
+    
+    # arma-garch forecasting
+    ###############################################################
+    garch_ms   = rugarch::ugarchspec(
+      variance.model = list(model = "sGARCH"), 
+      mean.model = list(armaOrder = c(i, j)), 
+      distribution.model = "norm"
+    )
+    garch_mf   = rugarch::ugarchfit(garch_ms, crw, solver = "hybrid")
+    garch_mfor = rugarch::ugarchboot(garch_mf, n.ahead = 55,
+                                     method = "Partial", n.bootpred = 5000)
+    garchfw[,,1, (q_max + 1)*(i - 1) + j + 1]  = cbind(garch_mfor@forc@forecast$seriesFor,
+          t(apply(garch_mfor@fseries, 2, HDInterval::hdi , credMass = .68)))
+    loglik[1, (q_max + 1)*(i - 1) + j + 1]     = -sum(garch_mf@fit$log.likelihoods)
+    
+    # arma-garch-in-mean forecasting
+    ###############################################################
+    garch_ms   = rugarch::ugarchspec(
+      variance.model = list(model = "sGARCH"), 
+      mean.model = list(armaOrder = c(i, j), archm = TRUE), 
+      distribution.model = "norm"
+    )
+    garch_mf   = rugarch::ugarchfit(garch_ms, crw, solver = "hybrid")
+    garch_mfor = rugarch::ugarchboot(garch_mf, n.ahead = 55,
+                                     method = "Partial", n.bootpred = 5000)
+    garchfw[,,2, (q_max + 1)*(i - 1) + j + 1]  = cbind(garch_mfor@forc@forecast$seriesFor,
+          t(apply(garch_mfor@fseries, 2, HDInterval::hdi , credMass = .68)))
+    loglik[2, (q_max + 1)*(i - 1) + j + 1]     = -sum(garch_mf@fit$log.likelihoods)
+    
+    # arma-gjr-garch forecasting
+    ###############################################################
+    garch_ms   = rugarch::ugarchspec(
+      variance.model = list(model = "gjrGARCH"), 
+      mean.model = list(armaOrder = c(i, j)), 
+      distribution.model = "norm"
+    )
+    garch_mf   = rugarch::ugarchfit(garch_ms, crw, solver = "hybrid")
+    garch_mfor = rugarch::ugarchboot(garch_mf, n.ahead = 55,
+                                     method = "Partial", n.bootpred = 5000)
+    garchfw[,,3, (q_max + 1)*(i - 1) + j + 1]  = cbind(garch_mfor@forc@forecast$seriesFor,
+          t(apply(garch_mfor@fseries, 2, HDInterval::hdi , credMass = .68)))
+    loglik[3, (q_max + 1)*(i - 1) + j + 1]     = -sum(garch_mf@fit$log.likelihoods)
+    
+    # arma-gjr-garch-in-mean forecasting
+    ###############################################################
+    garch_ms   = rugarch::ugarchspec(
+      variance.model = list(model = "gjrGARCH"), 
+      mean.model = list(armaOrder = c(i, j), archm = TRUE), 
+      distribution.model = "norm"
+    )
+    garch_mf   = rugarch::ugarchfit(garch_ms, crw, solver = "hybrid")
+    garch_mfor = rugarch::ugarchboot(garch_mf, n.ahead = 55,
+                                     method = "Partial", n.bootpred = 5000)
+    garchfw[,,4, (q_max + 1)*(i - 1) + j + 1]  = cbind(garch_mfor@forc@forecast$seriesFor,
+          t(apply(garch_mfor@fseries, 2, HDInterval::hdi , credMass = .68)))
+    loglik[4, (q_max + 1)*(i - 1) + j + 1]     = -sum(garch_mf@fit$log.likelihoods)
+  }
+}
+
+# models that fail to estimate correctly obtain -Inf log-likelihood
+###############################################################
+loglik[is.na(loglik)] = -1000000
+
+# compute the weights
+###############################################################
+llm        = exp(loglik - max(loglik))
+weightsw   = llm/sum(llm)
+
+# reweight the forecasts
+###############################################################
+forecastsw = garchfw
+forecastsw[is.na(forecastsw)] = 0
+for (i in 1:dim(garchfw)[3]) {
+  for (j in 1:dim(garchfw)[4]) {
+    forecastsw[,,i,j]      = weightsw[i,j] * forecastsw[,,i,j]
+  }
+}
+
+###############################################################
+# pool the weighted weekly forecasts from univariate models
+###############################################################
+pooled_forecasts_garchw = apply(forecastsw, 1:2, sum)
+colnames(pooled_forecasts_garchw) = c("forecast", "lower", "upper")
+pooled_forecasts_garchw = xts::xts(pooled_forecasts_garchw, sw)
+pooled_forecasts_garchwm = xts::to.monthly(pooled_forecasts_garchw, OHLC = FALSE)
+```
+
+```{r pool forecasts}
+#| echo: false
+#| message: false
+#| warning: false
+
+###############################################################
+# pool all the forecasts
+# from VECM and ARMA-GARCH models for weekly and monthly data
+###############################################################
+pooled_forecasts = (1/5) * (pooled_forecasts_m + pooled_forecasts_wm + pooled_forecasts_garchm + pooled_forecasts_garchwm + pooled_forecasts_f)
+
+# save to file
+###############################################################
+zoo::write.zoo(pooled_forecasts, sep = ",", file = paste0("forecasts/",forecast_month,".csv"))
+```
+
+```{bash}
+#| echo: false
+#| eval: false
+
+# copy the forecast to archive
+###############################################################
+cp forecasts/2023-11.csv forecasts-backup/2023-11.csv
+```
+
+> The end-of-November forecasting for the RBA cash rate survey by [finder.com.au](https://www.finder.com.au/rba-cash-rate) follows the announcement of October quarterly inflation 4.9%.
+
+## Cash rate forecasts
+
+The figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from December 2023 to November 2024 as the forecast mean and the 68% forecasting intervals.
+
+```{r forecast plot}
+#| echo: false
+
+# this is used for a forecast figure 
+###############################################################
+ym12 = zoo::as.yearmon("2010-1") # first data point for the plot - do not change
+s3   = seq(ym13, ym2, 1/12) # create yearmon sequence
+s2   = seq(ym12, ym2, 1/12) # create yearmon sequence
+
+datainforecast  = as.vector(vm[[2]][(dim(vm[[2]])[1] - (length(s2) - 12 - 1)):dim(vm[[2]])[1], 1])
+last_point      = datainforecast[length(datainforecast)]
+
+cols = c("darkorchid4","mediumorchid1","mediumorchid2","mediumorchid3","hotpink1","hotpink2","hotpink3","hotpink4")
+
+
+ci1_tmp = col2rgb(cols[2])
+ci2_tmp = col2rgb(cols[4])
+ci1     = rgb(ci1_tmp[1], ci1_tmp[2], ci1_tmp[3], 100, maxColorValue = 255)
+ci2     = rgb(ci2_tmp[1], ci2_tmp[2], ci2_tmp[3], 100, maxColorValue = 255)
+
+plot(x = s2, y = c(datainforecast, pooled_forecasts[,1]), main = "Cash rate forecast",
+     type = "l", ylab = "[%]", xlab = "time",
+     ylim = range(pooled_forecasts, datainforecast), bty = "n",
+     lwd = 1, col = cols[1]
+)
+polygon(x = c(s3, s3[13:1]), 
+        y = c(last_point,as.vector(pooled_forecasts[,2]), as.vector(pooled_forecasts[,3])[12:1], last_point),
+        col = ci1, border = ci1)
+lines(x = s2, y = c(datainforecast, pooled_forecasts[,1]), lwd = 2, col = cols[1])
+abline(v = ym13, col = cols[6], lty = 3)
+
+
+```
+
+The table below makes the numerical values presented in the figure more accessible.
+
+```{r forecast table}
+#| echo: false
+options(knitr.kable.NA = '') 
+# pooled_mq     = merge(pooled_forecasts,pooled_forecasts_q)
+# colnames(pooled_mq) = c("monthly", "lower", "upper", "quarterly", "lower", "upper")
+# knitr::kable(as.matrix(pooled_mq), caption = "Monthly and quarterly cash rate forecasts", digits = 2)
+pooled_mq     = merge(pooled_forecasts)
+colnames(pooled_mq) = c("monthly", "lower", "upper")
+knitr::kable(as.matrix(pooled_mq), caption = "Monthly and quarterly cash rate forecasts", digits = 2)
+```
+
+## Survey answers
+
+Based on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:
+
+**When you think the RBA will change the cash rate?**
+
+|          | Dec 2023 | Feb 2024 | Mar 2024 | Apr 2024 | May 2024 | Jun 2024 | Jul 2024 | Aug 2024 | Sep 2024 or later |
+|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| Increase |          |          |          |          |          |          |          |          |                   |
+| Hold     | ✓        | ✓        |          |          |          |          |          |          |                   |
+| Decrease |          |          |          |          |          |          |          |          |                   |
+
+**Why do you think this?**
+
+> After last month's forecasts indicating both HOLD and RAISE decisions, this month, they settled quite firmly on HOLD. The level of 4.35% is likely to stay unchanged by the second quarter of next year. This seems in line with Michele Bullock's communication, although the domestic sources of inflation talk could indicate otherwise. My forecasts are available at: forecasting-cash-rate.github.io
+
+**By how much do you think the RBA will change the cash rate in the next meeting?**
+
+> 0 pbs
+
+**At what level do you think the cash rate will peak?**
+
+> 4.35%
+
+**When do you think the cash rate will peak?**
+
+> November 2023
+
+## Forecasting system
+
+My forecasting system for November is based on the cash rate target and government bond yields at various maturities as presented in the figure below.
+
+```{r data plot yields}
+#| echo: false
+
+plot(
+  x = index(variables_weekly), 
+  y = as.vector(variables_weekly[,2]), 
+  main = "Australian interest rates at various maturities",
+  type = "l", 
+  ylab = "yield [%]", 
+  xlab = "time",
+  ylim = range(variables_weekly), 
+  bty = "n",
+  lwd = 1, 
+  col = "mediumorchid1"
+)
+for (i in 3:8) {
+  lines(
+    x = index(variables_weekly), 
+    y = as.vector(variables_weekly[,i]), 
+    col = cols[i]
+  )
+}
+lines(
+  x = index(variables_weekly), 
+  y = as.vector(variables_weekly[,1]), 
+  col = "darkorchid4", 
+  lwd = 2
+)
+legend(
+  "topright", 
+  legend = colnames(variables_weekly), 
+  col = cols, 
+  lwd = c(2, rep(1, 7)), 
+  bty = "n"
+)
+```
+
+The system consists of over two hundred of models. Half of them are are models of weekly and the other half of monthly data.
+
+The novelty starting from this month is forecasting using a foreign sector represented by monthly trade weighted indices and interest rates of Australia's closest trading partners.
+
+Vector Error Correction models for weekly and monthly series with different model specification parameters. Univariate models for the cash rate capture complex patterns of data persistence using autoregressive moving average equation extended by time-varying volatility equation - a GARCH model. Part of the models include the leverage effect and/or time-varying risk premium.
+
+The forecasts are pooled in two stages. Firstly, the models are weighted in four sub-groups VECM vs. ARMA and weekly vs. monthly data models proportionally to their cash rate forecasting ability. Such four pooled forecasts are equally weighted in the second stage to provide monthly forecasts reported above.

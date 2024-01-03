@@ -12,7 +12,7 @@ author:
 
 ## The most up-to-date forecasts
 
-Have a look at the forecasts generated at the end of [November 2023](2023_11.qmd)
+Have a look at the forecasts generated at the beginning of [January 2024](2024_01.qmd)
 
 ## My cash rate forecasts
 
@@ -23,8 +23,8 @@ The hydra plot below presents monthly cash rate series starting from January 201
 
 # dates for the plot
 id1         = "2015-01" # the beginning of data plot
-id2         = "2023-11" # forecast origin
-id3         = "2024-11" # the last forecast
+id2         = "2023-12" # forecast origin
+id3         = "2024-12" # the last forecast
 time_id     = seq(from = zoo::as.yearmon(id1), to = zoo::as.yearmon(id3), by = 1/12)
 
 # download series
@@ -66,13 +66,23 @@ for (fi in files) {
 
 The tables below juxtaposes my answers to the survey question regarding the following month's cash rate change with RBA's decision.
 
+### 2024
+
+Starting in 2024 the **Predicted change** is reported as the difference between the value of cash rate and the mean pooled forecast. This value might not be exactly consistent with the reported **Predicted decision** as the latter is the interpretation of the former.
+
+| Survey taken in:   | Jan   | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov |
+|--------------------|-------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| Predicted decision | HOLD  |     |     |     |     |     |     |     |     |     |     |
+| Predicted change   | -0.06 |     |     |     |     |     |     |     |     |     |     |
+| RBA's decision     |       |     |     |     |     |     |     |     |     |     |     |
+
 ### 2023
 
-| Survey taken in:   | Jan                              | Feb                              | Mar                            | Apr                              | May                              | Jun                            | Jul                            | Aug                             | Sep                             | Oct                           | Nov  |
+| Survey taken in:   | Jan                              | Feb                              | Mar                            | Apr                              | May                              | Jun                            | Jul                            | Aug                             | Sep                             | Oct                           | Nov                             |
 |------|------|------|------|------|------|------|------|------|------|------|------|
-| Predicted decision | <font color="green">RAISE</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> | <font color="green">RAISE</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> | <font color="red">RAISE</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | <font color="red">HOLD</font> | HOLD |
-| Predicted change   | +0.25                            | +0.15                            | +0.15                          | +0.15                            | +0.15                            | +0.15                          | +0.15                          | 0.00                            | 0.00                            | 0.00                          | 0.00 |
-| RBA's decision     | +0.25                            | +0.25                            | 0.00                           | +0.25                            | +0.25                            | 0.00                           | 0.00                           | 0.00                            | 0.00                            | +0.25                         |      |
+| Predicted decision | <font color="green">RAISE</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> | <font color="green">RAISE</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> | <font color="red">RAISE</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | <font color="red">HOLD</font> | <font color="green">HOLD</font> |
+| Predicted change   | +0.25                            | +0.15                            | +0.15                          | +0.15                            | +0.15                            | +0.15                          | +0.15                          | 0.00                            | 0.00                            | 0.00                          | 0.00                            |
+| RBA's decision     | +0.25                            | +0.25                            | 0.00                           | +0.25                            | +0.25                            | 0.00                           | 0.00                           | 0.00                            | 0.00                            | +0.25                         | 0.00                            |
 
 ### 2022
 

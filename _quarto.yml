@@ -23,6 +23,10 @@ website:
     contents:
       - file: index.qmd
         text: "RBA Cash Rate Survey Forecasts"
+      - section: "2024"
+        contents:
+          - file: 2024_01.qmd
+            text: "January"
       - section: "2023"
         contents:
           - file: 2023_11.qmd

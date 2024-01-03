@@ -182,6 +182,34 @@
     "text": "Forecasting system\nMy forecasting system for September is based on the cash rate target and government bond yields at various maturities as presented in the figure below.\n\n\n\n\n\nThe system consists of a 192 of models. Half of them are are models of weekly and the other half of monthly data.\nVector Error Correction models for weekly and monthly series with different model specification parameters. Univariate models for the cash rate capture complex patterns of data persistence using autoregressive moving average equation extended by time-varying volatility equation - a GARCH model. Part of the models include the leverage effect and/or time-varying risk premium.\nThe forecasts are pooled in two stages. Firstly, the models are weighted in four sub-groups VECM vs. ARMA and weekly vs. monthly data models proportionally to their cash rate forecasting ability. Such four pooled forecasts are equally weighted in the second stage to provide monthly forecasts reported above."
   },
   {
+    "objectID": "2024_01.html",
+    "href": "2024_01.html",
+    "title": "November 2023",
+    "section": "",
+    "text": "Happy New Year! Have a look at my beginning-of-January forecasts prepared to answer the RBA cash rate survey by finder.com.au."
+  },
+  {
+    "objectID": "2024_01.html#cash-rate-forecasts",
+    "href": "2024_01.html#cash-rate-forecasts",
+    "title": "November 2023",
+    "section": "Cash rate forecasts",
+    "text": "Cash rate forecasts\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from January 2024 to December 2024 as the forecast mean and the 68% forecasting intervals.\n\n\n\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n\nMonthly and quarterly cash rate forecasts\n\n\n\nmonthly\nlower\nupper\n\n\n\n\nJan 2024\n4.29\n4.22\n4.38\n\n\nFeb 2024\n4.29\n4.15\n4.43\n\n\nMar 2024\n4.23\n4.04\n4.47\n\n\nApr 2024\n4.16\n3.90\n4.44\n\n\nMay 2024\n4.11\n3.79\n4.45\n\n\nJun 2024\n4.08\n3.71\n4.49\n\n\nJul 2024\n4.04\n3.62\n4.50\n\n\nAug 2024\n4.05\n3.58\n4.56\n\n\nSep 2024\n4.02\n3.50\n4.59\n\n\nOct 2024\n3.99\n3.42\n4.61\n\n\nNov 2024\n3.96\n3.36\n4.63\n\n\nDec 2024\n3.93\n3.28\n4.65"
+  },
+  {
+    "objectID": "2024_01.html#survey-answers",
+    "href": "2024_01.html#survey-answers",
+    "title": "November 2023",
+    "section": "Survey answers",
+    "text": "Survey answers\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\nWhen you think the RBA will change the cash rate?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJan 2023\nFeb 2024\nMar 2024\nApr 2024\nMay 2024\nJun 2024\nJul 2024\nAug 2024\nSep 2024 or later\n\n\n\n\nIncrease\n\n\n\n\n\n\n\n\n\n\n\nHold\n✓\n✓\n\n\n\n\n\n\n\n\n\nDecrease\n\n\n\n\n\n\n\n\n\n\n\n\nWhy do you think this?\n\nHappy New Year! My forecasts hardly contain the current cash rate value within the forecast interval, with most of the forecast density mass indicating downward movements. My reading of these results is that the RBA will HOLD the cash rate at the current value to push the inflation down more. I expect the first interest rate cuts by mid-2024. My forecasts are available at https://forecasting-cash-rate.github.io/\n\nDo you think the cash rate has peaked?\n\nYES\n\nWhen do you think the RBA will first cut the cash rate?\n\nJune 2024"
+  },
+  {
+    "objectID": "2024_01.html#forecasting-system",
+    "href": "2024_01.html#forecasting-system",
+    "title": "November 2023",
+    "section": "Forecasting system",
+    "text": "Forecasting system\nMy forecasting system for November is based on the cash rate target and government bond yields at various maturities as presented in the figure below.\n\n\n\n\n\nThe system consists of over two hundred of models. Half of them are are models of weekly and the other half of monthly data.\nVector Error Correction models for weekly and monthly series with different model specification parameters. Univariate models for the cash rate capture complex patterns of data persistence using autoregressive moving average equation extended by time-varying volatility equation - a GARCH model. Part of the models include the leverage effect and/or time-varying risk premium.\nThe forecasts are pooled in two stages. Firstly, the models are weighted in four sub-groups VECM vs. ARMA and weekly vs. monthly data models proportionally to their cash rate forecasting ability. Such four pooled forecasts are equally weighted in the second stage to provide monthly forecasts reported above."
+  },
+  {
     "objectID": "2023_08.html",
     "href": "2023_08.html",
     "title": "August 2023",
@@ -228,7 +256,7 @@
     "href": "index.html#the-most-up-to-date-forecasts",
     "title": "RBA Cash Rate Survey Forecasts",
     "section": "The most up-to-date forecasts",
-    "text": "The most up-to-date forecasts\nHave a look at the forecasts generated at the end of November 2023"
+    "text": "The most up-to-date forecasts\nHave a look at the forecasts generated at the beginning of January 2024"
   },
   {
     "objectID": "index.html#my-cash-rate-forecasts",
@@ -242,7 +270,7 @@
     "href": "index.html#my-answers",
     "title": "RBA Cash Rate Survey Forecasts",
     "section": "My answers",
-    "text": "My answers\nThe tables below juxtaposes my answers to the survey question regarding the following month’s cash rate change with RBA’s decision.\n\n2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey taken in:\nJan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug\nSep\nOct\nNov\n\n\n\n\nPredicted decision\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nHOLD\nHOLD\nHOLD\nHOLD\n\n\nPredicted change\n+0.25\n+0.15\n+0.15\n+0.15\n+0.15\n+0.15\n+0.15\n0.00\n0.00\n0.00\n0.00\n\n\nRBA’s decision\n+0.25\n+0.25\n0.00\n+0.25\n+0.25\n0.00\n0.00\n0.00\n0.00\n+0.25\n\n\n\n\n\n\n2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey taken in:\nJan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug\nSep\nOct\nNov\n\n\n\n\nPredicted decision\n\n\n\n\n\n\n\n\n\nRAISE\nRAISE\n\n\nPredicted change\n\n\n\n\n\n\n\n\n\n+0.5\n+0.25\n\n\nRBA’s decision\n\n\n\n\n\n\n\n\n\n+0.25\n+0.25"
+    "text": "My answers\nThe tables below juxtaposes my answers to the survey question regarding the following month’s cash rate change with RBA’s decision.\n\n2024\nStarting in 2024 the Predicted change is reported as the difference between the value of cash rate and the mean pooled forecast. This value might not be exactly consistent with the reported Predicted decision as the latter is the interpretation of the former.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey taken in:\nJan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug\nSep\nOct\nNov\n\n\n\n\nPredicted decision\nHOLD\n\n\n\n\n\n\n\n\n\n\n\n\nPredicted change\n-0.06\n\n\n\n\n\n\n\n\n\n\n\n\nRBA’s decision\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey taken in:\nJan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug\nSep\nOct\nNov\n\n\n\n\nPredicted decision\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nHOLD\nHOLD\nHOLD\nHOLD\n\n\nPredicted change\n+0.25\n+0.15\n+0.15\n+0.15\n+0.15\n+0.15\n+0.15\n0.00\n0.00\n0.00\n0.00\n\n\nRBA’s decision\n+0.25\n+0.25\n0.00\n+0.25\n+0.25\n0.00\n0.00\n0.00\n0.00\n+0.25\n0.00\n\n\n\n\n\n2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey taken in:\nJan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug\nSep\nOct\nNov\n\n\n\n\nPredicted decision\n\n\n\n\n\n\n\n\n\nRAISE\nRAISE\n\n\nPredicted change\n\n\n\n\n\n\n\n\n\n+0.5\n+0.25\n\n\nRBA’s decision\n\n\n\n\n\n\n\n\n\n+0.25\n+0.25"
   },
   {
     "objectID": "index.html#a-disclaimer",

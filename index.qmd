@@ -23,8 +23,8 @@ The hydra plot below presents monthly cash rate series starting from January 201
 
 # dates for the plot
 id1         = "2015-01" # the beginning of data plot
-id2         = "2023-12" # forecast origin
-id3         = "2024-12" # the last forecast
+id2         = "2024-01" # forecast origin
+id3         = "2025-01" # the last forecast
 time_id     = seq(from = zoo::as.yearmon(id1), to = zoo::as.yearmon(id3), by = 1/12)
 
 # download series
@@ -79,7 +79,7 @@ Starting in 2024 the **Predicted change** is reported as the difference between 
 ### 2023
 
 | Survey taken in:   | Jan                              | Feb                              | Mar                            | Apr                              | May                              | Jun                            | Jul                            | Aug                             | Sep                             | Oct                           | Nov                             |
-|--------------------|----------------------------------|----------------------------------|--------------------------------|----------------------------------|----------------------------------|--------------------------------|--------------------------------|---------------------------------|---------------------------------|-------------------------------|---------------------------------|
+|------|------|------|------|------|------|------|------|------|------|------|------|
 | Predicted decision | <font color="green">RAISE</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> | <font color="green">RAISE</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> | <font color="red">RAISE</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | <font color="red">HOLD</font> | <font color="green">HOLD</font> |
 | Predicted change   | +0.25                            | +0.15                            | +0.15                          | +0.15                            | +0.15                            | +0.15                          | +0.15                          | 0.00                            | 0.00                            | 0.00                          | 0.00                            |
 | RBA's decision     | +0.25                            | +0.25                            | 0.00                           | +0.25                            | +0.25                            | 0.00                           | 0.00                           | 0.00                            | 0.00                            | +0.25                         | 0.00                            |
@@ -87,7 +87,7 @@ Starting in 2024 the **Predicted change** is reported as the difference between 
 ### 2022
 
 | Survey taken in:   | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct                              | Nov                              |
-|--------------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|----------------------------------|----------------------------------|
+|------|------|------|------|------|------|------|------|------|------|-------|-------|
 | Predicted decision |     |     |     |     |     |     |     |     |     | <font color="green">RAISE</font> | <font color="green">RAISE</font> |
 | Predicted change   |     |     |     |     |     |     |     |     |     | +0.5                             | +0.25                            |
 | RBA's decision     |     |     |     |     |     |     |     |     |     | +0.25                            | +0.25                            |

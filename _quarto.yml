@@ -29,6 +29,8 @@ website:
             text: "January"
       - section: "2023"
         contents:
+          - file: 2023_12.qmd
+            text: "December"
           - file: 2023_11.qmd
             text: "November"
           - file: 2023_10.qmd

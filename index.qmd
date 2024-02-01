@@ -72,8 +72,8 @@ Starting in 2024 the **Predicted change** is reported as the difference between 
 
 | Survey taken in:   | Jan   | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov |
 |--------------------|-------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| Predicted decision | HOLD  |     |     |     |     |     |     |     |     |     |     |
-| Predicted change   | -0.06 |     |     |     |     |     |     |     |     |     |     |
+| Predicted decision |      | HOLD|     |     |     |     |     |     |     |     |     |
+| Predicted change   | -0.06 | 0.04 |     |     |     |     |     |     |     |     |     |
 | RBA's decision     |       |     |     |     |     |     |     |     |     |     |     |
 
 ### 2023

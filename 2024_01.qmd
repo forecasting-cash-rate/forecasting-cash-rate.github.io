@@ -1,5 +1,5 @@
 ---
-title: "November 2023"
+title: "January 2024"
 author: 
   - name: "Tomasz Woźniak"
     url: https://github.com/donotdespair
@@ -14,7 +14,7 @@ execute:
 #| echo: false
 
 # setup these 
-forecast_day    = "2023-12-31"        # this forecast was performed on
+forecast_day    = "2024-01-31"        # this forecast was performed on
 
 forecast_month  = substr(forecast_day, 1, 7)      # a string for the month the forecast was performed in
 mfo             = zoo::as.yearmon(forecast_month) # monthly forecast origin
@@ -82,11 +82,26 @@ variables_all             = variables_all[paste0("/",forecast_day)]
 variables_weekly          = xts::to.weekly(variables_all, OHLC = FALSE)
 variables_monthly         = xts::to.monthly(variables_all, OHLC = FALSE)
 
+###############################################################
+# construct log-volatilities
+###############################################################
+vol_tmp     = na.omit(diff(variables_all[,2:8], lag = 1)^2)
+vol_m       = log(
+                xts::apply.monthly(
+                    vol_tmp, 
+                    function(x){apply(x,2,sum)}
+                    )
+                )
+vol_w       = log(
+                xts::apply.weekly(
+                    vol_tmp, 
+                    function(x){apply(x,2,sum)}
+                    )
+                )
 
-# variables_all[,c(1,5:8)]
-# variables_all[,1:4]
-# variables_weekly
-# variables_monthly
+vol_w       = vol_w[!apply(vol_w, 1, function(x) any(x == -Inf)),]
+colnames(vol_m) = colnames(vol_w) = paste0("vol",c("1m", "3m", "6m", "2y", "3y", "5y", "10y"))
+
 
 ###############################################################
 # create a dummy for the interest raise regime
@@ -310,7 +325,7 @@ pooled_forecasts_wm           = xts::to.monthly(pooled_forecasts_ww, OHLC = FALS
 
 ```{r data exchange rates and foreign ir}
 #| echo: false
-#| eval: false
+#| eval: true
 #| message: false
 #| warning: false
 
@@ -670,6 +685,119 @@ pooled_forecasts_garchw = xts::xts(pooled_forecasts_garchw, sw)
 pooled_forecasts_garchwm = xts::to.monthly(pooled_forecasts_garchw, OHLC = FALSE)
 ```
 
+
+
+```{r forecasting with vol}
+#| echo: false
+#| message: false
+#| warning: false
+
+###############################################################
+# forecasting using VAR models and realised volatility
+###############################################################
+# idea:
+# create many alternative VAR specifications with
+# - various lag orders (pp below)
+# - various data (all variables, only short- and long-run rates collected in vm)
+# - various data sampling frequency (weekly and monthly)
+# - with measures of realised volatility as exogenous and endogenous variables
+# the forecasts are weighted based on their capacity to model cash rate
+###############################################################
+
+library(vars)
+
+###############################################################
+# forecast with monthly data
+###############################################################
+vm        = list(
+  variables_monthly, 
+  variables_monthly[,1:4], 
+  variables_monthly[,c(1,5:8)]
+) # three types of monthly data
+volm      = list(
+  vol_m, 
+  vol_m[,1:3], 
+  vol_m[,4:7]
+)
+pp        = c(3, 5, 7, 9, 11, 13, 15, 17) # selected lag orders
+mm        = 3 * length(pp)   # count the number of models in this section
+forecasts = array(NA, c(12, 3, mm))       # to be filled in with forecasts
+loglik    = rep(NA, mm)       # to be filled in with value of cash rate-specific likelihood
+f         = 1                 # it's used to fill in the outcomes
+
+
+###############################################################
+# the loop below estimates the models and predicts 12 months ahead
+###############################################################
+for (v in 1:3) {
+  for (p in pp) {
+    
+    # estimation of models with raise dummy
+    ###############################################################
+    ir_m_var  = VAR(
+      y = vm[[v]],
+      p = p,
+      type = "const",
+      exogen = volm[[v]]
+    )
+    vol_m_var = VAR(
+      y = volm[[v]],
+      p = p,
+      type = "const"
+    )
+    
+    vol_m_for = predict(vol_m_var, n.ahead = 12, ci = .68)
+    vol_m_for_mat = matrix(NA, 12, 0)
+    for (i in 1:length(vol_m_for$fcst)) {
+      vol_m_for_mat = cbind(vol_m_for_mat, vol_m_for$fcst[[i]][,1])
+    }
+    ir_m_for = predict(ir_m_var, n.ahead = 12, ci = .68, dumvar = vol_m_for_mat)
+    
+    forecasts[,,f]  = ir_m_for$fcst$cash.rate[,1:3]
+    standardised_resid = residuals(ir_m_var)[,1]/sqrt(sum(residuals(ir_m_var)[,1]^2)/ir_m_var$obs)
+    loglik[f]       = sum(dnorm(standardised_resid, log = TRUE))
+    f = f + 1
+  }
+}
+
+# compute the weights for forecasts from each of the models
+# weights are proportional to marginal likelihood for the cash rate
+###############################################################
+ll        = exp(loglik - max(loglik))
+weights   = ll/sum(ll)
+
+# reweight the forecasts
+###############################################################
+forecasts_v = forecasts
+for (i in 1:mm) {
+  forecasts_v[,,i]      = weights[i] * forecasts[,,i]
+}
+
+
+###############################################################
+# compute the pooled forecasts 
+# for VECM forecasting using monthly data
+###############################################################
+pooled_forecasts_v = apply(forecasts_v, 1:2, sum)
+colnames(pooled_forecasts_v) = c("forecast", "lower", "upper")
+pooled_forecasts_v = xts::xts(pooled_forecasts_v, s)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```{r pool forecasts}
 #| echo: false
 #| message: false
@@ -679,8 +807,8 @@ pooled_forecasts_garchwm = xts::to.monthly(pooled_forecasts_garchw, OHLC = FALSE
 # pool all the forecasts
 # from VECM and ARMA-GARCH models for weekly and monthly data
 ###############################################################
-# pooled_forecasts = (1/5) * (pooled_forecasts_m + pooled_forecasts_wm + pooled_forecasts_garchm + pooled_forecasts_garchwm + pooled_forecasts_f)
-pooled_forecasts = (1/4) * (pooled_forecasts_m + pooled_forecasts_wm + pooled_forecasts_garchm + pooled_forecasts_garchwm)
+# pooled_forecasts = (1/6) * (pooled_forecasts_m + pooled_forecasts_wm + pooled_forecasts_garchm + pooled_forecasts_garchwm + pooled_forecasts_f + pooled_forecasts_v)
+pooled_forecasts = (1/4) * (pooled_forecasts_m + pooled_forecasts_wm  + pooled_forecasts_f + pooled_forecasts_v)
 
 # save to file
 ###############################################################
@@ -693,14 +821,14 @@ zoo::write.zoo(pooled_forecasts, sep = ",", file = paste0("forecasts/",forecast_
 
 # copy the forecast to archive
 ###############################################################
-cp forecasts/2023-12.csv forecasts-backup/2023-12.csv
+<!-- cp forecasts/2024-01.csv forecasts-backup/2024-01.csv -->
 ```
 
-> Happy New Year! Have a look at my beginning-of-January forecasts prepared to answer the RBA cash rate survey by [finder.com.au](https://www.finder.com.au/rba-cash-rate).
+> Happy New Year! Have a look at my end-of-January forecasts prepared to answer the RBA cash rate survey by [finder.com.au](https://www.finder.com.au/rba-cash-rate).
 
 ## Cash rate forecasts
 
-The figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from January 2024 to December 2024 as the forecast mean and the 68% forecasting intervals.
+The figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from February 2024 to January 2025 as the forecast mean and the 68% forecasting intervals.
 
 ```{r forecast plot}
 #| echo: false
@@ -755,7 +883,7 @@ Based on the forecasts above, and the analysis of forecasts from individual mode
 
 **When you think the RBA will change the cash rate?**
 
-|          | Jan 2023 | Feb 2024 | Mar 2024 | Apr 2024 | May 2024 | Jun 2024 | Jul 2024 | Aug 2024 | Sep 2024 or later |
+|          | Feb 2024 | Mar 2024 | Apr 2024 | May 2024 | Jun 2024 | Jul 2024 | Aug 2024 | Sep 2024 | Oct 2024 or later |
 |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
 | Increase |          |          |          |          |          |          |          |          |                   |
 | Hold     | ✓        | ✓        |          |          |          |          |          |          |                   |
@@ -763,7 +891,7 @@ Based on the forecasts above, and the analysis of forecasts from individual mode
 
 **Why do you think this?**
 
-> Happy New Year! My forecasts hardly contain the current cash rate value within the forecast interval, with most of the forecast density mass indicating downward movements. My reading of these results is that the RBA will HOLD the cash rate at the current value to push the inflation down more. I expect the first interest rate cuts by mid-2024. My forecasts are available at https://forecasting-cash-rate.github.io/
+> Happy New Year! My short-term forecasts are clearly cetred about the current cash rate value. My reading of these results is that the RBA will HOLD the cash rate at the current value to push the inflation down more. I expect the first interest rate cuts by mid-2024. My forecasts are available at https://forecasting-cash-rate.github.io/
 
 **Do you think the cash rate has peaked?**
 
@@ -771,7 +899,7 @@ Based on the forecasts above, and the analysis of forecasts from individual mode
 
 **When do you think the RBA will first cut the cash rate?**
 
-> June 2024
+> May 2024
 
 
 ## Forecasting system

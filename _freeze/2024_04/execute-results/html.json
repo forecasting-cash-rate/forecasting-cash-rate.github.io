@@ -1,0 +1,16 @@
+{
+  "hash": "aa0ccc3015c1573a09f42a9ee783fc43",
+  "result": {
+    "markdown": "---\ntitle: \"Late April 2024\"\nauthor: \n  - name: \"Tomasz Woźniak\"\n    url: https://github.com/donotdespair\n    affiliations:\n      - University of Melbourne\n    orcid: 0000-0003-2212-2378\nexecute:\n  freeze: auto\n---\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n\n> Happy Autumn! Have a look at my end-of-April forecasts prepared to answer the RBA cash rate survey by [finder.com.au](https://www.finder.com.au/rba-cash-rate).\n\n## Cash rate forecasts\n\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from May 2024 to April 2025 as the forecast mean and the 68% forecasting intervals.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](2024_04_files/figure-html/forecast plot-1.png){width=672}\n:::\n:::\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n::: {.cell}\n::: {.cell-output-display}\nTable: Monthly and quarterly cash rate forecasts\n\n|         | monthly| lower| upper|\n|:--------|-------:|-----:|-----:|\n|Apr 2024 |    4.39|  4.31|  4.48|\n|May 2024 |    4.50|  4.36|  4.65|\n|Jun 2024 |    4.50|  4.30|  4.73|\n|Jul 2024 |    4.59|  4.33|  4.87|\n|Aug 2024 |    4.62|  4.29|  4.96|\n|Sep 2024 |    4.60|  4.21|  5.01|\n|Oct 2024 |    4.60|  4.15|  5.07|\n|Nov 2024 |    4.57|  4.08|  5.11|\n|Dec 2024 |    4.54|  3.98|  5.13|\n|Jan 2025 |    4.54|  3.93|  5.18|\n|Feb 2025 |    4.52|  3.87|  5.21|\n|Mar 2025 |    4.50|  3.80|  5.24|\n:::\n:::\n\n\n## Survey answers\n\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\n\n**When you think the RBA will change the cash rate?**\n\n|          | May 2024 | Jun 2024 | Aug 2024 | Sep 2024 | Nov 2024 | Dec 2024 | Feb 2025 | Mar 2025 | May 2025 or beyond |\n|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|\n| Increase |          |          |          |          |          |          |          |          |                   |\n| Hold     | ✓        | ✓        |          |          |          |          |          |          |                   |\n| Decrease |          |          |          |          |          |          |          |          |                   |\n\n**Why do you think this?**\n\n> Upward pressure mounts! As per my analysis using over 200 weekly and monthly multivariate models, the forecast intervals indicate a HOLD decision for the following year. However, there is a notable difference this time around. Opposite to the last three forecasts done from December, this month's analysis shows that the probability of an increase is over twice as high as that of a cut. You can access these forecasts at https://forecasting-cash-rate.github.io/\n\n",
+    "supporting": [
+      "2024_04_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

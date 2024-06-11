@@ -14,6 +14,10 @@ website:
         url:  https://github.com/forecasting-cash-rate/forecasting-cash-rate.github.io
       - icon: linkedin
         url: https://www.linkedin.com/in/tomasz-wo%C5%BAniak-7b85361b1/
+      - icon: cloud-fill
+        url: https://bsky.app/profile/tomaszwozniak.bsky.social
+      - icon: mastodon
+        url: https://fosstodon.org/@tomaszwozniak
       - icon: envelope
         href: mailto:twozniak@unimelb.edu.au
   sidebar:
@@ -25,6 +29,8 @@ website:
         text: "RBA Cash Rate Survey Forecasts"
       - section: "2024"
         contents:
+          - file: 2024_06.qmd
+            text: "Early June"
           - file: 2024_04.qmd
             text: "Late April"
           - file: 2024_03.qmd

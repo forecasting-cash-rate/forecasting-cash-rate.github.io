@@ -29,6 +29,8 @@ website:
         text: "RBA Cash Rate Survey Forecasts"
       - section: "2024"
         contents:
+          - file: 2024_07.qmd
+            text: "Late July"
           - file: 2024_06.qmd
             text: "Early June"
           - file: 2024_04.qmd

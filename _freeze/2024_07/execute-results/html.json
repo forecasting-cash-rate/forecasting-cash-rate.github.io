@@ -1,0 +1,16 @@
+{
+  "hash": "e04f67901f285121eeda8b86bacadbde",
+  "result": {
+    "markdown": "---\ntitle: \"Late July 2024\"\nauthor: \n  - name: \"Tomasz Woźniak\"\n    url: https://github.com/donotdespair\n    affiliations:\n      - University of Melbourne\n    orcid: 0000-0003-2212-2378\nexecute:\n  freeze: auto\n---\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n\n> Happy Beautiful Misty Winter! Have a look at my late July forecasts prepared to answer the RBA cash rate survey by [finder.com.au](https://www.finder.com.au/rba-cash-rate).\n\n## Cash rate forecasts\n\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from June 2024 to May 2025 as the forecast mean and the 68% forecasting intervals.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](2024_07_files/figure-html/forecast plot-1.png){width=672}\n:::\n:::\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n::: {.cell}\n::: {.cell-output-display}\nTable: Monthly and quarterly cash rate forecasts\n\n|         | monthly| lower| upper|\n|:--------|-------:|-----:|-----:|\n|Aug 2024 |    4.40|  4.31|  4.50|\n|Sep 2024 |    4.44|  4.29|  4.60|\n|Oct 2024 |    4.40|  4.18|  4.63|\n|Nov 2024 |    4.34|  4.05|  4.63|\n|Dec 2024 |    4.28|  3.92|  4.65|\n|Jan 2025 |    4.22|  3.79|  4.67|\n|Feb 2025 |    4.22|  3.72|  4.72|\n|Mar 2025 |    4.18|  3.63|  4.76|\n|Apr 2025 |    4.14|  3.52|  4.77|\n|May 2025 |    4.14|  3.47|  4.83|\n|Jun 2025 |    4.12|  3.38|  4.85|\n|Jul 2025 |    4.08|  3.32|  4.89|\n:::\n:::\n\n\n## Survey answers\n\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\n\n**When you think the RBA will change the cash rate?**\n\n|          | Aug 2024 | Sep 2024 | Nov 2024 | Dec 2024 | Feb 2025 | Mar 2025 | May 2025 | Jul 2025 | Aug 2025 or beyond |\n|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|\n| Increase |          |          |          |          |          |          |          |          |                   |\n| Hold     |  ✓        | ✓        |          |          |          |          |          |          |                   |\n| Decrease |          |          |          |          |          |          |          |          |                   |\n\n**Why do you think this?**\n\n> We are at a crossroads! Given that the pooled forecast from my system indicates a 70 per cent chance of a RAISE, there has never been such a discrepancy in the forecasts from particular models. Bond yield curve models reflecting market expectations indicate a RAISE by 10 bp. Global interest rate models follow other markets and indicate a CUT. Univariate models reflecting persistence settle at HOLD. It's true to write that the RBA should increase the cash rate, but they will probably not. \n>\n> You can access these forecasts at https://forecasting-cash-rate.github.io/\n\n",
+    "supporting": [
+      "2024_07_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -12,7 +12,7 @@ author:
 
 ## The most up-to-date forecasts
 
-Have a look at the forecasts generated at the beginning of [Early June 2024](2024_06.qmd)
+Have a look at the forecasts generated at the beginning of [Late July 2024](2024_07.qmd)
 
 ## My cash rate forecasts
 
@@ -23,8 +23,8 @@ The hydra plot below presents monthly cash rate series starting from January 201
 
 # dates for the plot
 id1         = "2015-01" # the beginning of data plot
-id2         = "2024-06" # forecast origin
-id3         = "2025-06" # the last forecast
+id2         = "2024-07" # forecast origin
+id3         = "2025-07" # the last forecast
 time_id     = seq(from = zoo::as.yearmon(id1), to = zoo::as.yearmon(id3), by = 1/12)
 
 # download series
@@ -51,12 +51,14 @@ plot(
   bty = "n", 
   type = "l"
 )
-for (fi in files) {
-  forecasts_tmp = read.csv(paste0("forecasts-backup/",fi))[,1:2]
+for (fi in 1:length(files)) {
+  header = TRUE
+  if (fi > 16) header = FALSE
+  forecasts_tmp = read.csv(paste0("forecasts-backup/",files[fi]), header = header)[,1:2]
   lines( 
     x = seq(from = zoo::as.yearmon(forecasts_tmp[1,1]) - 1/12, to = zoo::as.yearmon(tail(forecasts_tmp[,1], 1)), by = 1/12),
     y = c(as.numeric(icr[zoo::as.yearmon(forecasts_tmp[1,1]) - 1/12]), forecasts_tmp[,2]),
-    col = cols[which(grepl(fi, files))]
+    col = cols[which(grepl(files[fi], files))]
   )
 }
 
@@ -70,11 +72,11 @@ The tables below juxtaposes my answers to the survey question regarding the foll
 
 Starting in 2024 the **Predicted change** is reported as the difference between the value of cash rate and the mean pooled forecast. This value might not be exactly consistent with the reported **Predicted decision** as the latter is the interpretation of the former.
 
-| Survey taken in:   | Jan   | Feb                             | Mar                             | Apr                             | Jun  | Aug | Sep | Nov | Dec |
-|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Predicted decision |       | <font color="green">HOLD</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | HOLD |     |     |     |     |
-| Predicted change   | -0.06 | 0.04                            | -0.03                           | 0.04                            | 0.02 |     |     |     |     |
-| RBA's decision     |       | 0.00                            | 0.00                            | 0.00                            |      |     |     |     |     |
+| Survey taken in:   | Jan   | Feb                             | Mar                             | Apr                             | Jun                             | Aug  | Sep | Nov | Dec |
+|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| Predicted decision |       | <font color="green">HOLD</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | HOLD |     |     |     |
+| Predicted change   | -0.06 | 0.04                            | -0.03                           | 0.04                            | 0.02                            | 0.05 |     |     |     |
+| RBA's decision     |       | 0.00                            | 0.00                            | 0.00                            |                                 |      |     |     |     |
 
 ### 2023
 

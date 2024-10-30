@@ -12,7 +12,7 @@ author:
 
 ## The most up-to-date forecasts
 
-Have a look at the forecasts generated in [Mid September 2024](2024_09.qmd)
+Have a look at the forecasts generated in [end of October 2024](2024_10.qmd)
 
 ## My cash rate forecasts
 
@@ -24,7 +24,7 @@ The hydra plot below presents monthly cash rate series starting from January 201
 # dates for the plot
 id1         = "2015-01" # the beginning of data plot
 id2         = "2024-10" # forecast origin
-id3         = "2025-09" # the last forecast
+id3         = "2025-11" # the last forecast
 time_id     = seq(from = zoo::as.yearmon(id1), to = zoo::as.yearmon(id3), by = 1/12)
 
 # download series
@@ -80,27 +80,27 @@ The tables below juxtaposes my answers to the survey question regarding the foll
 
 Starting in 2024 the **Predicted change** is reported as the difference between the value of cash rate and the mean pooled forecast. This value might not be exactly consistent with the reported **Predicted decision** as the latter is the interpretation of the former.
 
-| Survey taken in:   | Jan   | Feb                             | Mar                             | Apr                             | Jun                             | Aug                             | Sep   | Nov | Dec |
+| Survey taken in: | Jan | Feb | Mar | Apr | Jun | Aug | Sep | Nov | Dec |
 |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-| Predicted decision |       | <font color="green">HOLD</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | HOLD  |     |     |
-| Predicted change   | -0.06 | 0.04                            | -0.03                           | 0.04                            | 0.02                            | 0.05                            | -0.01 |     |     |
-| RBA's decision     |       | 0.00                            | 0.00                            | 0.00                            | 0.00                            | 0.00                            |       |     |     |
+| Predicted decision |  | <font color="green">HOLD</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | HOLD |  |
+| Predicted change | -0.06 | 0.04 | -0.03 | 0.04 | 0.02 | 0.05 | -0.01 | -0.02 |  |
+| RBA's decision |  | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |  |  |
 
 ### 2023
 
-| Survey taken in:   | Jan                              | Feb                              | Mar                            | Apr                              | May                              | Jun                            | Jul                            | Aug                             | Sep                             | Oct                           | Nov                             |
+| Survey taken in: | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov |
 |------|------|------|------|------|------|------|------|------|------|------|------|
 | Predicted decision | <font color="green">RAISE</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> | <font color="green">RAISE</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> | <font color="red">RAISE</font> | <font color="green">HOLD</font> | <font color="green">HOLD</font> | <font color="red">HOLD</font> | <font color="green">HOLD</font> |
-| Predicted change   | +0.25                            | +0.15                            | +0.15                          | +0.15                            | +0.15                            | +0.15                          | +0.15                          | 0.00                            | 0.00                            | 0.00                          | 0.00                            |
-| RBA's decision     | +0.25                            | +0.25                            | 0.00                           | +0.25                            | +0.25                            | 0.00                           | 0.00                           | 0.00                            | 0.00                            | +0.25                         | 0.00                            |
+| Predicted change | +0.25 | +0.15 | +0.15 | +0.15 | +0.15 | +0.15 | +0.15 | 0.00 | 0.00 | 0.00 | 0.00 |
+| RBA's decision | +0.25 | +0.25 | 0.00 | +0.25 | +0.25 | 0.00 | 0.00 | 0.00 | 0.00 | +0.25 | 0.00 |
 
 ### 2022
 
-| Survey taken in:   | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct                              | Nov                              |
+| Survey taken in: | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov |
 |------|------|------|------|------|------|------|------|------|------|------|------|
-| Predicted decision |     |     |     |     |     |     |     |     |     | <font color="green">RAISE</font> | <font color="green">RAISE</font> |
-| Predicted change   |     |     |     |     |     |     |     |     |     | +0.5                             | +0.25                            |
-| RBA's decision     |     |     |     |     |     |     |     |     |     | +0.25                            | +0.25                            |
+| Predicted decision |  |  |  |  |  |  |  |  |  | <font color="green">RAISE</font> | <font color="green">RAISE</font> |
+| Predicted change |  |  |  |  |  |  |  |  |  | +0.5 | +0.25 |
+| RBA's decision |  |  |  |  |  |  |  |  |  | +0.25 | +0.25 |
 
 ## A disclaimer
 

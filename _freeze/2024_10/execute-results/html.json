@@ -1,0 +1,16 @@
+{
+  "hash": "67bb4ff69ea64b9c79ddb2778eeeefb9",
+  "result": {
+    "markdown": "---\ntitle: \"End of October 2024\"\nauthor: \n  - name: \"Tomasz Woźniak\"\n    url: https://github.com/donotdespair\n    affiliations:\n      - University of Melbourne\n    orcid: 0000-0003-2212-2378\nexecute:\n  freeze: auto\n---\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n\n> Happy Springtime! Have a look at my end-of-October forecasts prepared to answer the RBA cash rate survey by [finder.com.au](https://www.finder.com.au/rba-cash-rate).\n\n## Cash rate forecasts\n\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from November 2024 to October 2025 as the forecast mean and the 68% forecasting intervals.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](2024_10_files/figure-html/forecast plot-1.png){width=672}\n:::\n:::\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n::: {.cell}\n::: {.cell-output-display}\nTable: Monthly and quarterly cash rate forecasts\n\n|         | monthly| lower| upper|\n|:--------|-------:|-----:|-----:|\n|Nov 2024 |    4.33|  4.26|  4.41|\n|Dec 2024 |    4.32|  4.19|  4.44|\n|Jan 2025 |    4.29|  4.11|  4.47|\n|Feb 2025 |    4.30|  4.08|  4.53|\n|Mar 2025 |    4.27|  4.00|  4.56|\n|Apr 2025 |    4.24|  3.91|  4.59|\n|May 2025 |    4.21|  3.83|  4.61|\n|Jun 2025 |    4.18|  3.75|  4.63|\n|Jul 2025 |    4.14|  3.66|  4.64|\n|Aug 2025 |    4.12|  3.60|  4.67|\n|Sep 2025 |    4.10|  3.54|  4.70|\n|Oct 2025 |    4.08|  3.48|  4.73|\n:::\n:::\n\n\n## Survey answers\n\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\n\n**When you think the RBA will change the cash rate?**\n\n|          | Nov 2024 | Dec 2024 | Feb 2025 | Mar 2025 | May 2025 | Jul 2025 | Aug 2025 | Sep 2025 | Oct 2025 or beyond |\n|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|\n| Increase |          |          |          |          |          |          |          |          |                   |\n| Hold     |  ✓        |         |          |          |          |          |          |          |                   |\n| Decrease |          |          |         |          |          |          |          |          |                   |\n\n**Why do you think this?**\n\n> We're not moving anywhere! ...for now! The forecasts from all my models indicate a decisive HOLD for November. They also indicate a slight downward pressure for the coming months. I interpret these predictions as a clear expectation of cuts in the cash rate but at an uncertain horizon. Forecasting the breakpoint is always tricky, and the upcoming data announcements will play a decisive role in shaping the forecasted trajectories in the following months.\n>\n> You can access these forecasts at https://forecasting-cash-rate.github.io/\n\n",
+    "supporting": [
+      "2024_10_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

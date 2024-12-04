@@ -29,6 +29,8 @@ website:
         text: "RBA Cash Rate Survey Forecasts"
       - section: "2024"
         contents:
+          - file: 2024_12.qmd
+            text: "December"
           - file: 2024_10.qmd
             text: "End of October"
           - file: 2024_09.qmd

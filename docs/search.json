@@ -273,6 +273,27 @@
     "text": "Forecasting system\nMy forecasting system for November is based on the cash rate target and government bond yields at various maturities as presented in the figure below.\n\n\n\n\n\nThe system consists of over two hundred of models. Half of them are are models of weekly and the other half of monthly data.\nVector Error Correction models for weekly and monthly series with different model specification parameters. Univariate models for the cash rate capture complex patterns of data persistence using autoregressive moving average equation extended by time-varying volatility equation - a GARCH model. Part of the models include the leverage effect and/or time-varying risk premium.\nThe forecasts are pooled in two stages. Firstly, the models are weighted in four sub-groups VECM vs. ARMA and weekly vs. monthly data models proportionally to their cash rate forecasting ability. Such four pooled forecasts are equally weighted in the second stage to provide monthly forecasts reported above."
   },
   {
+    "objectID": "2024_12.html",
+    "href": "2024_12.html",
+    "title": "December 2024",
+    "section": "",
+    "text": "Happy Summertime! Have a look at my December forecasts prepared to answer the RBA cash rate survey by finder.com.au."
+  },
+  {
+    "objectID": "2024_12.html#cash-rate-forecasts",
+    "href": "2024_12.html#cash-rate-forecasts",
+    "title": "December 2024",
+    "section": "Cash rate forecasts",
+    "text": "Cash rate forecasts\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from December 2024 to November 2025 as the forecast mean and the 68% forecasting intervals.\n\n\n\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n\nMonthly and quarterly cash rate forecasts\n\n\n\nmonthly\nlower\nupper\n\n\n\n\nJan 2025\n4.33\n4.25\n4.43\n\n\nFeb 2025\n4.31\n4.16\n4.47\n\n\nMar 2025\n4.33\n4.12\n4.55\n\n\nApr 2025\n4.31\n4.04\n4.59\n\n\nMay 2025\n4.28\n3.94\n4.64\n\n\nJun 2025\n4.25\n3.85\n4.68\n\n\nJul 2025\n4.21\n3.75\n4.71\n\n\nAug 2025\n4.17\n3.64\n4.73\n\n\nSep 2025\n4.14\n3.56\n4.76\n\n\nOct 2025\n4.12\n3.48\n4.80\n\n\nNov 2025\n4.11\n3.41\n4.84\n\n\nDec 2025\n4.10\n3.35\n4.88"
+  },
+  {
+    "objectID": "2024_12.html#survey-answers",
+    "href": "2024_12.html#survey-answers",
+    "title": "December 2024",
+    "section": "Survey answers",
+    "text": "Survey answers\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\nWhen you think the RBA will change the cash rate?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDec 2024\nFeb 2025\nMar 2025\nMay 2025\nJul 2025\nAug 2025\nSep 2025\nOct 2025\nDec 2025 or beyond\n\n\n\n\nIncrease\n\n\n\n\n\n\n\n\n\n\n\nHold\n✓\n\n\n\n\n\n\n\n\n\n\nDecrease\n\n\n\n\n\n\n\n\n\n\n\n\nWhy do you think this?\n\nHappy summertime, Everybody! … and expect no changes in the cash rate level for now. One should add “unsurprisingly” because all the statistical data releases and RBA’s communication indicate an extension of the wait for the first cut. My forecasts from statistical modelling confirm this. The next board meeting in February will be held after some political changes worldwide, and for now, it is impossible to tell if the monetary policy stance will be affected. So, we keep waiting.\nYou can access these forecasts at https://forecasting-cash-rate.github.io/"
+  },
+  {
     "objectID": "2024_06.html",
     "href": "2024_06.html",
     "title": "Early June 2024",
@@ -326,7 +347,7 @@
     "href": "index.html#the-most-up-to-date-forecasts",
     "title": "RBA Cash Rate Survey Forecasts",
     "section": "The most up-to-date forecasts",
-    "text": "The most up-to-date forecasts\nHave a look at the forecasts generated in end of October 2024"
+    "text": "The most up-to-date forecasts\nHave a look at the forecasts generated in December 2024"
   },
   {
     "objectID": "index.html#my-cash-rate-forecasts",
@@ -340,14 +361,14 @@
     "href": "index.html#my-answers",
     "title": "RBA Cash Rate Survey Forecasts",
     "section": "My answers",
-    "text": "My answers\nThe tables below juxtaposes my answers to the survey question regarding the following month’s cash rate change with RBA’s decision.\n\n2024\nStarting in 2024 the Predicted change is reported as the difference between the value of cash rate and the mean pooled forecast. This value might not be exactly consistent with the reported Predicted decision as the latter is the interpretation of the former.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey taken in:\nJan\nFeb\nMar\nApr\nJun\nAug\nSep\nNov\nDec\n\n\n\n\nPredicted decision\n\nHOLD\nHOLD\nHOLD\nHOLD\nHOLD\nHOLD\nHOLD\n\n\n\nPredicted change\n-0.06\n0.04\n-0.03\n0.04\n0.02\n0.05\n-0.01\n-0.02\n\n\n\nRBA’s decision\n\n0.00\n0.00\n0.00\n0.00\n0.00\n0.00\n\n\n\n\n\n\n\n2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey taken in:\nJan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug\nSep\nOct\nNov\n\n\n\n\nPredicted decision\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nHOLD\nHOLD\nHOLD\nHOLD\n\n\nPredicted change\n+0.25\n+0.15\n+0.15\n+0.15\n+0.15\n+0.15\n+0.15\n0.00\n0.00\n0.00\n0.00\n\n\nRBA’s decision\n+0.25\n+0.25\n0.00\n+0.25\n+0.25\n0.00\n0.00\n0.00\n0.00\n+0.25\n0.00\n\n\n\n\n\n2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey taken in:\nJan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug\nSep\nOct\nNov\n\n\n\n\nPredicted decision\n\n\n\n\n\n\n\n\n\nRAISE\nRAISE\n\n\nPredicted change\n\n\n\n\n\n\n\n\n\n+0.5\n+0.25\n\n\nRBA’s decision\n\n\n\n\n\n\n\n\n\n+0.25\n+0.25"
+    "text": "My answers\nThe tables below juxtaposes my answers to the survey question regarding the following month’s cash rate change with RBA’s decision.\n\n2024\nStarting in 2024 the Predicted change is reported as the difference between the value of cash rate and the mean pooled forecast. This value might not be exactly consistent with the reported Predicted decision as the latter is the interpretation of the former.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey taken in:\nJan\nFeb\nMar\nApr\nJun\nAug\nSep\nNov\nDec\n\n\n\n\nPredicted decision\n\nHOLD\nHOLD\nHOLD\nHOLD\nHOLD\nHOLD\nHOLD\nHOLD\n\n\nPredicted change\n-0.06\n0.04\n-0.03\n0.04\n0.02\n0.05\n-0.01\n-0.02\n-0.02\n\n\nRBA’s decision\n\n0.00\n0.00\n0.00\n0.00\n0.00\n0.00\n0.00\n\n\n\n\n\n\n2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey taken in:\nJan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug\nSep\nOct\nNov\n\n\n\n\nPredicted decision\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nRAISE\nHOLD\nHOLD\nHOLD\nHOLD\n\n\nPredicted change\n+0.25\n+0.15\n+0.15\n+0.15\n+0.15\n+0.15\n+0.15\n0.00\n0.00\n0.00\n0.00\n\n\nRBA’s decision\n+0.25\n+0.25\n0.00\n+0.25\n+0.25\n0.00\n0.00\n0.00\n0.00\n+0.25\n0.00\n\n\n\n\n\n2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey taken in:\nJan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug\nSep\nOct\nNov\n\n\n\n\nPredicted decision\n\n\n\n\n\n\n\n\n\nRAISE\nRAISE\n\n\nPredicted change\n\n\n\n\n\n\n\n\n\n+0.5\n+0.25\n\n\nRBA’s decision\n\n\n\n\n\n\n\n\n\n+0.25\n+0.25"
   },
   {
     "objectID": "index.html#a-disclaimer",
     "href": "index.html#a-disclaimer",
     "title": "RBA Cash Rate Survey Forecasts",
     "section": "A disclaimer",
-    "text": "A disclaimer\nThe surveyed panel of economists at finder.com.au is heavily gender biased with only 15 percent of the panellists being women. This is a problem because non-representative expert panels are not objective and quite likely pushing the interest of a specific demographic group. Therefore, before accepting the invitation I urged the portal to invite more female economists to the panel and was ready to put down the invitation depending on the answer. Saranga who is organising the survey explained to me that they are inviting as many women as men and shared with me the list of folks that were invited with me. I concluded that the under-representation of women in the panel is not an effect of finder’s malpractices, but rather reflects the problem of economics as a field. We all share the responsibility to make the field representing the society more accurately by shifting the cultural and organisational practices. I accepted the invitation and do my best for the change to happen."
+    "text": "A disclaimer\nThe surveyed panel of economists at finder.com.au is heavily gender biased with only 15 percent of the panellists being women at the end of 2022. This is a problem because non-representative expert panels are not objective and quite likely pushing the interest of a specific demographic group. Therefore, before accepting the invitation I urged the portal to invite more female economists to the panel and was ready to put down the invitation depending on the answer. Saranga who is organising the survey explained to me that they are inviting as many women as men and shared with me the list of folks that were invited with me. I concluded that the under-representation of women in the panel is not an effect of finder’s malpractices, but rather reflects the problem of economics as a field. We all share the responsibility to make the field representing the society more accurately by shifting the cultural and organisational practices. I accepted the invitation and do my best for the change to happen."
   },
   {
     "objectID": "2024_10.html",

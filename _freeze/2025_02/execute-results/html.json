@@ -1,0 +1,16 @@
+{
+  "hash": "7e3692de7a8dd92758b6e4f75e3c33df",
+  "result": {
+    "markdown": "---\ntitle: \"February 2025\"\nauthor: \n  - name: \"Tomasz Woźniak\"\n    url: https://github.com/donotdespair\n    affiliations:\n      - University of Melbourne\n    orcid: 0000-0003-2212-2378\nexecute:\n  freeze: auto\n---\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n\n> Happy New Year! Have a look at my February forecasts prepared to answer the RBA cash rate survey by [finder.com.au](https://www.finder.com.au/rba-cash-rate).\n\n## Cash rate forecasts\n\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from December 2024 to November 2025 as the forecast mean and the 68% forecasting intervals.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](2025_02_files/figure-html/forecast plot-1.png){width=672}\n:::\n:::\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n::: {.cell}\n::: {.cell-output-display}\nTable: Monthly and quarterly cash rate forecasts\n\n|         | monthly| lower| upper|\n|:--------|-------:|-----:|-----:|\n|Mar 2025 |    4.25|  4.17|  4.34|\n|Apr 2025 |    4.16|  4.02|  4.31|\n|May 2025 |    4.09|  3.89|  4.30|\n|Jun 2025 |    4.05|  3.79|  4.33|\n|Jul 2025 |    4.01|  3.69|  4.36|\n|Aug 2025 |    3.97|  3.58|  4.40|\n|Sep 2025 |    3.94|  3.48|  4.43|\n|Oct 2025 |    3.91|  3.39|  4.46|\n|Nov 2025 |    3.88|  3.30|  4.49|\n|Dec 2025 |    3.81|  3.18|  4.48|\n|Jan 2026 |    3.79|  3.10|  4.51|\n|Feb 2026 |    3.76|  3.04|  4.55|\n:::\n:::\n\n\n## Survey answers\n\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\n\n**When you think the RBA will change the cash rate?**\n\n|          | Feb 2025 | Mar 2025 | May 2025 | Jul 2025 | Aug 2025 | Sep 2025 | Oct 2025 | Dec 2025 | Feb 2026 or beyond |\n|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|\n| Increase |          |          |          |          |          |          |          |          |                   |\n| Hold     |          |         |          |          |          |          |          |          |                   |\n| Decrease |  ✓        |          |         |          |          |          |          |          |                   |\n\n**Why do you think this?**\n\n> Cherish the day! My forecasting system indicates that it's a decisive CUT. The predictive intervals from the pooled forecast, including from all bond yield curve models, for the first time in years, do not include the current value of the cash rate. This seems in line with what the newest data releases, including inflation readings, suggest.\n>\n> You can access these forecasts at https://forecasting-cash-rate.github.io/\n",
+    "supporting": [
+      "2025_02_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

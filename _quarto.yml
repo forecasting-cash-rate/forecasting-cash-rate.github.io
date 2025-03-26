@@ -29,6 +29,8 @@ website:
         text: "RBA Cash Rate Survey Forecasts"
       - section: "2025"
         contents:
+          - file: 2025_03.qmd
+            text: "March"
           - file: 2025_02.qmd
             text: "February"
       - section: "2024"

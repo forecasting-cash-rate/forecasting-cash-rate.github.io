@@ -23,8 +23,8 @@ The hydra plot below presents monthly cash rate series starting from January 201
 
 # dates for the plot
 id1         = "2015-01" # the beginning of data plot
-id2         = "2025-02" # forecast origin
-id3         = "2026-03" # the last forecast
+id2         = "2025-03" # forecast origin
+id3         = "2026-04" # the last forecast
 time_id     = seq(from = zoo::as.yearmon(id1), to = zoo::as.yearmon(id3), by = 1/12)
 
 # download series
@@ -80,8 +80,8 @@ The tables below juxtaposes my answers to the survey question regarding the foll
 
 | Survey taken in:   | Feb   | Mar | Apr | Jun | Aug | Sep | Nov | Dec |
 |--------------------|-------|-----|-----|-----|-----|-----|-----|-----|
-| Predicted decision | CUT   |     |     |     |     |     |     |     |
-| Predicted change   | -0.10 |     |     |     |     |     |     |     |
+| Predicted decision | <font color="green">CUT</font>   | HOLD  |     |     |     |     |     |     |
+| Predicted change   | -0.10 | -0.03  |     |     |     |     |     |     |
 | RBA's decision     | 0.00  |     |     |     |     |     |     |     |
 
 ### 2024

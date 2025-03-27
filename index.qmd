@@ -12,7 +12,7 @@ author:
 
 ## The most up-to-date forecasts
 
-Have a look at the forecasts generated in [February 2025](2025_02.qmd)
+Have a look at the forecasts generated in [March 2025](2025_03.qmd)
 
 ## My cash rate forecasts
 
@@ -82,7 +82,7 @@ The tables below juxtaposes my answers to the survey question regarding the foll
 |--------------------|-------|-----|-----|-----|-----|-----|-----|-----|
 | Predicted decision | <font color="green">CUT</font>   | HOLD  |     |     |     |     |     |     |
 | Predicted change   | -0.10 | -0.03  |     |     |     |     |     |     |
-| RBA's decision     | 0.00  |     |     |     |     |     |     |     |
+| RBA's decision     | -0.25  |     |     |     |     |     |     |     |
 
 ### 2024
 

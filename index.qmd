@@ -12,7 +12,7 @@ author:
 
 ## The most up-to-date forecasts
 
-Have a look at the forecasts generated in [March 2025](2025_03.qmd)
+Have a look at the forecasts generated in [May 2025](2025_05.qmd)
 
 ## My cash rate forecasts
 
@@ -23,8 +23,8 @@ The hydra plot below presents monthly cash rate series starting from January 201
 
 # dates for the plot
 id1         = "2015-01" # the beginning of data plot
-id2         = "2025-03" # forecast origin
-id3         = "2026-04" # the last forecast
+id2         = "2025-05" # forecast origin
+id3         = "2026-06" # the last forecast
 time_id     = seq(from = zoo::as.yearmon(id1), to = zoo::as.yearmon(id3), by = 1/12)
 
 # download series
@@ -78,11 +78,11 @@ The tables below juxtaposes my answers to the survey question regarding the foll
 
 ### 2025
 
-| Survey taken in:   | Feb   | Mar | Apr | Jun | Aug | Sep | Nov | Dec |
-|--------------------|-------|-----|-----|-----|-----|-----|-----|-----|
-| Predicted decision | <font color="green">CUT</font>   | HOLD  |     |     |     |     |     |     |
-| Predicted change   | -0.10 | -0.03  |     |     |     |     |     |     |
-| RBA's decision     | -0.25  |     |     |     |     |     |     |     |
+| Survey taken in: | Feb | Mar | May | Jun | Aug | Sep | Nov | Dec |
+|------------|--------|--------|--------|--------|--------|--------|--------|--------|
+| Predicted decision | <font color="green">CUT</font> | <font color="green">HOLD</font> | CUT |  |  |  |  |  |
+| Predicted change | -0.10 | -0.03 | -0.13 |  |  |  |  |  |
+| RBA's decision | -0.25 | 0.00 |  |  |  |  |  |  |
 
 ### 2024
 

@@ -24,9 +24,13 @@ website:
     logo: fcr.png
     style: "floating"
     search: true
+    collapse-level: 1
     contents:
       - file: index.qmd
         text: "RBA Cash Rate Survey Forecasts"
+      - file: 2025_07.qmd
+        text: "Current Forecasts: July 2025"
+      - section: "Past Forecasts:"
       - section: "2025"
         contents:
           - file: 2025_05.qmd

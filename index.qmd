@@ -8,11 +8,13 @@ author:
     orcid: 0000-0003-2212-2378
 ---
 
-> In October 2022, portal [finder.com.au](https://www.finder.com.au/rba-cash-rate) invited me to join the panel of economists for their monthly RBA cash rate survey. My answers will be based on the forecasting analyses that I research and teach in my everyday work at the University of Melbourne. In the spirit of transparency, reproducibility, and sharing expertise, I am publishing my forecasts, and the survey answers on this website. I will keep expanding the data and models I use to produce the combined forecasts every month. Please, use the contact details if you want to share your insights, feedback, or suggestions with me.
+> In October 2022, portal [finder.com.au](https://www.finder.com.au/rba-cash-rate) invited me to join the panel of economists for their monthly RBA cash rate survey. My answers are be based on the forecasting I perform using various types of variables and predictive models. I am using methods I research and teach in my everyday work at the University of Melbourne. 
+>
+> In the spirit of transparency, reproducibility, and sharing expertise, I am publishing my forecasts, and the survey answers on this website. Please, use the contact details if you want to share your insights, feedback, or suggestions with me.
 
 ## The most up-to-date forecasts
 
-Have a look at the forecasts generated in [May 2025](2025_05.qmd)
+Have a look at the forecasts generated in [July 2025](2025_07.qmd)
 
 ## My cash rate forecasts
 
@@ -23,8 +25,8 @@ The hydra plot below presents monthly cash rate series starting from January 201
 
 # dates for the plot
 id1         = "2015-01" # the beginning of data plot
-id2         = "2025-05" # forecast origin
-id3         = "2026-06" # the last forecast
+id2         = "2025-07" # forecast origin
+id3         = "2026-08" # the last forecast
 time_id     = seq(from = zoo::as.yearmon(id1), to = zoo::as.yearmon(id3), by = 1/12)
 
 # download series
@@ -79,10 +81,10 @@ The tables below juxtaposes my answers to the survey question regarding the foll
 ### 2025
 
 | Survey taken in: | Feb | Mar | May | Jun | Aug | Sep | Nov | Dec |
-|------------|--------|--------|--------|--------|--------|--------|--------|--------|
-| Predicted decision | <font color="green">CUT</font> | <font color="green">HOLD</font> | CUT |  |  |  |  |  |
-| Predicted change | -0.10 | -0.03 | -0.13 |  |  |  |  |  |
-| RBA's decision | -0.25 | 0.00 |  |  |  |  |  |  |
+|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| Predicted decision | <font color="green">CUT</font> | <font color="green">HOLD</font> | <font color="green">CUT</font> | CUT |  |  |  |  |
+| Predicted change | -0.10 | -0.03 | -0.13 | -0.15 |  |  |  |  |
+| RBA's decision | -0.25 | 0.00 | -0.25 |  |  |  |  |  |
 
 ### 2024
 

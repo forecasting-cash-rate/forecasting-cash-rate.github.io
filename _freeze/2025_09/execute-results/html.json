@@ -1,0 +1,16 @@
+{
+  "hash": "0725022b28fb04cd8bfd4c24f65346ed",
+  "result": {
+    "markdown": "---\ntitle: \"September 2025\"\nauthor: \n  - name: \"Tomasz Woźniak\"\n    url: https://github.com/donotdespair\n    affiliations:\n      - University of Melbourne\n    orcid: 0000-0003-2212-2378\nexecute:\n  freeze: auto\n---\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n\n> Hi! Have a look at my forecasts prepared to answer the RBA cash rate survey by [finder.com.au](https://www.finder.com.au/rba-cash-rate).\n\n## Cash rate forecasts\n\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from October 2025 to September 2026 as the forecast mean and the 68% forecasting intervals.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](2025_09_files/figure-html/forecast plot-1.png){width=672}\n:::\n:::\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n::: {.cell}\n::: {.cell-output-display}\nTable: Monthly and quarterly cash rate forecasts\n\n|         | monthly| lower| upper|\n|:--------|-------:|-----:|-----:|\n|Oct 2025 |    3.62|  3.52|  3.73|\n|Nov 2025 |    3.56|  3.40|  3.74|\n|Dec 2025 |    3.56|  3.32|  3.80|\n|Jan 2026 |    3.56|  3.26|  3.87|\n|Feb 2026 |    3.54|  3.18|  3.92|\n|Mar 2026 |    3.53|  3.11|  3.99|\n|Apr 2026 |    3.55|  3.06|  4.07|\n|May 2026 |    3.50|  2.95|  4.08|\n|Jun 2026 |    3.52|  2.92|  4.16|\n|Jul 2026 |    3.52|  2.86|  4.22|\n|Aug 2026 |    3.51|  2.80|  4.27|\n|Sep 2026 |    3.50|  2.74|  4.31|\n:::\n:::\n\n\n## Survey answers\n\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\n\n**When you think the RBA will change the cash rate?**\n\n|   | Sep 2025 | Oct 2025 | Dec 2025 | Feb 2026 | Mar 2026 | Apr 2026 | May 2026 | July 2026 | Aug 2025 or beyond |\n|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|\n| Increase |  |  |  |  |  |  |  |  |  |\n| Hold | ✓ |  |  |  |  |  |  |  |  |\n| Decrease |  |  |  |  |  |  |  |  |  |\n\n**Why do you think this?**\n\n> Not this time! No doubt the RBA is on a slide down with the cash rate. However, the several promised cuts will be spread over quite some time and we should not expect a cut every single meeting. I believe this was well understood since the beginning of this year. The more surprising was the media drama about the HOLD decision in July. My forecasts are firmly centred around the HOLD decision this month. I interpret this as the markets accepting RBA's pace of interest rates cuts. My forecasts are available at: https://forecasting-cash-rate.github.io/\n",
+    "supporting": [
+      "2025_09_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

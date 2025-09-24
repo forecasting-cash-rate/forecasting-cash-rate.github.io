@@ -14,7 +14,7 @@ author:
 
 ## The most up-to-date forecasts
 
-Have a look at the forecasts generated in [August 2025](2025_08.qmd)
+Have a look at the forecasts generated in [September 2025](2025_09.qmd)
 
 ## My cash rate forecasts
 
@@ -82,9 +82,9 @@ The tables below juxtaposes my answers to the survey question regarding the foll
 
 | Survey taken in: | Feb | Mar | May | Jul | Aug | Sep | Nov | Dec |
 |--------|--------|--------|--------|--------|--------|--------|--------|--------|
-| Predicted decision | <font color="green">CUT</font> | <font color="green">HOLD</font> | <font color="green">CUT</font> | <font color="red">CUT</font> | CUT |  |  |  |
-| Predicted change | -0.10 | -0.03 | -0.13 | -0.15 | -0.13 |  |  |  |
-| RBA's decision | -0.25 | 0.00 | -0.25 | 0.00 |  |  |  |  |
+| Predicted decision | <font color="green">CUT</font> | <font color="green">HOLD</font> | <font color="green">CUT</font> | <font color="red">CUT</font> | <font color="green">CUT</font> | HOLD |  |  |
+| Predicted change | -0.10 | -0.03 | -0.13 | -0.15 | -0.13 | 0.02 |  |  |
+| RBA's decision | -0.25 | 0.00 | -0.25 | 0.00 | -0.25 |  |  |  |
 
 ### 2024
 

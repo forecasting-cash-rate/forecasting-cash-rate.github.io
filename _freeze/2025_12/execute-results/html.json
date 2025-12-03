@@ -1,0 +1,16 @@
+{
+  "hash": "e7ea3b790a9ba5a8b5bc1b68ed397fca",
+  "result": {
+    "markdown": "---\ntitle: \"December 2025\"\nauthor: \n  - name: \"Tomasz Woźniak\"\n    url: https://github.com/donotdespair\n    affiliations:\n      - University of Melbourne\n    orcid: 0000-0003-2212-2378\nexecute:\n  freeze: auto\n---\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n\n> Hi! Have a look at my forecasts prepared to answer the RBA cash rate survey by [finder.com.au](https://www.finder.com.au/rba-cash-rate).\n\n## Cash rate forecasts\n\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from January 2026 to December 2026 as the forecast mean and the 68% forecasting intervals.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](2025_12_files/figure-html/forecast plot-1.png){width=672}\n:::\n:::\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n::: {.cell}\n::: {.cell-output-display}\nTable: Monthly and quarterly cash rate forecasts\n\n|         | monthly| lower| upper|\n|:--------|-------:|-----:|-----:|\n|Jan 2026 |    3.67|  3.56|  3.78|\n|Feb 2026 |    3.68|  3.51|  3.86|\n|Mar 2026 |    3.72|  3.49|  3.97|\n|Apr 2026 |    3.73|  3.43|  4.05|\n|May 2026 |    3.74|  3.38|  4.12|\n|Jun 2026 |    3.74|  3.31|  4.19|\n|Jul 2026 |    3.74|  3.24|  4.25|\n|Aug 2026 |    3.74|  3.18|  4.31|\n|Sep 2026 |    3.74|  3.13|  4.37|\n|Oct 2026 |    3.75|  3.10|  4.45|\n|Nov 2026 |    3.73|  3.02|  4.48|\n|Dec 2026 |    3.70|  2.95|  4.50|\n:::\n:::\n\n\n## Survey answers\n\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\n\n**When you think the RBA will change the cash rate?**\n\n|    | Dec 2025 | Feb 2026 | Mar 2026 | Apr 2026 | May 2026 | July 2026 | Aug 2026 | Sep 2026 | Oct 2026 or beyond |\n|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|\n| Increase |  |  |  |  |  |  |  |  |  |\n| Hold | ✓ |  |  |  |  |  |  |  |  |\n| Decrease |  |  |  |  |  |  |  |  |  |\n\n**Why do you think this?**\n\n> Let's take a deep breath! We all know that the RBA will not move the cash rate. Various forces pull in opposite directions, but both, a CUT and a HIKE, are not consistent with RBA's mandate, communication, and practice ATM. And we mostly benefited from this reserved approach in recent years. This is what my forecasts indicate as well. They are centered around the current cash rate value with the confidence bands away from it on both sides. Surprisingly, some bond yield curve models would indicate a RISE at 68% confidence. They get outweighed in the pooled forecast, though. My forecasts are available at: https://forecasting-cash-rate.github.io/\n",
+    "supporting": [
+      "2025_12_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

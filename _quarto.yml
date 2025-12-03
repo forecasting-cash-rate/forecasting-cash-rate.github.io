@@ -28,11 +28,13 @@ website:
     contents:
       - file: index.qmd
         text: "RBA Cash Rate Survey Forecasts"
-      - file: 2025_10.qmd
-        text: "Current Forecasts: October 2025"
+      - file: 2025_12.qmd
+        text: "Current Forecasts: December 2025"
       - section: "Past Forecasts:"
       - section: "2025"
         contents:
+          - file: 2025_10.qmd
+            text: "October"
           - file: 2025_09.qmd
             text: "September"
           - file: 2025_08.qmd

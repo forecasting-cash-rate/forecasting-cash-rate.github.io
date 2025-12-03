@@ -14,7 +14,7 @@ author:
 
 ## The most up-to-date forecasts
 
-Have a look at the forecasts generated in [October 2025](2025_10.qmd)
+Have a look at the forecasts generated in [December 2025](2025_12.qmd)
 
 ## My cash rate forecasts
 
@@ -25,8 +25,8 @@ The hydra plot below presents monthly cash rate series starting from January 201
 
 # dates for the plot
 id1         = "2015-01" # the beginning of data plot
-id2         = "2025-10" # forecast origin
-id3         = "2026-11" # the last forecast
+id2         = "2025-12" # forecast origin
+id3         = "2026-12" # the last forecast
 time_id     = seq(from = zoo::as.yearmon(id1), to = zoo::as.yearmon(id3), by = 1/12)
 
 # download series
@@ -43,7 +43,7 @@ cols        = fc(length(files))
 
 plot(
   x = time_id, 
-  y = c(as.vector(icr), rep(NA,13)), 
+  y = c(as.vector(icr), rep(NA,12)), 
   main = "A hydra plot of cash rate and my forecasts",
   ylab = "[%]", 
   xlab = "time", 
@@ -82,9 +82,9 @@ The tables below juxtaposes my answers to the survey question regarding the foll
 
 | Survey taken in: | Feb | Mar | May | Jul | Aug | Sep | Nov | Dec |
 |--------|--------|--------|--------|--------|--------|--------|--------|--------|
-| Predicted decision | <font color="green">CUT</font> | <font color="green">HOLD</font> | <font color="green">CUT</font> | <font color="red">CUT</font> | <font color="green">CUT</font> | <font color="green">HOLD</font> | CUT |  |
-| Predicted change | -0.10 | -0.03 | -0.13 | -0.15 | -0.13 | 0.02 | -0.09 |  |
-| RBA's decision | -0.25 | 0.00 | -0.25 | 0.00 | -0.25 | 0.00 |  |  |
+| Predicted decision | <font color="green">CUT</font> | <font color="green">HOLD</font> | <font color="green">CUT</font> | <font color="red">CUT</font> | <font color="green">CUT</font> | <font color="green">HOLD</font> | <font color="red">CUT</font> | HOLD |
+| Predicted change | -0.10 | -0.03 | -0.13 | -0.15 | -0.13 | 0.02 | -0.09 | 0.06 |
+| RBA's decision | -0.25 | 0.00 | -0.25 | 0.00 | -0.25 | 0.00 | 0.00 |  |
 
 ### 2024
 

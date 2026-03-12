@@ -12,10 +12,6 @@ author:
 >
 > In the spirit of transparency, reproducibility, and sharing expertise, I am publishing my forecasts, and the survey answers on this website. Please, use the contact details if you want to share your insights, feedback, or suggestions with me.
 
-## The most up-to-date forecasts
-
-Have a look at the forecasts generated in [February 2026](2026_02.qmd)
-
 ## My cash rate forecasts
 
 The hydra plot below presents monthly cash rate series starting from January 2015 together with my forecasts from the subsequent months.
@@ -27,8 +23,8 @@ The hydra plot below presents monthly cash rate series starting from January 201
 
 # dates for the plot
 id1         = "2015-01" # the beginning of data plot
-id2         = "2026-02" # forecast origin
-id3         = "2027-02" # the last forecast
+id2         = "2026-03" # forecast origin
+id3         = "2027-03" # the last forecast
 time_id     = seq(from = zoo::as.yearmon(id1), to = zoo::as.yearmon(id3), by = 1/12)
 
 # download series
@@ -45,7 +41,7 @@ cols        = fc(length(files))
 
 plot(
   x = time_id, 
-  y = c(as.vector(icr), rep(NA,13)), 
+  y = c(as.vector(icr), rep(NA,12)), 
   main = "A hydra plot of cash rate and my forecasts",
   ylab = "[%]", 
   xlab = "time", 
@@ -84,9 +80,9 @@ The tables below juxtaposes my answers to the survey question regarding the foll
 
 | Survey taken in:   | Feb   | Mar | May | Jul | Aug | Sep | Nov | Dec |
 |--------------------|-------|-----|-----|-----|-----|-----|-----|-----|
-| Predicted decision | RAISE |     |     |     |     |     |     |     |
-| Predicted change   | 0.12  |     |     |     |     |     |     |     |
-| RBA's decision     |       |     |     |     |     |     |     |     |
+| Predicted decision | <font color="green">RAISE</font> | HOLD |     |     |     |     |     |     |
+| Predicted change   | 0.12  | 0.07 |     |     |     |     |     |     |
+| RBA's decision     | 0.25  |     |     |     |     |     |     |     |
 
 ### 2025
 

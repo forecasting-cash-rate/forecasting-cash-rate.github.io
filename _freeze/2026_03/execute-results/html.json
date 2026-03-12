@@ -1,0 +1,17 @@
+{
+  "hash": "82530fd677ea2a713d499b06afbda832",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"March 2026\"\nauthor: \n  - name: \"Tomasz Woźniak\"\n    url: https://github.com/donotdespair\n    affiliations:\n      - University of Melbourne\n    orcid: 0000-0003-2212-2378\nexecute:\n  freeze: auto\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n> Hi! Have a look at my forecasts prepared to answer the RBA cash rate survey by [finder.com.au](https://www.finder.com.au/rba-cash-rate).\n\n## Cash rate forecasts\n\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from February 2026 to December 2026 as the forecast mean and the 68% forecasting intervals.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](2026_03_files/figure-html/forecast plot-1.png){width=672}\n:::\n:::\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n\nTable: Monthly and quarterly cash rate forecasts\n\n|         | monthly| lower| upper|\n|:--------|-------:|-----:|-----:|\n|Apr 2026 |    3.92|  3.82|  4.03|\n|May 2026 |    3.97|  3.80|  4.14|\n|Jun 2026 |    4.00|  3.77|  4.24|\n|Jul 2026 |    4.05|  3.75|  4.37|\n|Aug 2026 |    4.05|  3.68|  4.43|\n|Sep 2026 |    4.08|  3.65|  4.53|\n|Oct 2026 |    4.07|  3.57|  4.59|\n|Nov 2026 |    4.04|  3.50|  4.63|\n|Dec 2026 |    4.02|  3.41|  4.66|\n|Jan 2027 |    3.97|  3.32|  4.68|\n|Feb 2027 |    3.95|  3.25|  4.71|\n|Mar 2027 |    3.89|  3.14|  4.70|\n\n\n:::\n:::\n\n\n## Survey answers\n\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\n\n**When you think the RBA will change the cash rate?**\n\n|     | Mar 2026 | May 2026 | Jul 2026 | Aug 2026 | Sep 2026 | Oct 2026 | Dec 2026 | Feb 2027 | Mar 2027 or beyond |\n|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|\n| Increase | |  |  |  |  |  |  |  |  |\n| Hold | ✓ |  |  |  |  |  |  |  |  |\n| Decrease |  |  |  |  |  |  |  |  |  |\n\n**Why do you think this?**\n\n> Rather not! I don’t know! What do you think? According to my forecasting system, the cash rate is set to hold steady. Despite the forecast mean being on a clear upwards trajectory, the forecast intervals include the current cash rate value decisively. I’m sticking with my call: HOLD! My forecasts are available at: https://forecasting-cash-rate.github.io/\n\n\n",
+    "supporting": [
+      "2026_03_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

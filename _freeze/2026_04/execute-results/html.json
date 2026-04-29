@@ -1,0 +1,17 @@
+{
+  "hash": "17cc737d52f11faede06020975a8cdc8",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"April 2026\"\nauthor: \n  - name: \"Tomasz Woźniak\"\n    url: https://github.com/donotdespair\n    affiliations:\n      - University of Melbourne\n    orcid: 0000-0003-2212-2378\nexecute:\n  freeze: auto\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n> Hi! Have a look at my forecasts prepared to answer the RBA cash rate survey by [finder.com.au](https://www.finder.com.au/rba-cash-rate).\n\n## Cash rate forecasts\n\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts reported from February 2026 to December 2026 as the forecast mean and the 68% forecasting intervals.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](2026_04_files/figure-html/forecast plot-1.png){width=672}\n:::\n:::\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n\nTable: Monthly and quarterly cash rate forecasts\n\n|         | monthly| lower| upper|\n|:--------|-------:|-----:|-----:|\n|May 2026 |    4.19|  4.10|  4.29|\n|Jun 2026 |    4.28|  4.12|  4.45|\n|Jul 2026 |    4.39|  4.16|  4.62|\n|Aug 2026 |    4.45|  4.17|  4.76|\n|Sep 2026 |    4.51|  4.15|  4.89|\n|Oct 2026 |    4.50|  4.07|  4.95|\n|Nov 2026 |    4.49|  4.01|  5.01|\n|Dec 2026 |    4.46|  3.92|  5.06|\n|Jan 2027 |    4.43|  3.84|  5.09|\n|Feb 2027 |    4.41|  3.75|  5.12|\n|Mar 2027 |    4.35|  3.66|  5.13|\n|Apr 2027 |    4.28|  3.53|  5.11|\n\n\n:::\n:::\n\n\n## Survey answers\n\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\n\n**When you think the RBA will change the cash rate?**\n\n|    | May 2026 | Jul 2026 | Aug 2026 | Sep 2026 | Oct 2026 | Dec 2026 | Feb 2027 | Mar 2027 | May 2027 or beyond |\n|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|\n| Increase | ✓ |  |  |  |  |  |  |  |  |\n| Hold |  |  |  |  |  |  |  |  |  |\n| Decrease |  |  |  |  |  |  |  |  |  |\n\n**Why do you think this?**\n\n> Everybody thinks so! My forecasting system, with nearly 200 predictive models, provides an 82 per cent chance of RAISE! This probability is in line with those provided by Australian analytical departments and expresses the market expectations. The most recent readings of inflation above the target likewise suggest the same. Therefore, despite the predictive interval including the current cash rate value, I say it’s a likely RAISE. However, the circumstances are complex, and the RBA’s decision will have to balance them all, making its course of action highly uncertain. My forecasts are available at: https://forecasting-cash-rate.github.io/\n",
+    "supporting": [
+      "2026_04_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

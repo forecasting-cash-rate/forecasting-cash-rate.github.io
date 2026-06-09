@@ -1,0 +1,17 @@
+{
+  "hash": "c2ccb5a201095910360b1dc5164cba1a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"June 2026\"\nauthor: \n  - name: \"Tomasz Woźniak\"\n    url: https://github.com/donotdespair\n    affiliations:\n      - University of Melbourne\n    orcid: 0000-0003-2212-2378\nexecute:\n  freeze: auto\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n> Hi! Have a look at my forecasts prepared to answer the RBA cash rate survey by [finder.com.au](https://www.finder.com.au/rba-cash-rate).\n\n## Cash rate forecasts\n\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts for another year reported as the forecast mean and the 68% forecasting intervals.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](2026_06_files/figure-html/forecast plot-1.png){width=672}\n:::\n:::\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n\nTable: Monthly and quarterly cash rate forecasts\n\n|         | monthly| lower| upper|\n|:--------|-------:|-----:|-----:|\n|Jul 2026 |    4.46|  4.37|  4.56|\n|Aug 2026 |    4.56|  4.40|  4.72|\n|Sep 2026 |    4.64|  4.42|  4.87|\n|Oct 2026 |    4.67|  4.39|  4.97|\n|Nov 2026 |    4.71|  4.36|  5.09|\n|Dec 2026 |    4.71|  4.29|  5.16|\n|Jan 2027 |    4.70|  4.22|  5.23|\n|Feb 2027 |    4.70|  4.15|  5.28|\n|Mar 2027 |    4.66|  4.07|  5.32|\n|Apr 2027 |    4.61|  3.95|  5.33|\n|May 2027 |    4.57|  3.85|  5.33|\n|Jun 2027 |    4.55|  3.79|  5.37|\n\n\n:::\n:::\n\n\n## Survey answers\n\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\n\n**When you think the RBA will change the cash rate?**\n\n|    | May 2026 | Jul 2026 | Aug 2026 | Sep 2026 | Oct 2026 | Dec 2026 | Feb 2027 | Mar 2027 | May 2027 or beyond |\n|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|\n| Increase | ✓ |  |  |  |  |  |  |  |  |\n| Hold |  |  |  |  |  |  |  |  |  |\n| Decrease |  |  |  |  |  |  |  |  |  |\n\n**Why do you think this?**\n\n> I believe we’re all set on the RISE! My forecasting system predicts this decision with a record-high 88 per cent probability, reflecting market expectations in light of the latest developments. All models indicate this decision, with the bond-yield curve models suggesting a more hawkish approach, and univariate models of the cash rate target setting on a moderate increase. If this prediction materialises, this would be the highest level of interest rates since October 2011. And there is one person to blame for this state of affairs :) My forecasts are available at: https://forecasting-cash-rate.github.io/\n",
+    "supporting": [
+      "2026_06_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

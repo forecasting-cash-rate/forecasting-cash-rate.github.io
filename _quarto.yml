@@ -28,11 +28,13 @@ website:
     contents:
       - file: index.qmd
         text: "RBA Cash Rate Survey Forecasts"
-      - file: 2026_04.qmd
-        text: "Current Forecasts: April 2026"
+      - file: 2026_06.qmd
+        text: "Current Forecasts: June 2026"
       - section: "Past Forecasts:"
       - section: "2026"
         contents:
+          - file: 2026_04.qmd
+            text: "April 2026"
           - file: 2026_03.qmd
             text: "March 2026"
           - file: 2026_02.qmd

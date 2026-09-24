@@ -1,0 +1,17 @@
+{
+  "hash": "1b1d21782946cc8fc388c13459b62371",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"September 2026\"\nauthor: \n  - name: \"Tomasz Woźniak\"\n    url: https://github.com/donotdespair\n    affiliations:\n      - University of Melbourne\n    orcid: 0000-0003-2212-2378\nexecute:\n  freeze: auto\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n> Hi! Have a look at my forecasts prepared to answer the RBA cash rate survey by [finder.com.au](https://www.finder.com.au/rba-cash-rate).\n\n## Cash rate forecasts\n\nThe figure below presents the monthly cash rate series starting from January 2010, with the forecasts for another year reported as the forecast mean and the 68% forecasting intervals.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](2026_09_files/figure-html/forecast plot-1.png){width=672}\n:::\n:::\n\n\nThe table below makes the numerical values presented in the figure more accessible.\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n\nTable: Monthly and quarterly cash rate forecasts\n\n|         | monthly| lower| upper|\n|:--------|-------:|-----:|-----:|\n|Oct 2026 |    4.44|  4.35|  4.54|\n|Nov 2026 |    4.53|  4.37|  4.69|\n|Dec 2026 |    4.56|  4.34|  4.79|\n|Jan 2027 |    4.57|  4.28|  4.88|\n|Feb 2027 |    4.59|  4.23|  4.96|\n|Mar 2027 |    4.55|  4.12|  5.00|\n|Apr 2027 |    4.53|  4.04|  5.06|\n|May 2027 |    4.51|  3.95|  5.10|\n|Jun 2027 |    4.52|  3.90|  5.17|\n|Jul 2027 |    4.48|  3.81|  5.20|\n|Aug 2027 |    4.44|  3.72|  5.22|\n|Sep 2027 |    4.40|  3.61|  5.23|\n\n\n:::\n:::\n\n\n## Survey answers\n\nBased on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:\n\n**When you think the RBA will change the cash rate?**\n\n|   | Sep 2025 | Oct 2025 | Dec 2025 | Feb 2026 | Mar 2026 | Apr 2026 | May 2026 | July 2026 | Aug 2025 or beyond |\n|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|\n| Increase | ✓ |  |  |  |  |  |  |  |  |\n| Hold |  |  |  |  |  |  |  |  |  |\n| Decrease |  |  |  |  |  |  |  |  |  |\n\n**Why do you think this?**\n\n>   It’s a likely RAISE! My forecasting system indicates an 82 percent probability of such an outcome. All the bond yield curve models say so, but not those that rely on international rates or cash rate dynamics alone. A rate hike seems in line with the RBA’s recent communication, the cash rate staying above the target and inflationary pressures. My forecasts are available at: https://forecasting-cash-rate.github.io/\n",
+    "supporting": [
+      "2026_09_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

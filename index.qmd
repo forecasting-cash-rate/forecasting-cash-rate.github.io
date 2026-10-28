@@ -23,8 +23,8 @@ The hydra plot below presents monthly cash rate series starting from January 201
 
 # dates for the plot
 id1         = "2015-01" # the beginning of data plot
-id2         = "2026-09" # forecast origin
-id3         = "2027-09" # the last forecast
+id2         = "2026-10" # forecast origin
+id3         = "2027-10" # the last forecast
 time_id     = seq(from = zoo::as.yearmon(id1), to = zoo::as.yearmon(id3), by = 1/12)
 
 # download series
@@ -79,10 +79,10 @@ The tables below juxtaposes my answers to the survey question regarding the foll
 ### 2026
 
 | Survey taken in: | Feb | Mar | May | Jul | Aug | Sep | Nov | Dec |
-|------------|--------|--------|--------|--------|--------|--------|--------|--------|
-| Predicted decision | <font color="green">RAISE</font> | <font color="green">HOLD</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> |  | RAISE |  |  |
-| Predicted change | 0.12 | 0.07 | 0.09 | 0.11 |  | 0.09 |  |  |
-| RBA's decision | 0.25 | 0.00 | 0.25 | 0.00 |  |  |  |  |
+|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| Predicted decision | <font color="green">RAISE</font> | <font color="green">HOLD</font> | <font color="green">RAISE</font> | <font color="red">RAISE</font> |  | <font color="green">RAISE</font> | RAISE |  |
+| Predicted change | 0.12 | 0.07 | 0.09 | 0.11 |  | 0.09 | 0.13 |  |
+| RBA's decision | 0.25 | 0.00 | 0.25 | 0.00 |  | 0.25 |  |  |
 
 ### 2025
 

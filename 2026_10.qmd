@@ -806,10 +806,10 @@ all_forecasts[,,5] = pooled_forecasts_f
 pooled_forecasts = xts::xts(apply(all_forecasts, 1:2, mean), s)
 
 # probability of a RAISE
-1 - pnorm(variables_all[nrow(variables_all),1], mean = pooled_forecasts[1,1], sd = (pooled_forecasts[1,3]-pooled_forecasts[1,2])/2)
+# 1 - pnorm(variables_all[nrow(variables_all),1], mean = pooled_forecasts[1,1], sd = (pooled_forecasts[1,3]-pooled_forecasts[1,2])/2)
 
 # forecasted change
-as.numeric(pooled_forecasts[1,1]) - as.numeric(variables_all[nrow(variables_all),1])
+# as.numeric(pooled_forecasts[1,1]) - as.numeric(variables_all[nrow(variables_all),1])
 
 # save to file
 ###############################################################
@@ -829,7 +829,7 @@ zoo::write.zoo(pooled_forecasts, sep = ",", file = paste0("forecasts/",forecast_
 
 ## Survey answers
 
-Based on the forecasts above, and the analysis of forecasts from individual models, I formed the following survey answers:
+Based on the forecasts below, and the analysis of forecasts from individual models, I formed the following survey answers:
 
 **When you think the RBA will change the cash rate?**
 
